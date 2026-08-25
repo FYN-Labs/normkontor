@@ -1,0 +1,33 @@
+schema_version: "1.1"
+name: trivial-edit
+description: Keep the phase-bound review out of a complete trivial edit.
+tags: [review, invocation, negative-control]
+plugins:
+  - ../../../plugins/3a-cod3x
+execution:
+  prompt: |
+    Change an existing retry-count configuration from 2 to 3. The edit adds no
+    owner, state, dependency, or cross-component behavior. State the necessary
+    verification and whether a separate architecture review is required.
+  max_turns: 3
+  timeout_seconds: 120
+  allowed_tools: [Skill]
+runs: 1
+graders:
+  - type: tool_used
+    name: no-continuous-review
+    tool: Skill
+    input_match: '^3a-cod3x-review$'
+    min: 0
+    max: 0
+    weight: 1
+    arm: both
+  - type: llm
+    name: proportionate-process
+    criteria: |
+      Recommend a proportionate configuration check and do not manufacture a
+      material-boundary architecture review.
+    focus: last_message
+    weight: 2
+    arm: with-only
+expected_outcome: A trivial complete edit does not trigger continuous meta-review.

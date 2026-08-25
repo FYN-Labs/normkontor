@@ -1,0 +1,10 @@
+{
+  "name": "normkontor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Public contract and validation suite for Normkontor rulesets by FYN Labs.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  }
+}

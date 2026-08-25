@@ -1,0 +1,9 @@
+.DS_Store
+.vercel/
+.playwright-cli/
+node_modules/
+site/.next/
+site/out/
+coverage/
+output/
+*.log

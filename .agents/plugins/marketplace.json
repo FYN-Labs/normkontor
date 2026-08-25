@@ -1,0 +1,20 @@
+{
+  "name": "normkontor",
+  "interface": {
+    "displayName": "Normkontor by FYN Labs"
+  },
+  "plugins": [
+    {
+      "name": "3a-cod3x",
+      "source": {
+        "source": "local",
+        "path": "./plugins/3a-cod3x"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

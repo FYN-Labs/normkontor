@@ -1,0 +1,29 @@
+{
+  "name": "3a-cod3x",
+  "version": "0.4.0",
+  "description": "Aligned, autonomous, auditable coding through the smallest complete native change.",
+  "author": {
+    "name": "FYN Labs",
+    "url": "https://fyn-labs.com"
+  },
+  "homepage": "https://normkontor.de",
+  "repository": "https://github.com/FYN-Labs/normkontor",
+  "license": "MIT",
+  "keywords": ["agentic-coding", "clean-code", "native-first", "yagni", "code-review"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "3A COD3X",
+    "shortDescription": "Smallest native change with proof",
+    "longDescription": "Keep agent-written code aligned with the original problem, autonomous within authority, and auditable through one small native path and real verification.",
+    "developerName": "Normkontor by FYN Labs",
+    "category": "Developer Tools",
+    "capabilities": ["Instructions"],
+    "websiteURL": "https://normkontor.de",
+    "defaultPrompt": [
+      "Use 3A COD3X for this implementation.",
+      "Review this material change for avoidable mechanism.",
+      "Find the smallest complete native solution."
+    ],
+    "brandColor": "#16324F"
+  }
+}

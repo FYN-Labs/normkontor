@@ -1,0 +1,6 @@
+interface:
+  display_name: "3A COD3X Review"
+  short_description: "Phase-bound simplicity review"
+  default_prompt: "Use $3a-cod3x-review to challenge this material change for avoidable mechanism."
+policy:
+  allow_implicit_invocation: true

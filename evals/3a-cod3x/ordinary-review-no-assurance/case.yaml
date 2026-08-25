@@ -1,0 +1,37 @@
+schema_version: "1.1"
+name: ordinary-review-no-assurance
+description: Permit a clean ordinary review to PASS without manufacturing an assurance gate.
+tags: [review, invocation, behavior, negative-control]
+plugins:
+  - ../../../plugins/3a-cod3x
+execution:
+  prompt: |
+    A single-component formatter change reached its package boundary. The
+    repository owner classified it as non-material for architecture, inference
+    routing, eval, CAO, and audit purposes. One independent reviewer finds that
+    the existing formatter remains the only owner, the behavior is complete,
+    and source, success, and failure checks are green. Return the structured
+    simplicity verdict and state what authority it grants.
+  max_turns: 4
+  timeout_seconds: 180
+  allowed_tools: [Skill]
+runs: 1
+graders:
+  - type: tool_used
+    name: review-skill-selected
+    tool: Skill
+    input_match: '^3a-cod3x-review$'
+    min: 1
+    weight: 1
+    arm: with-only
+  - type: llm
+    name: ordinary-pass-is-coherent
+    criteria: |
+      Return Assurance status NOT_REQUIRED and overall PASS because the owning
+      policy did not trigger the material assurance class and no material
+      finding remains. State that the review grants no merge, deploy, publish,
+      spend, or release authority.
+    focus: last_message
+    weight: 2
+    arm: with-only
+expected_outcome: An ordinary complete review can PASS with NOT_REQUIRED assurance.

@@ -1,0 +1,41 @@
+schema_version: "1.1"
+name: concurrent-work
+description: Preserve unrelated work and serialize one shared artifact.
+tags: [implementation, behavior, collaboration]
+plugins:
+  - ../../../plugins/3a-cod3x
+execution:
+  prompt: |
+    The working tree contains an unrelated uncommitted change in
+    src/payments.ts. Two agents can implement src/export.ts and src/report.ts,
+    but both may need package-lock.json. Give the ownership, integration, and
+    verification plan. Do not discard existing work.
+  max_turns: 4
+  timeout_seconds: 180
+  allowed_tools: [Skill]
+runs: 1
+graders:
+  - type: tool_used
+    name: implementation-skill-selected
+    tool: Skill
+    input_match: '^3a-cod3x$'
+    min: 1
+    weight: 1
+    arm: with-only
+  - type: tool_used
+    name: no-review-skill
+    tool: Skill
+    input_match: '^3a-cod3x-review$'
+    min: 0
+    max: 0
+    weight: 1
+    arm: both
+  - type: llm
+    name: protects-shared-work
+    criteria: |
+      Preserve src/payments.ts, assign disjoint source paths, serialize the
+      lockfile under one owner, and verify the final combined state.
+    focus: last_message
+    weight: 2
+    arm: with-only
+expected_outcome: Parallel work stays disjoint and the shared lockfile is serialized.
