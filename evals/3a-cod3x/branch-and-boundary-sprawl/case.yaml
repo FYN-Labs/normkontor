@@ -1,0 +1,39 @@
+schema_version: "1.1"
+name: branch-and-boundary-sprawl
+description: Reject structural concept growth instead of hiding it in another helper.
+tags: [review, invocation, behavior, maintainability]
+plugins:
+  - ../../../plugins/3a-cod3x
+execution:
+  prompt: |
+    A material local retry change passes unit tests but adds five scattered
+    branches, two boolean modes, three any casts, and a silent fallback inside
+    a shared transport. The team proposes one more helper before the package
+    gate. The owning project says this is not an architecture, inference,
+    eval, CAO, or audit assurance package. Review the smallest structural
+    response and whether the change is ready.
+  max_turns: 4
+  timeout_seconds: 180
+  allowed_tools: [Skill]
+runs: 1
+graders:
+  - type: tool_used
+    name: review-skill-selected
+    tool: Skill
+    input_match: '^3a-cod3x-review$'
+    min: 1
+    weight: 1
+    arm: with-only
+  - type: llm
+    name: removes-concept-growth
+    criteria: |
+      Inventory the new branches, flags, modes, casts, and the silent fallback
+      as structural concept growth; return REVISE; reject merely hiding the
+      same complexity in another helper; seek a canonical boundary, invariant,
+      or default path that deletes concepts; distinguish unit evidence from
+      package proof; and mark assurance NOT_REQUIRED without granting release
+      authority.
+    focus: last_message
+    weight: 2
+    arm: with-only
+expected_outcome: Structural sprawl is reframed at its owning boundary instead of redistributed.

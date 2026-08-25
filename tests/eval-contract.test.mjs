@@ -9,10 +9,12 @@ const evalRoot = path.join(root, "evals", "3a-cod3x");
 const expectedCases = [
   "adversarial-assurance-gate",
   "assurance-family-collapse",
+  "branch-and-boundary-sprawl",
   "capability-gap",
   "concurrent-work",
   "existing-owner",
   "growing-architecture",
+  "line-count-threshold-trap",
   "ordinary-review-no-assurance",
   "security-release-boundary",
   "self-review-boundary",
@@ -53,7 +55,9 @@ test("implementation and review cases use anchored selection contracts", async (
     ["existing-owner", "3a-cod3x"],
     ["adversarial-assurance-gate", "3a-cod3x-review"],
     ["assurance-family-collapse", "3a-cod3x-review"],
+    ["branch-and-boundary-sprawl", "3a-cod3x-review"],
     ["growing-architecture", "3a-cod3x-review"],
+    ["line-count-threshold-trap", "3a-cod3x-review"],
     ["ordinary-review-no-assurance", "3a-cod3x-review"],
     ["security-release-boundary", "3a-cod3x-review"],
     ["self-review-boundary", "3a-cod3x-review"],
@@ -70,4 +74,14 @@ test("ordinary review explicitly accepts NOT_REQUIRED without widening authority
   assert.match(yaml, /Assurance status NOT_REQUIRED/);
   assert.match(yaml, /overall PASS/);
   assert.match(yaml, /grants no merge, deploy, publish,\s+spend, or release authority/);
+});
+
+test("structural quality cases reject concept growth without worshiping line counts", async () => {
+  const sprawl = await readFile(path.join(evalRoot, "branch-and-boundary-sprawl", "case.yaml"), "utf8");
+  const threshold = await readFile(path.join(evalRoot, "line-count-threshold-trap", "case.yaml"), "utf8");
+
+  assert.match(sprawl, /branches, flags, modes, casts, and the silent fallback/);
+  assert.match(sprawl, /REVISE/);
+  assert.match(threshold, /line\s+count alone/);
+  assert.match(threshold, /must not require a split/);
 });

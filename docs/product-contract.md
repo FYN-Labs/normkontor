@@ -39,6 +39,13 @@ production code, owners, state, or repair loops grow. It is read-only by
 default and never substitutes for correctness, security, performance, or
 release review.
 
+For meaningful diffs, the review also records structural concept growth:
+branches, flags, modes, optionality or casts, silent fallbacks, wrappers,
+avoidable sequencing, and partial-update windows. It prefers a corrected owner,
+invariant, boundary, or default path that deletes concepts. File size is a stop
+signal, not an automatic split rule; extraction is justified only when it
+creates a clearer responsibility boundary and reduces total conceptual load.
+
 ## Assurance trigger and verdict
 
 The owning project decides whether a package is material. If it is material

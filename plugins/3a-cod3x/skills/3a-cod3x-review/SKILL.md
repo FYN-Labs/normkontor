@@ -46,6 +46,38 @@ simplification until the owning correctness, security, privacy, or specialist
 gate resolves the risk. Do not trade an unresolved safety regression for fewer
 owners or lines of code.
 
+## Structural quality challenge
+
+For each meaningful diff, record the concept delta, not only the line delta:
+
+- branches, feature flags, modes, nullable or optional states;
+- casts, loose object shapes, silent fallbacks, and hidden defaults;
+- wrappers, pass-through helpers, and other new indirection;
+- sequential orchestration and windows where related state can half-apply.
+
+Look for a structural deletion move: a corrected owner, invariant, boundary,
+or default path that makes concepts disappear while preserving behavior. Do
+not merely move the same complexity into another helper, module, policy object,
+or state machine. A new abstraction is an improvement only when it reduces the
+total responsibilities or concepts a maintainer must understand.
+
+File growth is a signal, not a verdict. If a change makes an already large or
+busy file materially larger, stop and inspect cohesion, branching, and owner
+fit. Never require extraction only because a universal line threshold was
+crossed. A split must create a clearer responsibility boundary and reduce total
+conceptual load; otherwise it adds another owner without simplifying the path.
+
+When the diff changes types or boundaries, flag new `any`, `unknown`, casts,
+optionality, or silent fallback only when they obscure a real invariant. Prefer
+making that invariant explicit at the canonical boundary over scattering
+defensive checks through callers. When the diff changes orchestration or
+state, flag avoidable sequencing or partial updates only with evidence that the
+work is independent or the state belongs in one atomic decision.
+
+Return the fewest high-conviction structural findings that change the verdict.
+Do not bury them under cosmetic nits or turn a bounded review into an
+unrequested repository-wide refactor campaign.
+
 ## Adversarial assurance gate
 
 Ordinary reviews remain single-reviewer. The owning project classifies whether
@@ -120,6 +152,7 @@ Return these fields:
     Original problem fit:
     Native owner:
     Mechanism delta: owners/files/dependencies/hooks/states added or removed
+    Structural quality delta: branches/flags/modes/casts/fallbacks/wrappers/sequencing/partial-update windows/file growth
     Evidence layer: source/unit/integration/runtime/package/release
     Reviewer relationship: author self-review | independent single-review | adversarial assurance
     Frozen subject:

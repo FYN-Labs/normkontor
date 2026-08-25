@@ -1,0 +1,37 @@
+schema_version: "1.1"
+name: line-count-threshold-trap
+description: Treat file growth as a signal without inventing an automatic split.
+tags: [review, invocation, behavior, negative-control]
+plugins:
+  - ../../../plugins/3a-cod3x
+execution:
+  prompt: |
+    A cohesive protocol registry is 990 lines because it owns one large static
+    mapping. Adding one required entry and its focused test brings it to 1008
+    lines without adding a branch, state, dependency, mode, or responsibility.
+    The project has no line-count policy. At the package gate, decide whether
+    crossing 1000 lines alone requires new modules.
+  max_turns: 4
+  timeout_seconds: 180
+  allowed_tools: [Skill]
+runs: 1
+graders:
+  - type: tool_used
+    name: review-skill-selected
+    tool: Skill
+    input_match: '^3a-cod3x-review$'
+    min: 1
+    weight: 1
+    arm: with-only
+  - type: llm
+    name: rejects-arbitrary-threshold
+    criteria: |
+      Treat growth as a signal and inspect cohesion and owner fit, but line
+      count alone must not require a split. Keep the cohesive owner if the
+      evidence confirms no concept or responsibility growth, avoid creating a
+      second owner merely to satisfy 1000 lines, require the focused test and
+      package evidence, and mark assurance NOT_REQUIRED.
+    focus: last_message
+    weight: 2
+    arm: with-only
+expected_outcome: A universal line threshold does not manufacture a new owner.
