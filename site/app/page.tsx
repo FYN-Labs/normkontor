@@ -4,10 +4,10 @@ const pilotMailto =
   "mailto:support@fyn-labs.com?subject=Normkontor%20Pilotf%C3%A4higkeit&body=Workflow%3A%0ATeam%3A%0ADatenklasse%3A%0ANachweisfrage%3A%0AStop-Kriterium%3A";
 
 const statusItems = [
-  ["3A COD3X", "Öffentlicher Quellenkandidat"],
-  ["Rollout", "Pilot auf Anfrage"],
-  ["Academy", "Pilot auf Anfrage"],
-  ["Review", "In Entwicklung"],
+  { icon: "/brand/normkontor-status-open-source.png", title: "3A Open Source", status: "Öffentlicher Quellenkandidat" },
+  { icon: "/brand/normkontor-status-rollout.png", title: "Rollout", status: "Auf Anfrage" },
+  { icon: "/brand/normkontor-status-academy.png", title: "Academy", status: "Auf Anfrage" },
+  { icon: "/brand/normkontor-status-review.png", title: "Review", status: "In Entwicklung" },
 ];
 
 const questions = [
@@ -170,12 +170,14 @@ export default function Home() {
             <Image src="/brand/normkontor-mark.svg" alt="" width={46} height={46} />
             <span><strong>NORMKONTOR</strong><small>FYN LABS</small></span>
           </a>
-          <div className="nav-truth">3A OPEN SOURCE · ROLLOUT AUF ANFRAGE · REVIEW IN ENTWICKLUNG</div>
+          <div className="nav-truth">Bericht ist Evidenz.<br />Autorität bleibt beim Unternehmen.</div>
           <div className="nav-links">
-            <a href="#3a">3A</a>
-            <a href="#kontrollpfad">Kontrollpfad</a>
-            <a href="#rollout">Rollout &amp; Academy</a>
-            <a className="nav-cta" href="#kontakt">Pilotfähigkeit klären</a>
+            <a href="#top"><span aria-hidden="true">01</span><strong>Überblick</strong></a>
+            <a href="#kontrollpfad"><span aria-hidden="true">02</span><strong>Kontrollpfad</strong></a>
+            <a href="#rollout"><span aria-hidden="true">03</span><strong>Rollout</strong></a>
+            <a href="#3a"><span aria-hidden="true">04</span><strong>Regelwerk (3A)</strong></a>
+            <a href="#academy"><span aria-hidden="true">05</span><strong>Academy</strong></a>
+            <a href="#review"><span aria-hidden="true">06</span><strong>Review</strong></a>
           </div>
           <details className="mobile-menu">
             <summary>Menü</summary>
@@ -195,11 +197,11 @@ export default function Home() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-shell">
             <div className="hero-copy">
-              <p className="eyebrow">Normkontor 3A · Public Source Candidate</p>
+              <p className="eyebrow">Normkontor Living Receipt</p>
               <h1 id="hero-title">KI-Agenten arbeiten.<span>Verantwortung bleibt beim Unternehmen.</span></h1>
               <p className="hero-lede">
-                Regelwerk, Pilot und Ausbildung für kontrollierte agentische
-                Softwareentwicklung.
+                Regelwerk, Pilot und Ausbildung für<br />
+                kontrollierte agentische Softwareentwicklung.
               </p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#kontakt">Pilotfähigkeit klären</a>
@@ -211,16 +213,19 @@ export default function Home() {
           <div className="hero-art-frame" aria-hidden="true">
             <Image
               className="hero-art"
-              src="/brand/normkontor-living-receipt-hero.png"
+              src="/brand/normkontor-enterprise-control-path.png"
               alt=""
               fill
-              preload
               sizes="100vw"
             />
           </div>
           <div className="status-rail" aria-label="Produktstatus">
-            {statusItems.map(([title, status]) => (
-              <p key={title}><strong>{title}</strong><span>{status}</span></p>
+            {statusItems.map(({ icon, title, status }) => (
+              <p key={title}>
+                <Image src={icon} alt="" width={80} height={80} />
+                <strong>{title}</strong>
+                <span>{status}</span>
+              </p>
             ))}
           </div>
         </section>
@@ -229,14 +234,16 @@ export default function Home() {
           <div className="section-shell evidence-grid">
             <div>
               <p className="section-kicker">NK / EVIDENCE / 01</p>
-              <h2>Evidenz führt.</h2>
-              <p className="section-intro">Ein Agentenzugang ist noch kein Betriebsmodell.</p>
+              <h2>Kontrolle ist kein Bremser.</h2>
             </div>
-            <ol className="question-ledger">
-              {questions.map((question, index) => (
-                <li key={question}><span>0{index + 1}</span><strong>{question}</strong></li>
-              ))}
-            </ol>
+            <div>
+              <p className="section-intro">Der Kontrollpfad schafft Klarheit: Entscheidungen bleiben dort, wo sie hingehören — beim Unternehmen.</p>
+              <ol className="question-ledger">
+                {questions.map((question, index) => (
+                  <li key={question}><span>0{index + 1}</span><strong>{question}</strong></li>
+                ))}
+              </ol>
+            </div>
           </div>
         </section>
 
@@ -362,9 +369,6 @@ export default function Home() {
         </section>
 
         <section className="adoption-section section-dark" id="rollout">
-          <div className="adoption-visual">
-            <Image src="/brand/normkontor-rollout-workbook.png" alt="" fill sizes="(max-width: 900px) 100vw, 50vw" />
-          </div>
           <div className="section-shell adoption-shell">
             <header className="section-heading-dark adoption-heading">
               <p className="section-kicker">Rollout &amp; Academy · Pilot auf Anfrage</p>
