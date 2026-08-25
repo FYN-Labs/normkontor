@@ -197,8 +197,11 @@ export default function Home() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-shell">
             <div className="hero-copy">
-              <p className="eyebrow">Normkontor Living Receipt</p>
-              <h1 id="hero-title">KI-Agenten arbeiten.<span>Verantwortung bleibt beim Unternehmen.</span></h1>
+              <h1 id="hero-title">
+                <span>KI-Agenten arbeiten.</span>
+                <span>Verantwortung bleibt</span>
+                <span>beim Unternehmen.</span>
+              </h1>
               <p className="hero-lede">
                 Regelwerk, Pilot und Ausbildung für<br />
                 kontrollierte agentische Softwareentwicklung.
@@ -233,7 +236,6 @@ export default function Home() {
         <section className="evidence-opening section-dark">
           <div className="section-shell evidence-grid">
             <div>
-              <p className="section-kicker">NK / EVIDENCE / 01</p>
               <h2>Kontrolle ist kein Bremser.</h2>
             </div>
             <div>
@@ -251,8 +253,8 @@ export default function Home() {
           <div className="section-shell">
             <header className="document-heading">
               <div>
-                <p className="section-kicker">Normkontor 3A · 3A COD3X</p>
-                <h2>Der kleinste vollständige Weg zur sauberen Änderung.</h2>
+                <p className="section-kicker">NK / RULESET / 01 · 3A COD3X</p>
+                <h2>Der kleinste vollständige Weg.</h2>
               </div>
               <div className="document-meta" aria-label="3A COD3X Produktgrenze">
                 <p><span>TYPE</span><strong>Instruction-only plugin</strong></p>
@@ -284,7 +286,7 @@ export default function Home() {
             </div>
 
             <div className="safety-floor">
-              <p className="section-kicker">Safety floor</p>
+              <p className="section-kicker">NON-NEGOTIABLE / SAFETY FLOOR</p>
               <p>Authentifizierung, Autorisierung, Trust Boundaries, Datenschutz, Datenverlustschutz, Barrierefreiheit und risikogerechte Tests werden nicht wegvereinfacht.</p>
               <a className="text-link" href="https://github.com/FYN-Labs/normkontor" target="_blank" rel="noreferrer">Repository und Grenzen prüfen</a>
             </div>
@@ -310,7 +312,7 @@ export default function Home() {
         <section className="paper-section portfolio-section" id="portfolio">
           <div className="section-shell">
             <header className="document-heading compact">
-              <div><p className="section-kicker">Vier Angebote · vier Wahrheitsklassen</p><h2>Offen, auf Anfrage oder geplant. Nie vermischt.</h2></div>
+              <div><p className="section-kicker">NK / PORTFOLIO / 03 · PRODUCT TRUTH</p><h2>Reifegrade werden nie vermischt.</h2></div>
               <p>Open Source, Dienstleistung und geplante Software behalten ihren tatsächlichen Reifegrad.</p>
             </header>
             <div className="product-ledger">
@@ -330,8 +332,8 @@ export default function Home() {
           <div className="section-shell review-layout">
             <div className="review-copy">
               <p className="status-warning">IN ENTWICKLUNG · KEINE VERFÜGBARE MANAGED RUNTIME</p>
-              <p className="section-kicker">Normkontor Review</p>
-              <h2>Eine zweite Meinung ist erst dann eine zweite Meinung, wenn sie unabhängig belegbar ist.</h2>
+              <p className="section-kicker">NK / REVIEW / 04 · TARGET ARCHITECTURE</p>
+              <h2>Zweite Meinung. Unabhängig belegt.</h2>
               <p>Der MCP-Endpunkt wäre nur die Tür. Blindheit, Familien- und Entwicklertrennung, Datenpolitik, Qualifikation und vollständige Receipts machen daraus erst einen belastbaren Prüfarm.</p>
               <a className="text-link light" href="https://github.com/FYN-Labs/normkontor/blob/main/docs/enterprise/assurance-architecture.md" target="_blank" rel="noreferrer">Zielarchitektur prüfen</a>
             </div>
@@ -346,7 +348,7 @@ export default function Home() {
         <section className="paper-section governance-section" id="governance">
           <div className="section-shell">
             <header className="document-heading">
-              <div><p className="section-kicker">Governance &amp; Daten</p><h2>Regionalität und Scrubbing werden bewiesen, nicht etikettiert.</h2></div>
+              <div><p className="section-kicker">NK / GOVERNANCE / 05 · ROUTE PROOF</p><h2>Region. Scrubbing. Belegt.</h2></div>
               <p>Frankfurt als Servicestandort beweist keine Frankfurt-Inferenz. Route, Retention, Fallback und Restlücke müssen je Modell und Vertrag nachvollziehbar sein.</p>
             </header>
             <ol className="governance-ledger">
@@ -355,7 +357,7 @@ export default function Home() {
               ))}
             </ol>
             <div className="route-receipt">
-              <div><p className="section-kicker">Route evidence · Muster</p><h3>Sichtbar statt angenommen.</h3></div>
+              <div><p className="section-kicker">RECEIPT / ROUTE EVIDENCE</p><h3>Sichtbar statt angenommen.</h3></div>
               <dl>
                 <div><dt>Provider</dt><dd>zu belegen</dd></div>
                 <div><dt>Resolved model</dt><dd>zu belegen</dd></div>
@@ -371,8 +373,8 @@ export default function Home() {
         <section className="adoption-section section-dark" id="rollout">
           <div className="section-shell adoption-shell">
             <header className="section-heading-dark adoption-heading">
-              <p className="section-kicker">Rollout &amp; Academy · Pilot auf Anfrage</p>
-              <h2>Ein Team. Ein Workflow. Eine belastbare Entscheidung.</h2>
+              <p className="section-kicker">NK / ADOPTION / 06 · PILOT AUF ANFRAGE</p>
+              <h2>Vom Workflow zur Entscheidung.</h2>
               <p>Kein konzernweiter Big Bang: sechs begrenzte Schritte bis Scale, Revise oder Stop — begleitet von rollenbasierter Befähigung.</p>
             </header>
             <div className="adoption-grid">
@@ -407,8 +409,8 @@ export default function Home() {
         <section className="open-source-section" id="opensource">
           <div className="section-shell open-source-grid">
             <div>
-              <p className="section-kicker">Open Source · MIT</p>
-              <h2>Ein Plugin. Zwei Skills. Null Runtime.</h2>
+              <p className="section-kicker">NK / OSS / 07 · MIT</p>
+              <h2>Zwei Skills. Null Runtime.</h2>
               <p>3A COD3X beschreibt Implementierung und begrenzten Phase-Review. Es führt keine Hintergrundaufrufe aus, provisioniert keine Modelle und vergibt keine Autorität.</p>
               <a className="text-link light" href="https://github.com/FYN-Labs/normkontor" target="_blank" rel="noreferrer">Quellcode und Eval-Korpus öffnen</a>
             </div>
@@ -423,7 +425,7 @@ export default function Home() {
 
         <section className="truth-section paper-section" id="wahrheit">
           <div className="section-shell truth-layout">
-            <div><p className="section-kicker">Truth ledger · Does not prove</p><h2>Wir sagen auch, was noch nicht bewiesen ist.</h2></div>
+            <div><p className="section-kicker">NK / CLAIMS / 08 · DOES NOT PROVE</p><h2>Was noch nicht bewiesen ist.</h2></div>
             <ul>
               {claims.map((claim, index) => <li key={claim}><span>0{index + 1}</span><p>{claim}</p></li>)}
             </ul>
@@ -432,7 +434,7 @@ export default function Home() {
 
         <section className="contact-section" id="kontakt">
           <div className="section-shell contact-layout">
-            <div><p className="section-kicker">Nächster kleiner Schritt</p><h2>Ist ein Pilot charterfähig?</h2></div>
+            <div><p className="section-kicker">NK / PILOT / 09 · FIVE-POINT CHARTER</p><h2>Ist ein Pilot charterfähig?</h2></div>
             <div>
               <p>Im ersten Gespräch klären wir genau fünf Punkte.</p>
               <ol><li>Workflow</li><li>Team</li><li>Datenklasse</li><li>Nachweisfrage</li><li>Stop-Kriterium</li></ol>
