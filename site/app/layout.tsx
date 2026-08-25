@@ -1,13 +1,26 @@
 import type { Metadata } from "next";
+import { Cormorant_Garamond, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
+const display = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-display",
+});
+
+const sans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-sans",
+});
+
 const description =
-  "Regelwerke, unabhängige Prüfpfade und Ausbildung für kontrollierte agentische Softwareentwicklung in regulierten Organisationen.";
+  "Regelwerk, Pilot und Ausbildung für kontrollierte agentische Softwareentwicklung in regulierten Organisationen.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://normkontor.de"),
   title: {
-    default: "Normkontor — Kontrollierte KI-Arbeit. Nachweisbar.",
+    default: "Normkontor — Verantwortung bleibt beim Unternehmen.",
     template: "%s | Normkontor",
   },
   description,
@@ -21,20 +34,20 @@ export const metadata: Metadata = {
     locale: "de_DE",
     url: "/",
     siteName: "Normkontor",
-    title: "Normkontor — Kontrollierte KI-Arbeit. Nachweisbar.",
+    title: "Normkontor — KI-Agenten arbeiten. Verantwortung bleibt beim Unternehmen.",
     description,
     images: [
       {
         url: "/brand/normkontor-og.png",
         width: 1200,
         height: 630,
-        alt: "Normkontor — Kontrollierte KI-Arbeit. Nachweisbar.",
+        alt: "Normkontor — KI-Agenten arbeiten. Verantwortung bleibt beim Unternehmen.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Normkontor — Kontrollierte KI-Arbeit. Nachweisbar.",
+    title: "Normkontor — Verantwortung bleibt beim Unternehmen.",
     description,
     images: ["/brand/normkontor-og.png"],
   },
@@ -47,7 +60,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="de">
+    <html lang="de" className={`${display.variable} ${sans.variable}`}>
       <body>{children}</body>
     </html>
   );

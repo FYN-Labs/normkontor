@@ -1,85 +1,158 @@
 import Image from "next/image";
 
-const controlStages = [
-  ["0.5", "Auftrag"],
-  ["0.65", "Laufbereitschaft"],
-  ["01", "Worker"],
-  ["02", "CAO"],
-  ["03", "Controller"],
-  ["HG", "Entscheidung"],
+const pilotMailto =
+  "mailto:support@fyn-labs.com?subject=Normkontor%20Pilotf%C3%A4higkeit&body=Workflow%3A%0ATeam%3A%0ADatenklasse%3A%0ANachweisfrage%3A%0AStop-Kriterium%3A";
+
+const statusItems = [
+  ["3A COD3X", "Öffentlicher Quellenkandidat"],
+  ["Rollout", "Pilot auf Anfrage"],
+  ["Academy", "Pilot auf Anfrage"],
+  ["Review", "In Entwicklung"],
 ];
 
-const modules = [
-  {
-    status: "Public Source Candidate",
-    state: "live",
-    number: "01 / Open Ruleset",
-    title: "Normkontor 3A",
-    tech: "Technischer Pluginname: 3A COD3X",
-    body: "Aligned. Autonomous. Auditable. Zwei Skills halten Agentenarbeit am ursprünglichen Problem, am kleinsten nativen Owner und an nachweisbarer Verifikation.",
-    link: "https://github.com/FYN-Labs/normkontor",
-    cta: "Repository prüfen ↗",
-  },
-  {
-    status: "Pilot auf Anfrage",
-    state: "request",
-    number: "02 / Einführung",
-    title: "Normkontor Rollout",
-    tech: "Ein Team · ein Workflow · sechs Wochen",
-    body: "Scope, Konfiguration, Arbeitsmodell, Training, begleiteter Betrieb und eine belegbare Scale-, Revise- oder Stop-Entscheidung.",
-    link: "#pilot",
-    cta: "Pilotstruktur ansehen ↓",
-  },
-  {
-    status: "Pilot auf Anfrage",
-    state: "request",
-    number: "03 / Ausbildung",
-    title: "Normkontor Academy",
-    tech: "Executive · Practitioner · Assurance Lead",
-    body: "Praxis für Agenten-Setup, Stage 0.5/0.65, CAO, Eval Gates, Review-Zange, Human Gates und Evidenzführung.",
-    link: "#academy",
-    cta: "Tracks ansehen ↓",
-  },
-  {
-    status: "In Entwicklung",
-    state: "planned",
-    number: "04 / Software",
-    title: "Normkontor Review",
-    tech: "Geplanter MCP/API-Prüfarm",
-    body: "Customer-controlled Review für materielle Entscheidungen: gefrorener Gegenstand, blinde Modellarme, Datenpolitik und belastbares Evidence Receipt.",
-    link: "#review",
-    cta: "Zielarchitektur prüfen ↓",
-  },
+const questions = [
+  "Was darf der Agent bearbeiten?",
+  "Wer prüft unabhängig?",
+  "Welche Evidenz trägt welche Entscheidung?",
 ];
 
 const ladder = [
-  ["01", "Need", "Muss dieses Verhalten oder Artefakt überhaupt existieren?"],
-  ["02", "Reuse", "Gibt es bereits einen klaren Owner, der repariert oder erweitert werden kann?"],
-  ["03", "Native", "Kann Framework, Runtime, Agent, Plattform oder Konfiguration es schon?"],
-  ["04", "Available", "Reicht Standardbibliothek oder eine bereits installierte Abhängigkeit?"],
-  ["05", "Reduce", "Löst Löschen, Konfigurieren oder eine gezielte Änderung das Problem?"],
-  ["06", "Vet", "Schließt ein gepflegtes Upstream die belegte Lücke mit weniger Ownership?"],
-  ["07", "Create", "Sonst: kleinster vollständiger neuer Pfad, sauber verdrahtet und geprüft."],
+  {
+    number: "01",
+    title: "Need",
+    prompt: "Muss dieses Verhalten oder Artefakt überhaupt existieren?",
+    body: "Beginne beim ursprünglichen Problem. Eine neue Komponente ist kein Fortschritt, wenn kein belegter Bedarf besteht.",
+  },
+  {
+    number: "02",
+    title: "Reuse",
+    prompt: "Gibt es bereits einen verantwortlichen Owner?",
+    body: "Repariere oder erweitere den bestehenden Pfad, bevor eine zweite Quelle für dieselbe Wahrheit entsteht.",
+  },
+  {
+    number: "03",
+    title: "Native",
+    prompt: "Kann die vorhandene Runtime es bereits?",
+    body: "Nutze Agent, Framework, Plattform, Protokoll oder Konfiguration, bevor du eigene Mechanik einziehst.",
+  },
+  {
+    number: "04",
+    title: "Available",
+    prompt: "Reicht eine vorhandene Standardfähigkeit?",
+    body: "Standardbibliothek und bereits installierte Abhängigkeiten sind einem neuen Owner vorzuziehen.",
+  },
+  {
+    number: "05",
+    title: "Reduce",
+    prompt: "Kann Code entfallen?",
+    body: "Löschen, Konfigurieren oder eine gezielte Änderung schlägt einen neuen Wrapper, Store oder Prozess.",
+  },
+  {
+    number: "06",
+    title: "Vet",
+    prompt: "Schließt ein gepflegtes Upstream die echte Lücke?",
+    body: "Erst nach belegtem Capability Gap werden Herkunft, Lizenz, Wartung, Datenschutz, Rollback und Kosten geprüft.",
+  },
+  {
+    number: "07",
+    title: "Create",
+    prompt: "Was ist der kleinste vollständige neue Pfad?",
+    body: "Nur wenn alle früheren Stufen ausscheiden: sauber verdrahten, real prüfen und den Owner explizit halten.",
+  },
 ];
 
-const academyTracks = [
-  ["1 Tag", "Executive & Governance", "Engineering Leadership · Risk · Produkt", "Betriebsmodell, Risikoklassen, Human Gates, Claims und Entscheidungshoheit."],
-  ["2 Tage", "Practitioner", "Entwickler · Reviewer · Plattformteams", "Agenten-Setup, native Tools, 3A Ladder, Tests, Receipts und sichere Eskalation."],
-  ["5 Tage", "Trainer & Assurance Lead", "Multiplikatoren · Audit · Enablement", "Train-the-Trainer, CAO, Eval Design, blinde Prüfarme und praktische Prüfung."],
+const controlStages = [
+  ["0.5", "Contract", "Scope, Owner, Akzeptanz, Ausschlüsse, Evidenz, Rollback und Human Gate."],
+  ["0.65", "Runtime readiness", "Umgebung, Datenklasse, Route, Budget, Stop-Bedingungen und Reporting."],
+  ["01", "Worker", "Arbeitet im eingefrorenen Auftrag und berichtet Artefakte, Checks und Restlücken."],
+  ["02", "CAO", "Prüft unabhängig und entscheidet PASS, REJECT oder PARK — ohne selbst zu bauen."],
+  ["03", "Controller", "Integriert Befunde, erhält Widerspruch und routet zur richtigen Autorität."],
+  ["HG", "Human Gate", "Der benannte Unternehmens-Owner entscheidet alles, was Policy nicht delegiert."],
+];
+
+const products = [
+  {
+    code: "NK / 01",
+    status: "Public Source Candidate",
+    title: "Normkontor 3A",
+    tech: "Technischer Pluginname: 3A COD3X",
+    body: "Zwei instruction-only Skills für den kleinsten vollständigen nativen Weg und einen begrenzten read-only Phase-Review.",
+    href: "https://github.com/FYN-Labs/normkontor",
+    action: "Repository prüfen",
+  },
+  {
+    code: "NK / 02",
+    status: "Pilot auf Anfrage",
+    title: "Normkontor Rollout",
+    tech: "Ein Team · ein Workflow · sechs Wochen",
+    body: "Ein begrenzter Einführungsrahmen mit vorab benannten Datenklassen, Nachweisfrage und Stop-Kriterien.",
+    href: "#rollout",
+    action: "Pilotstruktur ansehen",
+  },
+  {
+    code: "NK / 03",
+    status: "Pilot auf Anfrage",
+    title: "Normkontor Academy",
+    tech: "Executive · Practitioner · Assurance Lead",
+    body: "Rollenbasierte Praxis für Agenten-Setup, Human Gates, Eval Design, Review-Arme und Evidenzführung.",
+    href: "#academy",
+    action: "Academy-Tracks ansehen",
+  },
+  {
+    code: "NK / 04",
+    status: "In Entwicklung",
+    title: "Normkontor Review",
+    tech: "Geplanter kundenkontrollierter MCP/API-Prüfarm",
+    body: "Zielarchitektur für gefrorene Prüfgegenstände, Datenminimierung, blinde Review-Arme und minimierte Evidence Receipts.",
+    href: "#review",
+    action: "Zielarchitektur prüfen",
+  },
+];
+
+const reviewSteps = [
+  ["01", "Frozen subject", "Scope, Akzeptanz, Autoritätsgrenze und Evidence Hash werden vorab fixiert."],
+  ["02", "Policy gateway", "Identität, Tenant, Repository, Datenklasse, Zweck, Budget und Route werden geprüft."],
+  ["03", "Minimize / detect", "Nur nötige Diffs und Symbole; blockieren, wenn Redigieren Bedeutung zerstört."],
+  ["A+B", "Blind review arms", "Zwei zusätzliche qualifizierte, autorunabhängige Arme sehen nicht den jeweils anderen Befund."],
+  ["04", "Evidence receipt", "Einzelurteile, Identitäten, Widersprüche, Restlücken und authority_granted: none."],
+  ["HG", "Human & CI gate", "Die Entscheidung bleibt außerhalb des Modells bei benannten Ownern."],
+];
+
+const governanceControls = [
+  ["01", "Allowlist", "Teams, Repositories, Pfade, Zwecke, Datenklassen, Modelle, Tools und Aktionen."],
+  ["02", "Minimize", "Diff oder Symbolpaket vor unbeschränktem Repository-Kontext."],
+  ["03", "Detect", "Secrets, PII, Gesundheits-, Schaden-, Beschäftigten- und Zahlungsdaten."],
+  ["04", "Block or redact", "Blockieren, wenn Schwärzung Semantik oder Sicherheitsfakten zerstört."],
+  ["05", "Route proof", "Provider, aufgelöstes Modell, Profil, Region, Retention und Fallback belegen."],
+  ["06", "Human control", "Keine individuelle Leistungsmessung; Merge und Release bleiben bei Ownern."],
 ];
 
 const pilotWeeks = [
-  ["01", "Rahmen", "Team, Workflow, Datenklassen, Nachweisfrage und Stop-Kriterien."],
-  ["02", "Konfiguration", "Agent, Repository-Regeln, Berechtigungen, native Tools und Evidenzpfad."],
-  ["03", "Enablement", "Rollenbasierte Praxis am freigegebenen Arbeitsablauf."],
-  ["04", "Pilotbetrieb", "Begleitete Anwendung mit Ausnahme-, Incident- und Supportlog."],
-  ["05", "Evaluation", "Qualität, Arbeitsqualität, Reibung, Risiko, Kosten und offene Evidenz."],
-  ["06", "Entscheidung", "Scale, Revise oder Stop plus priorisierter 90-Tage-Plan."],
+  ["01", "Frame", "Team, Workflow, Datenklassen, Erfolgsfrage und Stop-Kriterien."],
+  ["02", "Configure", "Agent, Repository-Regeln, Berechtigungen, native Tools und Evidenzpfad."],
+  ["03", "Enable", "Rollenbasierte Praxis am freigegebenen Arbeitsablauf."],
+  ["04", "Operate", "Begleiteter Betrieb mit Ausnahme-, Incident- und Supportlog."],
+  ["05", "Evaluate", "Qualität, Arbeitsqualität, Reibung, Risiko, Kosten und offene Evidenz."],
+  ["06", "Decide", "Scale, Revise oder Stop plus priorisierter 90-Tage-Plan."],
+];
+
+const academyTracks = [
+  ["1 Tag", "Executive & Governance", "Betriebsmodell, Risikoklassen, Human Gates, Claims, Beschaffung und Entscheidungshoheit."],
+  ["2 Tage", "Practitioner", "Agenten-Setup, native Tools, 3A-Leiter, Tests, Receipts, Review-Praxis und Eskalation."],
+  ["5 Tage", "Trainer & Assurance Lead", "Train-the-Trainer, Stage 0.5/0.65, CAO, Eval Design und praktische Prüfung."],
+];
+
+const claims = [
+  "keine GDPR-, DORA-, EU-AI-Act-, BaFin- oder Security-Zertifizierung",
+  "keine aktuelle Managed oder Customer-hosted Review Runtime",
+  "keine Garantie für Frankfurt-only oder EU-only Inferenz",
+  "keine gemessene Qualitäts-, Produktivitäts- oder Kostenverbesserung",
+  "kein benannter Versicherer, Referenzkunde oder Production-Scale-Claim",
+  "keine offizielle oder unterstützte Herstellerintegration",
 ];
 
 const sources = [
   ["OpenAI", "Running Codex safely", "https://openai.com/index/running-codex-safely/"],
-  ["OpenAI", "Design and brand guidelines", "https://openai.com/brand/"],
   ["EDPB", "Data Protection Impact Assessment", "https://www.edpb.europa.eu/topics/accountability-and-compliance-tools/data-protection-impact-assessment_en"],
   ["EU", "Artificial Intelligence Act", "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"],
   ["EU", "Digital Operational Resilience Act", "https://eur-lex.europa.eu/eli/reg/2022/2554/oj"],
@@ -94,249 +167,297 @@ export default function Home() {
       <header className="site-header" id="top">
         <nav className="nav-shell" aria-label="Hauptnavigation">
           <a className="brand" href="#top" aria-label="Normkontor Startseite">
-            <Image src="/brand/normkontor-mark.svg" alt="" width={42} height={42} priority />
-            <span><strong>NORMKONTOR</strong><small>eine Produktmarke von FYN Labs</small></span>
+            <Image src="/brand/normkontor-mark.svg" alt="" width={46} height={46} />
+            <span><strong>NORMKONTOR</strong><small>FYN LABS</small></span>
           </a>
+          <div className="nav-truth">3A OPEN SOURCE · ROLLOUT AUF ANFRAGE · REVIEW IN ENTWICKLUNG</div>
           <div className="nav-links">
-            <a href="#regelwerke">Regelwerke</a>
-            <a href="#review">Review</a>
-            <a href="#academy">Academy</a>
-            <a href="#governance">Governance &amp; Daten</a>
-            <a className="nav-cta" href="#kontakt">Pilot anfragen</a>
+            <a href="#3a">3A</a>
+            <a href="#kontrollpfad">Kontrollpfad</a>
+            <a href="#rollout">Rollout &amp; Academy</a>
+            <a className="nav-cta" href="#kontakt">Pilotfähigkeit klären</a>
           </div>
           <details className="mobile-menu">
             <summary>Menü</summary>
             <div>
-              <a href="#regelwerke">Regelwerke</a>
+              <a href="#3a">3A COD3X</a>
+              <a href="#kontrollpfad">Kontrollpfad</a>
               <a href="#review">Review</a>
-              <a href="#academy">Academy</a>
-              <a href="#governance">Governance &amp; Daten</a>
-              <a href="#opensource">Open Source</a>
-              <a href="#kontakt">Pilot anfragen</a>
+              <a href="#governance">Governance</a>
+              <a href="#rollout">Rollout &amp; Academy</a>
+              <a href="#kontakt">Pilotfähigkeit klären</a>
             </div>
           </details>
         </nav>
       </header>
 
       <main id="main-content" tabIndex={-1}>
-        <section className="hero">
-          <div className="hero-copy">
-            <p className="eyebrow">Normkontor · FYN Labs · Deutschland &amp; EU</p>
-            <h1>Kontrollierte KI-Arbeit. <em>Nachweisbar.</em></h1>
-            <p className="lede">
-              Regelwerke, unabhängige Prüfpfade und Ausbildung für Teams, die
-              agentische Softwareentwicklung in regulierten Umfeldern
-              verantwortbar einführen wollen.
-            </p>
-            <div className="hero-actions">
-              <a className="button-primary" href="#kontakt">Pilotgespräch anfragen</a>
-              <a className="button-secondary" href="#regelwerke">3A-Regelwerk prüfen</a>
+        <section className="hero" aria-labelledby="hero-title">
+          <div className="hero-shell">
+            <div className="hero-copy">
+              <p className="eyebrow">Normkontor 3A · Public Source Candidate</p>
+              <h1 id="hero-title">KI-Agenten arbeiten.<span>Verantwortung bleibt beim Unternehmen.</span></h1>
+              <p className="hero-lede">
+                Regelwerk, Pilot und Ausbildung für kontrollierte agentische
+                Softwareentwicklung.
+              </p>
+              <div className="hero-actions">
+                <a className="button button-primary" href="#kontakt">Pilotfähigkeit klären</a>
+                <a className="button button-secondary" href="#3a">3A-Regelwerk prüfen</a>
+              </div>
+              <p className="hero-evidence">Bericht ist Evidenz. Autorität bleibt beim Unternehmen.</p>
             </div>
-            <ul className="trust-row" aria-label="Normkontor Grundsätze">
-              <li>Reuse before create</li>
-              <li>Human Gates bleiben bestehen</li>
-              <li>Claims folgen Evidenz</li>
-            </ul>
           </div>
+          <div className="hero-art-frame" aria-hidden="true">
+            <Image
+              className="hero-art"
+              src="/brand/normkontor-living-receipt-hero.png"
+              alt=""
+              fill
+              preload
+              sizes="100vw"
+            />
+          </div>
+          <div className="status-rail" aria-label="Produktstatus">
+            {statusItems.map(([title, status]) => (
+              <p key={title}><strong>{title}</strong><span>{status}</span></p>
+            ))}
+          </div>
+        </section>
 
-          <aside className="control-card" aria-label="Normkontor Kontrollkette">
-            <div className="card-head"><span>Kontrollpfad</span><span>NK / 01</span></div>
-            <ol>
-              {controlStages.map(([number, title]) => (
-                <li key={number}><span>{number}</span><strong>{title}</strong></li>
+        <section className="evidence-opening section-dark">
+          <div className="section-shell evidence-grid">
+            <div>
+              <p className="section-kicker">NK / EVIDENCE / 01</p>
+              <h2>Evidenz führt.</h2>
+              <p className="section-intro">Ein Agentenzugang ist noch kein Betriebsmodell.</p>
+            </div>
+            <ol className="question-ledger">
+              {questions.map((question, index) => (
+                <li key={question}><span>0{index + 1}</span><strong>{question}</strong></li>
               ))}
             </ol>
-            <p><i aria-hidden="true" /> Bericht ist Evidenz. Autorität bleibt beim benannten Owner.</p>
-          </aside>
-        </section>
-
-        <section className="status-strip" aria-label="Produktstatus">
-          <p><strong>3A Ruleset</strong><span>öffentlicher Quellenkandidat</span></p>
-          <p><strong>Rollout</strong><span>Pilot auf Anfrage</span></p>
-          <p><strong>Academy</strong><span>Pilot auf Anfrage</span></p>
-          <p><strong>Review Runtime</strong><span>in Entwicklung</span></p>
-        </section>
-
-        <section className="section-shell problem-section">
-          <div>
-            <p className="section-label">Die eigentliche Einführungsfrage</p>
-            <h2>Ein Agenten-Zugang ist noch kein Betriebsmodell.</h2>
-          </div>
-          <div className="question-list">
-            <p><span>01</span>Welche Aufgaben und Daten dürfen in welchen Lauf?</p>
-            <p><span>02</span>Wer prüft ein Ergebnis unabhängig vom erzeugenden Agenten?</p>
-            <p><span>03</span>Welche Evidenz trägt eine Entscheidung — und wer darf sie treffen?</p>
           </div>
         </section>
 
-        <section className="section-shell" id="regelwerke">
-          <header className="section-heading">
-            <div><p className="section-label">Ein Portfolio, klare Wahrheitsklassen</p><h2>Offen. Umsetzbar. Getrennt.</h2></div>
-            <p>Open Source, Pilotleistung und geplante Software werden nicht vermischt. Das macht Prüfung, Beschaffung und Skalierung belastbarer.</p>
-          </header>
-          <div className="module-grid">
-            {modules.map((module) => (
-              <article className="module-card" key={module.title}>
-                <span className={`state state-${module.state}`}>{module.status}</span>
-                <p className="card-number">{module.number}</p>
-                <h3>{module.title}</h3>
-                <p className="tech-line">{module.tech}</p>
-                <p>{module.body}</p>
-                <a
-                  href={module.link}
-                  target={module.link.startsWith("http") ? "_blank" : undefined}
-                  rel={module.link.startsWith("http") ? "noreferrer" : undefined}
-                >
-                  {module.cta}
-                </a>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="doctrine-section">
+        <section className="paper-section" id="3a">
           <div className="section-shell">
-            <header className="section-heading inverted">
-              <div><p className="section-label">Normkontor 3A</p><h2>Erst kleiner denken. Dann sauber bauen.</h2></div>
-              <p>Aligned am ursprünglichen Problem. Autonomous innerhalb echter Autorität. Auditable durch einen kleinen vollständigen Pfad und reale Checks.</p>
+            <header className="document-heading">
+              <div>
+                <p className="section-kicker">Normkontor 3A · 3A COD3X</p>
+                <h2>Der kleinste vollständige Weg zur sauberen Änderung.</h2>
+              </div>
+              <div className="document-meta" aria-label="3A COD3X Produktgrenze">
+                <p><span>TYPE</span><strong>Instruction-only plugin</strong></p>
+                <p><span>OWNERS</span><strong>2 canonical skills</strong></p>
+                <p><span>RUNTIME</span><strong>None</strong></p>
+                <p><span>AUTHORITY</span><strong>None</strong></p>
+              </div>
             </header>
-            <div className="ladder-grid">
-              {ladder.map(([number, title, body]) => (
-                <article key={number}><span>{number}</span><h3>{title}</h3><p>{body}</p></article>
+
+            <div className="three-a" aria-label="Bedeutung von 3A">
+              <p><span>A</span><strong>Aligned</strong><small>am ursprünglichen Problem und nativen Owner</small></p>
+              <p><span>A</span><strong>Autonomous</strong><small>maximal sinnvoll innerhalb echter Autorität</small></p>
+              <p><span>A</span><strong>Auditable</strong><small>kleiner vollständiger Pfad, real geprüft</small></p>
+            </div>
+
+            <div className="ledger-list">
+              {ladder.map((step, index) => (
+                <details key={step.number} open={index === 0}>
+                  <summary>
+                    <span className="summary-grid">
+                      <span>{step.number}</span>
+                      <strong>{step.title}</strong>
+                      <small>{step.prompt}</small>
+                    </span>
+                  </summary>
+                  <p>{step.body}</p>
+                </details>
               ))}
             </div>
-            <p className="doctrine-note">Wenn Scope, Produktionscode, Owner, Zustand oder Reparaturschleifen wachsen: vor der nächsten Erweiterung stoppen, Meta-Ursache prüfen und den kleineren nativen Owner suchen.</p>
+
+            <div className="safety-floor">
+              <p className="section-kicker">Safety floor</p>
+              <p>Authentifizierung, Autorisierung, Trust Boundaries, Datenschutz, Datenverlustschutz, Barrierefreiheit und risikogerechte Tests werden nicht wegvereinfacht.</p>
+              <a className="text-link" href="https://github.com/FYN-Labs/normkontor" target="_blank" rel="noreferrer">Repository und Grenzen prüfen</a>
+            </div>
           </div>
         </section>
 
-        <section className="section-shell" id="review">
-          <header className="section-heading">
-            <div><p className="section-label">Normkontor Review · in Entwicklung</p><h2>Eine zweite Meinung, die als zweite Meinung belegbar ist.</h2></div>
-            <p>Der MCP-Endpunkt wäre nur die Tür. Blindheit, Modelltrennung, Datenpolitik, Qualifikation und vollständige Receipts machen daraus erst einen belastbaren Prüfarm.</p>
-          </header>
-          <div className="review-grid">
-            <figure className="review-diagram">
-              <figcaption className="sr-only">Geplante Reihenfolge: Agent oder CI, Customer Policy Gateway, zwei blinde Prüfarme, Evidence Receipt und abschließendes Human- und CI-Gate.</figcaption>
-              <div className="node wide"><small>01</small><strong>Codex · Agent · IDE · CI</strong><span>frozen subject + authority boundary</span></div>
-              <div className="line" aria-hidden="true" />
-              <div className="node wide accent"><small>02</small><strong>Customer Policy Gateway</strong><span>identity · scope · minimize · scrub · route</span></div>
-              <div className="split" aria-hidden="true" />
-              <div className="arms"><div className="node"><small>A</small><strong>Blind Arm</strong><span>qualified family one</span></div><div className="node"><small>B</small><strong>Blind Arm</strong><span>qualified family two</span></div></div>
-              <div className="join" aria-hidden="true" />
-              <div className="node wide"><small>03</small><strong>Evidence Receipt</strong><span>identity · findings · disagreement · gaps</span></div>
-              <div className="line" aria-hidden="true" />
-              <div className="node wide dark"><small>HG</small><strong>Human &amp; CI Gate</strong><span>decision remains outside the model</span></div>
-            </figure>
+        <section className="section-dark control-section" id="kontrollpfad">
+          <div className="section-shell">
+            <header className="section-heading-dark">
+              <p className="section-kicker">NK / CONTROL PATH / 02</p>
+              <h2>Vom Auftrag zur Entscheidung. Mit benannten Ownern.</h2>
+              <p>Normkontor ergänzt bestehende Issue-Tracker-, Git-, CI-, Identity-, Security- und GRC-Systeme. Es ersetzt sie nicht.</p>
+            </header>
+            <ol className="control-ledger">
+              {controlStages.map(([number, title, body]) => (
+                <li key={number}><span>{number}</span><strong>{title}</strong><p>{body}</p></li>
+              ))}
+            </ol>
+            <blockquote>Ein sauberer Bericht ist Evidenz. Er ist keine Berechtigung zum Merge, Deploy, Publish, Spend oder Release.</blockquote>
+          </div>
+        </section>
+
+        <section className="paper-section portfolio-section" id="portfolio">
+          <div className="section-shell">
+            <header className="document-heading compact">
+              <div><p className="section-kicker">Vier Angebote · vier Wahrheitsklassen</p><h2>Offen, auf Anfrage oder geplant. Nie vermischt.</h2></div>
+              <p>Open Source, Dienstleistung und geplante Software behalten ihren tatsächlichen Reifegrad.</p>
+            </header>
+            <div className="product-ledger">
+              {products.map((product) => (
+                <article key={product.code}>
+                  <p className="product-code">{product.code}</p>
+                  <div><span className="status-stamp">{product.status}</span><h3>{product.title}</h3><p className="product-tech">{product.tech}</p></div>
+                  <p>{product.body}</p>
+                  <a className="text-link" href={product.href} target={product.href.startsWith("http") ? "_blank" : undefined} rel={product.href.startsWith("http") ? "noreferrer" : undefined}>{product.action}</a>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="review-section" id="review">
+          <div className="section-shell review-layout">
             <div className="review-copy">
-              <p className="status-banner"><span /> Keine verfügbare Managed Runtime</p>
-              <h3>Pflicht bei klassifizierten materiellen Gates</h3>
-              <ul>
-                <li>gleicher Hash und gefrorener Gegenstand für beide Arme;</li>
-                <li>zwei zusätzliche blinde, author-independent Reviewer;</li>
-                <li>drei aufgelöste Modellfamilien und Entwickler inklusive Primary;</li>
-                <li>datierte, entscheidungsspezifische Qualifikation;</li>
-                <li>kein stiller Fallback, kein gemitteltes Urteil;</li>
-                <li>Receipt mit Einzelbefunden, Widersprüchen und Restlücken.</li>
-              </ul>
-              <p className="quiet-copy">Die Open-Source-Doctrine beschreibt diesen Vertrag. Sie provisioniert keine Modelle, führt keine Prüfarme aus und behauptet keinen Assurance-PASS.</p>
+              <p className="status-warning">IN ENTWICKLUNG · KEINE VERFÜGBARE MANAGED RUNTIME</p>
+              <p className="section-kicker">Normkontor Review</p>
+              <h2>Eine zweite Meinung ist erst dann eine zweite Meinung, wenn sie unabhängig belegbar ist.</h2>
+              <p>Der MCP-Endpunkt wäre nur die Tür. Blindheit, Familien- und Entwicklertrennung, Datenpolitik, Qualifikation und vollständige Receipts machen daraus erst einen belastbaren Prüfarm.</p>
+              <a className="text-link light" href="https://github.com/FYN-Labs/normkontor/blob/main/docs/enterprise/assurance-architecture.md" target="_blank" rel="noreferrer">Zielarchitektur prüfen</a>
             </div>
-          </div>
-        </section>
-
-        <section className="governance-section" id="governance">
-          <div className="section-shell">
-            <header className="section-heading inverted">
-              <div><p className="section-label">Governance &amp; Daten</p><h2>Regionalität und Scrubbing werden bewiesen, nicht etikettiert.</h2></div>
-              <p>Frankfurt als Service-Standort beweist keine Frankfurt-Inferenz. Providerroute, Datenklasse, Fallback, Retention und Zugriff müssen je Modell und Vertrag nachvollziehbar sein.</p>
-            </header>
-            <div className="governance-grid">
-              <article><span>01</span><h3>Allowlist</h3><p>Teams, Repositories, Pfade, Zwecke, Datenklassen, Tools und Aktionen.</p></article>
-              <article><span>02</span><h3>Minimize</h3><p>Diff oder Symbolpaket vor unbeschränktem Repository-Kontext.</p></article>
-              <article><span>03</span><h3>Detect</h3><p>Secrets, PII, Gesundheits-, Schaden-, Beschäftigten- und Zahlungsdaten.</p></article>
-              <article><span>04</span><h3>Block or redact</h3><p>Blockieren, wenn Schwärzung Bedeutung oder Sicherheitsfakten zerstört.</p></article>
-              <article><span>05</span><h3>Route proof</h3><p>Provider, Modell, Profil, Region, Retention und Fallback im Receipt.</p></article>
-              <article><span>06</span><h3>Human control</h3><p>Keine individuelle Leistungsmessung; Merge und Release bleiben bei Ownern.</p></article>
-            </div>
-            <p className="legal-boundary">Designed to support GDPR-, DORA- and EU-AI-Act-aware deployment work. Keine Rechtsberatung, Zertifizierung oder regulatorische Freigabe. Scrubbing reduziert Risiko; es ersetzt keine DPIA.</p>
-          </div>
-        </section>
-
-        <section className="section-shell" id="academy">
-          <header className="section-heading">
-            <div><p className="section-label">Normkontor Academy</p><h2>Vom sicheren Anwenden zum internen Multiplikator.</h2></div>
-            <p>Rollenbasierte Praxis statt Teilnahme-Badge. Eine Kompetenzbescheinigung bindet Person, Szenario, Regelwerk, Policy, Rubrik, Datum und Restlücken.</p>
-          </header>
-          <div className="academy-grid">
-            {academyTracks.map(([duration, title, audience, body]) => (
-              <article key={duration}><span>{duration}</span><h3>{title}</h3><p className="audience">{audience}</p><p>{body}</p></article>
-            ))}
-          </div>
-        </section>
-
-        <section className="pilot-section" id="pilot">
-          <div className="section-shell">
-            <header className="section-heading inverted">
-              <div><p className="section-label">Einstiegsformat auf Anfrage</p><h2>Sechs Wochen bis zu einer belegbaren Entscheidung.</h2></div>
-              <p>Kein konzernweiter Big Bang: ein Team, ein Workflow, eine Nachweisfrage und vorab benannte Stop-Kriterien.</p>
-            </header>
-            <div className="week-grid">
-              {pilotWeeks.map(([number, title, body]) => (
-                <article key={number}><span>{number}</span><div><h3>{title}</h3><p>{body}</p></div></article>
+            <ol className="review-ledger">
+              {reviewSteps.map(([number, title, body]) => (
+                <li key={number}><span>{number}</span><div><strong>{title}</strong><p>{body}</p></div></li>
               ))}
+            </ol>
+          </div>
+        </section>
+
+        <section className="paper-section governance-section" id="governance">
+          <div className="section-shell">
+            <header className="document-heading">
+              <div><p className="section-kicker">Governance &amp; Daten</p><h2>Regionalität und Scrubbing werden bewiesen, nicht etikettiert.</h2></div>
+              <p>Frankfurt als Servicestandort beweist keine Frankfurt-Inferenz. Route, Retention, Fallback und Restlücke müssen je Modell und Vertrag nachvollziehbar sein.</p>
+            </header>
+            <ol className="governance-ledger">
+              {governanceControls.map(([number, title, body]) => (
+                <li key={number}><span>{number}</span><strong>{title}</strong><p>{body}</p></li>
+              ))}
+            </ol>
+            <div className="route-receipt">
+              <div><p className="section-kicker">Route evidence · Muster</p><h3>Sichtbar statt angenommen.</h3></div>
+              <dl>
+                <div><dt>Provider</dt><dd>zu belegen</dd></div>
+                <div><dt>Resolved model</dt><dd>zu belegen</dd></div>
+                <div><dt>Region / profile</dt><dd>zu belegen</dd></div>
+                <div><dt>Retention / fallback</dt><dd>zu belegen</dd></div>
+                <div><dt>Residual gap</dt><dd>zu benennen</dd></div>
+              </dl>
             </div>
-            <div className="pilot-output"><div><p className="section-label">Mögliche Outputs</p><h3>Pilot Charter, Arbeitsmodell, Trainingsevidenz, Risikoregister, Eval-Katalog und 90-Tage-Plan.</h3></div><a className="button-light" href="#kontakt">Scope besprechen</a></div>
+            <p className="legal-boundary">Konzipiert zur Unterstützung eines kontrollierten GDPR-, DORA- und EU-AI-Act-bewussten Einführungsprozesses. Keine Rechtsberatung, Zertifizierung oder pauschale Compliance-Erklärung. Scrubbing ersetzt keine DPIA.</p>
           </div>
         </section>
 
-        <section className="section-shell open-source-section" id="opensource">
-          <div>
-            <p className="section-label">Open Source · MIT</p>
-            <h2>3A COD3X im Normkontor Marketplace.</h2>
-            <p>Ein Plugin, zwei kanonische Skills, null Runtime. Deaktiviere den alten AAA-Code-Marketplace, bevor du den Nachfolger aktivierst, damit nicht zwei implizite Doctrine-Owner konkurrieren.</p>
+        <section className="adoption-section section-dark" id="rollout">
+          <div className="adoption-visual">
+            <Image src="/brand/normkontor-rollout-workbook.png" alt="" fill sizes="(max-width: 900px) 100vw, 50vw" />
           </div>
-          <div className="install-card" aria-label="Installationsbefehle">
-            <div><span>Codex</span><code>codex plugin marketplace add FYN-Labs/normkontor</code><code>codex plugin add 3a-cod3x@normkontor</code></div>
-            <div><span>Claude Code</span><code>claude plugin marketplace add FYN-Labs/normkontor</code><code>claude plugin install 3a-cod3x@normkontor</code></div>
-            <a href="https://github.com/FYN-Labs/normkontor" target="_blank" rel="noreferrer">Quellcode und Grenzen prüfen ↗</a>
+          <div className="section-shell adoption-shell">
+            <header className="section-heading-dark adoption-heading">
+              <p className="section-kicker">Rollout &amp; Academy · Pilot auf Anfrage</p>
+              <h2>Ein Team. Ein Workflow. Eine belastbare Entscheidung.</h2>
+              <p>Kein konzernweiter Big Bang: sechs begrenzte Schritte bis Scale, Revise oder Stop — begleitet von rollenbasierter Befähigung.</p>
+            </header>
+            <div className="adoption-grid">
+              <div>
+                <p className="ledger-title">Sechs Wochen</p>
+                <ol className="pilot-ledger">
+                  {pilotWeeks.map(([number, title, body]) => (
+                    <li key={number}><span>{number}</span><div><strong>{title}</strong><p>{body}</p></div></li>
+                  ))}
+                </ol>
+              </div>
+              <div id="academy">
+                <p className="ledger-title">Drei Academy-Tracks</p>
+                <div className="academy-ledger">
+                  {academyTracks.map(([duration, title, body]) => (
+                    <details key={duration}>
+                      <summary><span className="academy-summary"><span>{duration}</span><strong>{title}</strong></span></summary>
+                      <p>{body}</p>
+                    </details>
+                  ))}
+                </div>
+                <p className="academy-note">Teilnahme allein ist kein Kompetenznachweis. Exakte Leistungen, Termine und Datenzugriffe gehören in den kundenspezifischen Vertrag.</p>
+              </div>
+            </div>
+            <div className="adoption-action">
+              <p>Mögliche Outputs: Pilot Charter, Arbeitsmodell, Trainingsevidenz, Risikoregister, Eval-Katalog und priorisierter 90-Tage-Plan.</p>
+              <a className="button button-primary" href="#kontakt">Pilotformat besprechen</a>
+            </div>
           </div>
         </section>
 
-        <section className="truth-section">
-          <div className="section-shell truth-grid">
-            <div><p className="section-label">Claim Discipline</p><h2>Was Normkontor bewusst nicht behauptet.</h2></div>
+        <section className="open-source-section" id="opensource">
+          <div className="section-shell open-source-grid">
+            <div>
+              <p className="section-kicker">Open Source · MIT</p>
+              <h2>Ein Plugin. Zwei Skills. Null Runtime.</h2>
+              <p>3A COD3X beschreibt Implementierung und begrenzten Phase-Review. Es führt keine Hintergrundaufrufe aus, provisioniert keine Modelle und vergibt keine Autorität.</p>
+              <a className="text-link light" href="https://github.com/FYN-Labs/normkontor" target="_blank" rel="noreferrer">Quellcode und Eval-Korpus öffnen</a>
+            </div>
+            <div className="install-receipt" aria-label="Installationsbefehle">
+              <p><span>SUBJECT</span><strong>3A COD3X 0.4.0</strong></p>
+              <div><span>Codex</span><code>codex plugin marketplace add FYN-Labs/normkontor</code><code>codex plugin add 3a-cod3x@normkontor</code></div>
+              <div><span>Claude Code</span><code>claude plugin marketplace add FYN-Labs/normkontor</code><code>claude plugin install 3a-cod3x@normkontor</code></div>
+              <p><span>AUTHORITY GRANTED</span><strong>NONE</strong></p>
+            </div>
+          </div>
+        </section>
+
+        <section className="truth-section paper-section" id="wahrheit">
+          <div className="section-shell truth-layout">
+            <div><p className="section-kicker">Truth ledger · Does not prove</p><h2>Wir sagen auch, was noch nicht bewiesen ist.</h2></div>
             <ul>
-              <li>keine GDPR-, DORA-, AI-Act-, BaFin- oder Security-Zertifizierung;</li>
-              <li>keine aktuelle customer-hosted oder managed Review Runtime;</li>
-              <li>keine Garantie für Frankfurt-only oder EU-only Inferenz;</li>
-              <li>keine gemessene Produktivitäts- oder Qualitätssteigerung;</li>
-              <li>keinen benannten Kunden, Versicherer oder Produktionsrollout;</li>
-              <li>keine offizielle oder unterstützte OpenAI-, Anthropic- oder Hermes-Integration.</li>
+              {claims.map((claim, index) => <li key={claim}><span>0{index + 1}</span><p>{claim}</p></li>)}
             </ul>
           </div>
         </section>
 
         <section className="contact-section" id="kontakt">
-          <div className="section-shell contact-grid">
-            <div><p className="section-label">Nächster kleiner Schritt</p><h2>Ist ein Pilot charterfähig?</h2></div>
-            <div><p>In einem ersten Gespräch klären wir fünf Punkte: Workflow, Team, Datenklasse, Nachweisfrage und Stop-Kriterium.</p><div className="hero-actions"><a className="button-light" href="mailto:support@fyn-labs.com?subject=Normkontor%20Pilot">Pilotgespräch anfragen</a><a className="button-outline-light" href="https://fyn-labs.com/en">FYN Labs ansehen</a></div></div>
+          <div className="section-shell contact-layout">
+            <div><p className="section-kicker">Nächster kleiner Schritt</p><h2>Ist ein Pilot charterfähig?</h2></div>
+            <div>
+              <p>Im ersten Gespräch klären wir genau fünf Punkte.</p>
+              <ol><li>Workflow</li><li>Team</li><li>Datenklasse</li><li>Nachweisfrage</li><li>Stop-Kriterium</li></ol>
+              <div className="hero-actions">
+                <a className="button button-primary" href={pilotMailto}>Pilotgespräch anfragen</a>
+                <a className="button button-secondary" href="https://github.com/FYN-Labs/normkontor" target="_blank" rel="noreferrer">3A COD3X prüfen</a>
+              </div>
+              <p className="contact-fallback">Öffnet Ihr E-Mail-Programm · alternativ: <a href="mailto:support@fyn-labs.com">support@fyn-labs.com</a></p>
+            </div>
           </div>
         </section>
 
         <section className="sources-section" id="quellen">
-          <div className="section-shell">
-            <p className="section-label">Primärquellen · geprüft am 25. August 2026</p>
-            <div className="sources-grid">
-              {sources.map(([publisher, title, url]) => (
-                <a href={url} key={url} target="_blank" rel="noreferrer"><span>{publisher}</span><strong>{title}</strong><small>↗</small></a>
-              ))}
-            </div>
+          <div className="section-shell sources-shell">
+            <details>
+              <summary>Evidence references · Primärquellen</summary>
+              <div className="sources-list">
+                {sources.map(([publisher, title, href]) => (
+                  <a href={href} key={href} target="_blank" rel="noreferrer"><span>{publisher}</span><strong>{title}</strong></a>
+                ))}
+              </div>
+            </details>
           </div>
         </section>
       </main>
 
       <footer>
         <div className="footer-inner">
-          <div className="footer-brand"><Image src="/brand/normkontor-mark.svg" alt="" width={36} height={36} /><p><strong>NORMKONTOR</strong><span>eine Produktmarke von FYN Labs LLC</span></p></div>
+          <div className="footer-brand"><Image src="/brand/normkontor-mark.svg" alt="" width={42} height={42} /><p><strong>NORMKONTOR</strong><span>eine Produktmarke von FYN Labs LLC</span></p></div>
           <p>3A COD3X ist ein unabhängiges Normkontor-Regelwerk. Es ist weder mit OpenAI verbunden noch von OpenAI unterstützt. Codex ist eine Marke von OpenAI.</p>
           <p><a href="https://fyn-labs.com/de/legal">Impressum</a> · <a href="https://fyn-labs.com/de/privacy">Datenschutz</a><br /><a href="mailto:support@fyn-labs.com">support@fyn-labs.com</a> · © 2026 FYN Labs LLC</p>
         </div>
