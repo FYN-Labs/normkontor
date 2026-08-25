@@ -261,7 +261,7 @@ main:focus {
 .hero-shell {
   align-items: center;
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 1fr);
   margin: 0 auto;
   min-height: calc(max(760px, 100svh - var(--header-height)) - 102px);
   max-width: 1440px;
@@ -285,10 +285,10 @@ main:focus {
 }
 
 .hero h1 {
-  font-size: clamp(64px, 6.2vw, 96px);
+  font-size: clamp(60px, 5.4vw, 82px);
   letter-spacing: -0.045em;
   line-height: 0.91;
-  margin-bottom: 30px;
+  margin-bottom: 48px;
 }
 
 .hero h1 span {
@@ -297,9 +297,9 @@ main:focus {
 
 .hero-lede {
   color: var(--ivory);
-  font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(20px, 1.8vw, 27px);
-  line-height: 1.4;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: clamp(18px, 1.45vw, 22px);
+  line-height: 1.5;
   margin-bottom: 0;
   max-width: 610px;
 }
@@ -309,7 +309,16 @@ main:focus {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-top: 38px;
+  margin-top: 44px;
+}
+
+.hero .button::after {
+  color: var(--brass);
+  content: "\2192";
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: auto;
+  padding-left: 28px;
 }
 
 .button {
@@ -354,8 +363,23 @@ main:focus {
   color: var(--brass);
   font-size: 12px;
   line-height: 1.5;
-  margin: 54px 0 0;
+  margin: 82px 0 0;
   padding-left: 15px;
+}
+
+@media (min-width: 901px) {
+  .hero .button-primary {
+    min-height: 62px;
+    min-width: 250px;
+  }
+
+  .hero .button-secondary {
+    border-width: 0 0 1px;
+    justify-content: flex-start;
+    min-height: 62px;
+    min-width: 205px;
+    padding: 0;
+  }
 }
 
 .status-rail {
@@ -1364,6 +1388,14 @@ footer {
 @media (max-width: 900px) {
   :root {
     --header-height: 74px;
+  }
+
+  html {
+    scroll-padding-top: 24px;
+  }
+
+  .site-header {
+    position: relative;
   }
 
   .nav-links {
