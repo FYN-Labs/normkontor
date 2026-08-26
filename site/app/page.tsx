@@ -195,6 +195,11 @@ export default function Home() {
 
       <main id="main-content" tabIndex={-1}>
         <section className="hero" aria-labelledby="hero-title">
+          <nav className="hero-utility-nav" aria-label="Direkteinstiege">
+            <a href="#kontrollpfad">Kontrollpfad</a>
+            <a href="#rollout">Rollout &amp; Academy</a>
+            <a href="#kontakt">Pilotfähigkeit klären</a>
+          </nav>
           <div className="hero-shell">
             <div className="hero-copy">
               <h1 id="hero-title">
@@ -216,15 +221,13 @@ export default function Home() {
           <div className="hero-art-frame" aria-hidden="true">
             <Image
               className="hero-art"
-              src="/brand/normkontor-ownership-xray.png"
+              src="/brand/normkontor-normenregister-book.png"
               alt=""
               fill
-              sizes="100vw"
+              fetchPriority="high"
+              sizes="(min-width: 901px) 48vw, 100vw"
+              unoptimized
             />
-          </div>
-          <div className="hero-ownership-transcript visual-transcript">
-            <span>DUPLICATE OWNER · SHADOW STATE → NATIVE PATH</span>
-            <strong>Ein Problem. Ein Owner.</strong>
           </div>
           <div className="status-rail" aria-label="Produktstatus">
             {statusItems.map(({ icon, title, status }) => (
