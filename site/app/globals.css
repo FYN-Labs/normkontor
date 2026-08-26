@@ -379,27 +379,25 @@ footer {
 
 .hero-art-frame {
   background: #f7f7f3;
+  border-left: 1px solid var(--line-light);
   bottom: var(--status-height);
-  left: clamp(140px, 12vw, 220px);
-  max-width: none;
+  max-width: 470px;
   position: absolute;
   right: 0;
   top: 0;
-  width: auto;
+  width: 32.5vw;
   z-index: 0;
 }
 
 .hero-art {
-  animation: visual-breathe 38s ease-in-out infinite alternate;
   object-fit: cover;
-  object-position: center;
-  transform-origin: 68% 50%;
+  object-position: left top;
 }
 
 .hero-shell {
   align-items: start;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 32.5vw);
   margin: 0;
   min-height: 733px;
   max-width: none;
@@ -433,7 +431,7 @@ footer {
 
 .hero h1 {
   color: var(--ink);
-  font-size: clamp(58px, 5vw, 72px);
+  font-size: clamp(64px, 5.4vw, 80px);
   letter-spacing: -0.038em;
   line-height: 0.98;
   margin-bottom: 19px;
@@ -1614,7 +1612,7 @@ footer {
   }
 
   .hero-shell {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 35vw);
     padding-left: calc(var(--rail-expanded) - var(--rail-collapsed) + 36px);
   }
 
@@ -1753,8 +1751,8 @@ footer {
   }
 
   .hero-art {
-    object-fit: cover;
-    object-position: 70% center;
+    object-fit: contain;
+    object-position: center;
   }
 
   .hero-shell {
@@ -1922,7 +1920,7 @@ footer {
   }
 
   .hero-art {
-    object-position: 72% center;
+    object-position: 69% center;
   }
 
   .hero h1 {
@@ -2161,7 +2159,6 @@ footer {
     transform: none;
   }
 
-  .hero-art,
   .visual-interruptor img {
     animation: none;
     transform: none;

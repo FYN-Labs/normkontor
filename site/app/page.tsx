@@ -216,11 +216,10 @@ export default function Home() {
           <div className="hero-art-frame" aria-hidden="true">
             <Image
               className="hero-art"
-              src="/brand/normkontor-hero-control-field.png"
+              src="/brand/normkontor-enterprise-control-path.png"
               alt=""
               fill
               sizes="100vw"
-              preload
             />
           </div>
           <div className="status-rail" aria-label="Produktstatus">
