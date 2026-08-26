@@ -105,14 +105,14 @@ test("ordinary review and required assurance have deterministic verdicts", async
 });
 
 test("public source contains no local paths or known private markers", async () => {
-  const roots = [".agents", ".claude", ".claude-plugin", "docs", "evals", "plugins", "rulesets", "site"];
+  const roots = [".agents", ".claude", ".claude-plugin", "docs", "evals", "plugins", "rulesets"];
   const findings = [];
   for (const relativeRoot of roots) {
     const absoluteRoot = path.join(root, relativeRoot);
     const files = await filesUnder(absoluteRoot).catch(() => []);
     for (const file of files) {
       const relativeFile = path.relative(root, file);
-      if (relativeFile.includes("/node_modules/") || relativeFile.includes("/.next/")) continue;
+      if (relativeFile.includes("/node_modules/")) continue;
       if (/\.(png|ico|woff2?)$/i.test(file)) continue;
       const value = await readFile(file, "utf8");
       if (/\/Users\/|\/var\/folders\/|BEGIN (?:RSA |OPENSSH )?PRIVATE KEY|gho_[A-Za-z0-9]+/.test(value)) {

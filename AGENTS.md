@@ -1,8 +1,7 @@
 # Normkontor repository rules
 
 Normkontor is the public FYN Labs product owner for reusable AI-engineering
-rulesets, their installable agent plugins, evidence contracts, and the public
-enterprise documentation around them.
+rulesets, their installable agent plugins, and evidence contracts.
 
 The normative owner is `standard/KERNEL.md`. It defines precedence, authority,
 Linear, evidence, claims, memory, and adapter limits. `standard/contract.json`
@@ -23,11 +22,14 @@ boundary, run one bounded simplicity review. Do not add continuous governance,
 hooks, MCP, daemons, telemetry, stores, or model routing to an instruction-only
 plugin without a separately proven product requirement.
 
-This repository is public. Never add credentials, customer data, raw chats,
-personal records, local machine paths, or private operating evidence. Preserve
-unrelated work and keep shared manifest and lockfile writes serialized.
+This repository is public. Its tracked tree is limited to the approved public
+surface enforced by `tests/normkontor-contract.test.mjs`; every unknown tracked
+path blocks the package. Never add credentials, customer data, raw chats,
+personal records, local machine paths, private operating evidence, enterprise
+delivery material, internal architecture, or website source. Preserve unrelated
+work and keep shared manifest and lockfile writes serialized.
 
-Before a commit, run npm test and the site checks documented in README.md.
+Before a commit, run `npm test`.
 Before a release, run the native Codex, Agent Skills, and Claude validators and
 create evidence for the exact frozen commit. A source, unit, package, runtime,
 assurance, or release PASS proves only its own layer.

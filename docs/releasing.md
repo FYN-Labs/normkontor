@@ -11,7 +11,7 @@ constraints.
 
 1. Update the plugin version in both host manifests, both skills, and UI
    metadata where applicable.
-2. Run the dependency-free repository tests and site gates.
+2. Run the dependency-free repository tests.
 3. Run both Agent Skills validators, the Codex plugin validator, and Claude
    strict validation for plugin and marketplace.
 4. Run isolated install, discovery, invocation, and behavioral cases for each

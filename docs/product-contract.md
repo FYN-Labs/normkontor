@@ -14,8 +14,8 @@ The product has exactly two behavioral method owners:
 - plugins/3a-cod3x/skills/3a-cod3x/SKILL.md owns implementation guidance.
 - plugins/3a-cod3x/skills/3a-cod3x-review/SKILL.md owns the bounded phase review.
 
-Adapters, manifests, eval cases, documentation, and the website may route to
-or describe these owners. They must not redefine the Kernel, decision ladder,
+Adapters, manifests, eval cases, and public documentation may route to or
+describe these owners. They must not redefine the Kernel, decision ladder,
 assurance trigger, authority boundary, or verdict mapping.
 
 ## Product boundary

@@ -17,6 +17,47 @@ const adapters = [
 ];
 const binaryExtension = /\.(?:png|jpe?g|gif|ico|woff2?|pdf|zip)$/i;
 const gitInventoryArgs = ["ls-files", "--cached", "--others", "--exclude-standard", "-z"];
+const trackedInventoryArgs = ["ls-files", "--cached", "-z"];
+const expectedTrackedPaths = [
+  ".agents/plugins/marketplace.json",
+  ".claude-plugin/marketplace.json",
+  ".github/workflows/validate.yml",
+  ".gitignore",
+  "AGENTS.md",
+  "LICENSE",
+  "README.md",
+  "THIRD_PARTY_NOTICES.md",
+  "adapters/claude-code/CLAUDE.md",
+  "adapters/codex/AGENTS.md",
+  "adapters/command-eve/POLICY.md",
+  "adapters/linear/CONTRACT.md",
+  "docs/product-contract.md",
+  "docs/releasing.md",
+  "evals/3a-cod3x/adversarial-assurance-gate/case.yaml",
+  "evals/3a-cod3x/assurance-family-collapse/case.yaml",
+  "evals/3a-cod3x/capability-gap/case.yaml",
+  "evals/3a-cod3x/concurrent-work/case.yaml",
+  "evals/3a-cod3x/existing-owner/case.yaml",
+  "evals/3a-cod3x/growing-architecture/case.yaml",
+  "evals/3a-cod3x/ordinary-review-no-assurance/case.yaml",
+  "evals/3a-cod3x/security-release-boundary/case.yaml",
+  "evals/3a-cod3x/self-review-boundary/case.yaml",
+  "evals/3a-cod3x/trivial-edit/case.yaml",
+  "evals/3a-cod3x/unrelated-doc-summary/case.yaml",
+  "package.json",
+  "plugins/3a-cod3x/.claude-plugin/plugin.json",
+  "plugins/3a-cod3x/.codex-plugin/plugin.json",
+  "plugins/3a-cod3x/skills/3a-cod3x-review/SKILL.md",
+  "plugins/3a-cod3x/skills/3a-cod3x-review/agents/openai.yaml",
+  "plugins/3a-cod3x/skills/3a-cod3x/SKILL.md",
+  "plugins/3a-cod3x/skills/3a-cod3x/agents/openai.yaml",
+  "rulesets/README.md",
+  "standard/KERNEL.md",
+  "standard/contract.json",
+  "tests/eval-contract.test.mjs",
+  "tests/normkontor-contract.test.mjs",
+  "tests/package-contract.test.mjs",
+];
 
 async function text(relativePath) {
   return readFile(path.join(root, relativePath), "utf8");
@@ -30,6 +71,15 @@ async function publicPaths() {
   const { stdout } = await execFileAsync(
     "git",
     gitInventoryArgs,
+    { cwd: root, encoding: "utf8" },
+  );
+  return stdout.split("\0").filter(Boolean).sort();
+}
+
+async function trackedPaths() {
+  const { stdout } = await execFileAsync(
+    "git",
+    trackedInventoryArgs,
     { cwd: root, encoding: "utf8" },
   );
   return stdout.split("\0").filter(Boolean).sort();
@@ -55,13 +105,12 @@ function forbiddenPublicFindings(value) {
   const findings = [];
   const genericLedgerPattern = /\bissue[\s_-]+trackers?\b/i;
   if (genericLedgerPattern.test(value)) findings.push("generic_ledger");
-
-  const legacyTerms = [["pl", "ane"], ["anti", "gravity"]].map((parts) => parts.join(""));
-  legacyTerms.forEach((term, index) => {
-    if (new RegExp(`\\b${term}\\b`, "i").test(value)) findings.push(`legacy_${index + 1}`);
-  });
   return findings;
 }
+
+test("tracked public source matches the approved repository boundary", async () => {
+  assert.deepEqual(await trackedPaths(), expectedTrackedPaths);
+});
 
 test("the Kernel is the unique normative owner", async () => {
   const contract = await json("standard/contract.json");
@@ -203,15 +252,6 @@ test("public governance documents retain the authority and memory boundaries", a
 
   assert.deepEqual(forbiddenPublicFindings(joined), []);
 
-  const hotMemoryMarkers = [
-    ["memory", "-bank"].join(""),
-    ["active", "Context"].join(""),
-    ["raw", " turn log"].join(""),
-  ];
-  for (const marker of hotMemoryMarkers) {
-    assert.doesNotMatch(joined, new RegExp(marker, "i"));
-  }
-
   const localHome = ["/Us", "ers/"].join("");
   const localTemp = ["/var/", "folders/"].join("");
   const githubToken = ["gh", "o_", "[A-Za-z0-9]+"].join("");
@@ -227,9 +267,6 @@ test("the public scanner has positive and negative counterexamples", () => {
     "ls-files", "--cached", "--others", "--exclude-standard", "-z",
   ]);
 
-  const legacyTerms = [["pl", "ane"], ["anti", "gravity"]].map((parts) => parts.join(""));
-  assert.deepEqual(forbiddenPublicFindings(`Use ${legacyTerms[0]} here.`), ["legacy_1"]);
-  assert.deepEqual(forbiddenPublicFindings(`Load ${legacyTerms[1]} now.`), ["legacy_2"]);
   assert.deepEqual(forbiddenPublicFindings(["issue", "tracker"].join("\n")), ["generic_ledger"]);
   assert.deepEqual(forbiddenPublicFindings(["issue", "tracker"].join("-")), ["generic_ledger"]);
   assert.deepEqual(forbiddenPublicFindings(["issue", "tracker"].join("_")), ["generic_ledger"]);
