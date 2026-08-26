@@ -2,9 +2,9 @@
 
 ## Scope
 
-- Selected source: Enterprise Blueprint, direction 2, with the original bright Control Path V1 hero and founder-selected Ownership/Authority interruptors
+- Selected source: Enterprise Blueprint, direction 2, with the founder-supplied Ownership X-Ray as the hero background and the selected Authority Shutter interruptor
 - Implementation: `site/app/page.tsx`, `site/app/globals.css`
-- Visual assets: `normkontor-enterprise-control-path.png`, `normkontor-ownership-xray.png`, `normkontor-authority-shutter.png`, plus four transparent `normkontor-status-*.png` source-icon crops
+- Visual assets: `normkontor-ownership-xray.png`, `normkontor-authority-shutter.png`, plus four transparent `normkontor-status-*.png` source-icon crops
 - Runtime state: optimized Next.js production runtime at `http://127.0.0.1:3013/`
 - Browser: headed Chrome through Playwright
 - Capture density: DPR 1, CSS-pixel screenshots
@@ -16,15 +16,15 @@ The implementation preserves the selected institutional blueprint: an ivory docu
 
 | Surface | Evidence |
 | --- | --- |
-| Current V1 hero source and production implementation in one image | `output/playwright/normkontor-option-1/production-compare-v1-restored-header.png` — 1487 × 1058 source left, production implementation right |
-| Ownership X-Ray source and production implementation in one image | `output/playwright/normkontor-option-1/production-compare-ownership-source-implementation.png` — normalized 1440 × 1024 source left, production implementation right |
+| Current X-Ray hero source and production implementation in one image | `output/playwright/normkontor-xray-hero/source-vs-production.png` — 1487 × 1058 supplied source left, production implementation right |
+| Whitening-strength comparison | `output/playwright/normkontor-xray-hero/whitening-strength-comparison.png` — 74% left, live 82% trial center, 90% right |
 | Authority Shutter source and production implementation in one image | `output/playwright/normkontor-option-1/production-compare-authority-source-implementation.png` — normalized 1440 × 1024 source left, production implementation right |
-| Current production desktop V1 hero | `output/playwright/normkontor-option-1/production-v1-restored-desktop-1487x1058.png` |
-| Current production desktop Ownership X-Ray | `output/playwright/normkontor-option-1/production-desktop-ownership.png` |
+| Current production desktop X-Ray hero | `output/playwright/normkontor-xray-hero/production-desktop-final.png` |
 | Current production desktop Authority Shutter | `output/playwright/normkontor-option-1/production-desktop-authority.png` |
-| Current production mobile V1 hero | `output/playwright/normkontor-option-1/production-v1-restored-mobile-390x844.png` |
-| Current production mobile menu | `output/playwright/normkontor-option-1/production-v1-restored-mobile-menu.png` |
-| Current production mobile Ownership X-Ray | `output/playwright/normkontor-option-1/production-mobile-ownership.png` |
+| Current production mobile hero copy | `output/playwright/normkontor-xray-hero/production-mobile-top.png` |
+| Current production mobile X-Ray art | `output/playwright/normkontor-xray-hero/production-mobile-art.png` |
+| Current production mobile X-Ray caption | `output/playwright/normkontor-xray-hero/production-mobile-caption.png` |
+| Current production mobile menu | `output/playwright/normkontor-xray-hero/production-mobile-menu.png` |
 | Current production mobile Authority Shutter | `output/playwright/normkontor-option-1/production-mobile-authority.png` |
 | Source and implementation in one image | `output/playwright/enterprise-polish/reference-vs-implementation.png` — 1487 × 1058 source left, implementation right |
 | Desktop, rail expanded | `output/playwright/enterprise-blueprint/desktop-expanded-final.png` |
@@ -49,19 +49,19 @@ The screenshots under `output/` are local QA artifacts and are intentionally exc
 - Resting desktop rail is 76 px wide; moving the pointer away collapses it automatically.
 - `:focus-within` expands the same rail for keyboard users without adding client state.
 - Three-line desktop hero statement, source-matched line rule, two-line supporting copy, and exact CTA geometry.
-- Right-side control-path panel and four-part status strip retain the selected grid, navy, ivory, and oxblood visual language.
+- Full-field Ownership X-Ray and the four-part status strip retain the selected grid, navy, ivory, brass, and oxblood visual language.
 - The next section begins at the same hero boundary and continues the institutional editorial system.
-- Mobile converts the rail to a native `<details>` menu, stacks the CTAs, moves the control-path image into document flow, and renders semantic product statuses.
+- Mobile converts the rail to a native `<details>` menu, stacks the CTAs, moves the Ownership X-Ray into document flow, and renders semantic product statuses.
 - The full site uses one coherent light enterprise system rather than independent dark landing-page blocks.
 - The desktop navigation rail is now solid navy from viewport top to bottom; no section-colored break remains inside the navigation owner.
 - The navy status transition spans the complete viewport width while its content grid still begins after the expanded 205 px rail boundary.
 - Generic eyebrow copy was removed from the hero. Remaining section labels are factual archival markers with section code, evidence class, product state, or receipt purpose.
 - Motion durations are centralized and approximately 1.8× their former duration: 400 ms rail, 290 ms buttons and rail labels, 250 ms skip link, with reduced-motion protection unchanged.
 - Every H1/H2 renders in at most three lines at all measured widths; the hero has three explicit semantic display lines.
-- The original 470 × 733 Control Path V1 image is restored at its native right-side owner; the three-line HTML headline again uses the source-matched 80 px desktop ceiling.
-- Ownership X-Ray is the single selected new section: its baked duplicate rail was removed by an exact 105 px source crop so the live 76 px navigation remains the only rail owner.
+- Ownership X-Ray is the single hero background owner: its baked duplicate rail was removed by an exact 105 px source crop so the live 76 px navigation remains the only rail owner.
+- An 82% ivory readability field covers the left 860 px with a soft same-color edge. The desktop hero uses the full viewport height so `EIN PROBLEM. EIN OWNER.` remains visible above the status strip.
 - Authority Shutter appears exactly once after the control path. Its lower 1122 × 696 scene is an exact crop from the selected mock, without rebuilding the shutter, linework, or typography in CSS.
-- Both text-bearing interruptors use intrinsic dimensions and unoptimized source bytes to preserve glyph sharpness. The V1 hero is a static decorative source asset and is not preloaded.
+- The X-Ray uses the existing optimized Next image path as a static hero background. Authority remains an intrinsic, unoptimized below-fold image to preserve its rasterized display text.
 - Interruptor motion is limited to a 30-second 1.015 scale drift. Reduced Motion disables the interruptor animation and smooth scrolling.
 
 ## Comparison history
@@ -147,9 +147,26 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - P2: none.
 - P3: none.
 
+### Founder X-Ray hero-background trial
+
+- Founder direction: use the supplied 1487 × 1058 Ownership X-Ray as the hero background and whiten the left text region enough to retain legibility.
+- Reuse proof: the existing 1382 × 1058 public asset is pixel-identical to an exact `x=105` crop of the supplied source. The removed strip is only the baked navy rail; the live CSS rail remains the single navigation owner.
+- The standalone Ownership interruptor was deleted instead of duplicating the same visual. Exactly one X-Ray remains in the hero and exactly one Authority Shutter remains after the control path.
+- Three whitening strengths were captured in one comparison: 74%, 82%, and 90%. The live trial uses the balanced 82% ivory field with an 860 px text owner and a soft same-color edge.
+- P2: the first full-background crop placed the second line of `EIN PROBLEM. EIN OWNER.` behind the status strip. Resolution: let the background overlap the status owner by 80 px; the complete statement is now visible above it.
+- P2: preloading the decorative background produced a mobile unused-preload warning. Resolution: removed `preload`; the final fresh Production session reports 0 console errors and 0 warnings on desktop and mobile.
+- Mobile keeps the full source ratio at 390 × 299 below the hero copy, followed immediately by a visible 350 × 59 HTML caption. The initial reviewer concern that this caption was clipped was disproved by computed Production runtime evidence (`display:grid`, `position:static`, `clip:auto`, `clip-path:none`).
+- Full-view comparison: `source-vs-production.png`; focused evidence was required only for the mobile caption and is recorded in `production-mobile-caption.png`.
+- Independent final visual review: PASS; no remaining P0/P1/P2 findings.
+- Independent final 3A simplicity and ownership review: PASS after removing three redundant CSS declarations and correcting one stale QA label.
+- P0: none.
+- P1: none.
+- P2: none.
+- P3: whitening strength remains a founder-tunable preference; the live 82% value is not a release decision.
+
 ## Responsive and interaction verification
 
-- 1487 × 1058 expanded state: rail 205 px, three-line hero, source-aligned control path and status strip, no horizontal overflow.
+- 1487 × 1058 state: full-viewport X-Ray hero, three-line HTML headline, complete `EIN PROBLEM. EIN OWNER.` statement, status strip and no horizontal overflow.
 - Pointer-away state: rail returns to 76 px with no content reflow.
 - Current pointer verification: rail expands from 76 px to 205 px on hover and returns to 76 px after pointer exit.
 - Full-width transition verification: status rail reports `x: 0` and exact viewport width at 1487, 1280, 1180, 1024, 901, 900, 390 and 320 px.
@@ -158,13 +175,14 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - Motion verification: desktop rail computed transition duration is 0.4 s; button and rail-label transition token is 0.29 s; reduced-motion override remains 0.01 ms.
 - Stable rail geometry verification: collapsed and expanded states both retain `brandFlexDirection: row`, brand/image x/y, `navTop: 178`, and `navMarginTop: 88px`; only rail width and label opacity change.
 - Keyboard state: second Tab focuses `Normkontor Startseite`; `:focus-within` expands the rail to 205 px and uses an ivory focus ring on navy.
-- 390 × 844: mobile hero and full-width CTA stack verified; native menu opens without brand distortion or horizontal overflow.
+- 390 × 844: mobile hero and full-width CTA stack verified; X-Ray renders at 390 × 299 with a visible 350 × 59 transcript; native menu opens without brand distortion or horizontal overflow.
 - 320 × 256: menu remains internally scrollable (`clientHeight: 137`, `scrollHeight: 292`, `overflow-y: auto`); a clipped next row and gold bottom edge expose the continuation without horizontal overflow.
 - Review anchor settles at 94 CSS px from the viewport top; content remains unobscured.
 - All 20 internal links resolve to existing targets.
 - Native doctrine disclosure toggles successfully.
 - Reduced-motion CSS disables smooth scrolling, animation duration, transition duration, and button hover movement.
 - Browser console warnings/errors: 0.
+- DOM ownership proof: zero standalone Ownership interruptors and exactly one Authority Shutter.
 - Resource origins: only `http://127.0.0.1:3013`.
 - Cookies, local storage, and session storage: empty in the inspected session.
 
@@ -176,6 +194,6 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - Dependency audit: 0 vulnerabilities.
 - `git diff --check`: passed.
 - GitNexus change detection: two symbols, zero affected processes, low risk; the shared index reports the isolated worktree as ahead of its indexed sibling.
-- Current GitNexus change detection: eight symbols across three files, zero affected processes, low risk.
+- Current GitNexus change detection: seven symbols across three files, zero affected processes, low risk.
 
 final result: passed

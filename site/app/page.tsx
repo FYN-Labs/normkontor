@@ -216,11 +216,15 @@ export default function Home() {
           <div className="hero-art-frame" aria-hidden="true">
             <Image
               className="hero-art"
-              src="/brand/normkontor-enterprise-control-path.png"
+              src="/brand/normkontor-ownership-xray.png"
               alt=""
               fill
               sizes="100vw"
             />
+          </div>
+          <div className="hero-ownership-transcript visual-transcript">
+            <span>DUPLICATE OWNER · SHADOW STATE → NATIVE PATH</span>
+            <strong>Ein Problem. Ein Owner.</strong>
           </div>
           <div className="status-rail" aria-label="Produktstatus">
             {statusItems.map(({ icon, title, status }) => (
@@ -291,24 +295,6 @@ export default function Home() {
               <a className="text-link" href="https://github.com/FYN-Labs/normkontor" target="_blank" rel="noreferrer">Repository und Grenzen prüfen</a>
             </div>
           </div>
-        </section>
-
-        <section className="visual-interruptor visual-interruptor-ownership" aria-labelledby="ownership-interruptor-title">
-          <h2 className="sr-only" id="ownership-interruptor-title">Ein Problem. Ein Owner.</h2>
-          <figure className="visual-figure">
-            <Image
-              src="/brand/normkontor-ownership-xray.png"
-              alt=""
-              width={1382}
-              height={1058}
-              sizes="(max-width: 900px) 100vw, calc(100vw - 76px)"
-              unoptimized
-            />
-            <figcaption className="visual-transcript">
-              <span>DUPLICATE OWNER · SHADOW STATE → NATIVE PATH</span>
-              <strong>Nur der native Owner bleibt.</strong>
-            </figcaption>
-          </figure>
         </section>
 
         <section className="section-dark control-section" id="kontrollpfad">
