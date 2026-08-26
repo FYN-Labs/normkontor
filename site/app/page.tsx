@@ -216,10 +216,11 @@ export default function Home() {
           <div className="hero-art-frame" aria-hidden="true">
             <Image
               className="hero-art"
-              src="/brand/normkontor-enterprise-control-path.png"
+              src="/brand/normkontor-hero-control-field.png"
               alt=""
               fill
               sizes="100vw"
+              preload
             />
           </div>
           <div className="status-rail" aria-label="Produktstatus">
@@ -293,6 +294,24 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="visual-interruptor visual-interruptor-ownership" aria-labelledby="ownership-interruptor-title">
+          <h2 className="sr-only" id="ownership-interruptor-title">Ein Problem. Ein Owner.</h2>
+          <figure className="visual-figure">
+            <Image
+              src="/brand/normkontor-ownership-xray.png"
+              alt=""
+              width={1382}
+              height={1058}
+              sizes="(max-width: 900px) 100vw, calc(100vw - 76px)"
+              unoptimized
+            />
+            <figcaption className="visual-transcript">
+              <span>DUPLICATE OWNER · SHADOW STATE → NATIVE PATH</span>
+              <strong>Nur der native Owner bleibt.</strong>
+            </figcaption>
+          </figure>
+        </section>
+
         <section className="section-dark control-section" id="kontrollpfad">
           <div className="section-shell">
             <header className="section-heading-dark">
@@ -307,6 +326,24 @@ export default function Home() {
             </ol>
             <blockquote>Ein sauberer Bericht ist Evidenz. Er ist keine Berechtigung zum Merge, Deploy, Publish, Spend oder Release.</blockquote>
           </div>
+        </section>
+
+        <section className="visual-interruptor visual-interruptor-authority" aria-labelledby="authority-interruptor-title">
+          <h2 className="sr-only" id="authority-interruptor-title">Wo Arbeit endet. Wo Autorität beginnt.</h2>
+          <figure className="visual-figure">
+            <Image
+              src="/brand/normkontor-authority-shutter.png"
+              alt=""
+              width={1122}
+              height={696}
+              sizes="(max-width: 900px) 100vw, calc(100vw - 76px)"
+              unoptimized
+            />
+            <figcaption className="visual-transcript">
+              <span>BUILD · TEST · REPORT · REVIEW</span>
+              <strong>Merge, Deploy, Publish, Spend und Release bleiben hinter dem Human Gate.</strong>
+            </figcaption>
+          </figure>
         </section>
 
         <section className="paper-section portfolio-section" id="portfolio">

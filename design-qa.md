@@ -2,13 +2,13 @@
 
 ## Scope
 
-- Selected source: Enterprise Blueprint, direction 2
+- Selected source: Enterprise Blueprint, direction 2, extended with founder-selected ImageGen option 1
 - Implementation: `site/app/page.tsx`, `site/app/globals.css`
-- Visual assets: `site/public/brand/normkontor-enterprise-control-path.png` plus four transparent `normkontor-status-*.png` source-icon crops
-- Runtime state: optimized production build served locally at `http://localhost:3012/`
+- Visual assets: `normkontor-hero-control-field.png`, `normkontor-ownership-xray.png`, `normkontor-authority-shutter.png`, plus four transparent `normkontor-status-*.png` source-icon crops
+- Runtime state: optimized Next.js production runtime at `http://127.0.0.1:3013/`
 - Browser: headed Chrome through Playwright
 - Capture density: DPR 1, CSS-pixel screenshots
-- Primary source viewport: 1487 × 1058 CSS px
+- Primary production comparison viewport: 1440 × 1024 CSS px
 
 The implementation preserves the selected institutional blueprint: an ivory document field, deep-navy navigation rail, oxblood actions, serif editorial hierarchy, a visible control path, and a four-part status strip. The full page remains semantic HTML. The control path and four status icons are decorative source crops; every status label and qualifier has one visible HTML owner.
 
@@ -16,6 +16,16 @@ The implementation preserves the selected institutional blueprint: an ivory docu
 
 | Surface | Evidence |
 | --- | --- |
+| Current hero source and production implementation in one image | `output/playwright/normkontor-option-1/production-compare-hero-source-implementation.png` — normalized 1440 × 1024 source left, production implementation right |
+| Ownership X-Ray source and production implementation in one image | `output/playwright/normkontor-option-1/production-compare-ownership-source-implementation.png` — normalized 1440 × 1024 source left, production implementation right |
+| Authority Shutter source and production implementation in one image | `output/playwright/normkontor-option-1/production-compare-authority-source-implementation.png` — normalized 1440 × 1024 source left, production implementation right |
+| Current production desktop hero | `output/playwright/normkontor-option-1/production-desktop-hero.png` |
+| Current production desktop Ownership X-Ray | `output/playwright/normkontor-option-1/production-desktop-ownership.png` |
+| Current production desktop Authority Shutter | `output/playwright/normkontor-option-1/production-desktop-authority.png` |
+| Current production mobile hero | `output/playwright/normkontor-option-1/production-mobile-hero.png` |
+| Current production mobile menu | `output/playwright/normkontor-option-1/production-mobile-menu.png` |
+| Current production mobile Ownership X-Ray | `output/playwright/normkontor-option-1/production-mobile-ownership.png` |
+| Current production mobile Authority Shutter | `output/playwright/normkontor-option-1/production-mobile-authority.png` |
 | Source and implementation in one image | `output/playwright/enterprise-polish/reference-vs-implementation.png` — 1487 × 1058 source left, implementation right |
 | Desktop, rail expanded | `output/playwright/enterprise-blueprint/desktop-expanded-final.png` |
 | Desktop, rail collapsed | `output/playwright/enterprise-blueprint/desktop-collapsed-final.png` |
@@ -48,6 +58,11 @@ The screenshots under `output/` are local QA artifacts and are intentionally exc
 - Generic eyebrow copy was removed from the hero. Remaining section labels are factual archival markers with section code, evidence class, product state, or receipt purpose.
 - Motion durations are centralized and approximately 1.8× their former duration: 400 ms rail, 290 ms buttons and rail labels, 250 ms skip link, with reduced-motion protection unchanged.
 - Every H1/H2 renders in at most three lines at all measured widths; the hero has three explicit semantic display lines.
+- The new text-free 1672 × 941 hero asset is a true background layer. A 12vw paper-safe field keeps its brass frame clear of the three-line HTML headline at 1440 × 1024.
+- Ownership X-Ray is the single selected new section: its baked duplicate rail was removed by an exact 105 px source crop so the live 76 px navigation remains the only rail owner.
+- Authority Shutter appears exactly once after the control path. Its lower 1122 × 696 scene is an exact crop from the selected mock, without rebuilding the shutter, linework, or typography in CSS.
+- Both text-bearing interruptors use intrinsic dimensions and unoptimized source bytes to preserve glyph sharpness. Only the text-free hero is preloaded.
+- Interruptor motion is limited to a 30-second 1.015 scale drift; the hero uses 38 seconds. Reduced Motion disables both animations and smooth scrolling.
 
 ## Comparison history
 
@@ -98,6 +113,25 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - P2: none.
 - P3: none.
 
+### Founder-selected option 1 pass
+
+- Source truth: hero `1672 × 941`, Ownership X-Ray crop `1382 × 1058`, Authority Shutter crop `1122 × 696`.
+- P2: the first integrated hero size allowed its brass frame to touch the final word of line two. Resolution: reduced the desktop display ceiling from 80 px to 72 px and reserved a responsive 12vw paper-safe field before the image layer. Post-fix evidence: `production-desktop-hero.png` and `production-compare-hero-source-implementation.png`.
+- P2: both generated section mockups carried context that would duplicate an existing owner: a second navy rail on Ownership X-Ray and the old hero above Authority Shutter. Resolution: exact deterministic source crops at `x=105` and `y=706`; no visual content was reconstructed in DOM or CSS. Post-fix evidence: the two section comparison images.
+- P2: default optimized delivery softened rasterized display text in the large interruptors. Resolution: keep explicit intrinsic dimensions and use `unoptimized` only for the two text-bearing below-fold images; the hero remains optimized and preloaded.
+- Desktop rail remains the existing native owner and measures `76 → 205 → 76` px under pointer entry and exit.
+- Mobile measures `390:390` for document width versus viewport width; the native menu opens and closes successfully.
+- Reduced-motion runtime proof: computed hero animation plus root scroll behavior equals `none:auto`.
+- First independent visual gate P1: the Next.js development indicator duplicated the N brand in development captures. Resolution: all frozen evidence now comes from the optimized production runtime, where the indicator is absent.
+- First independent visual gate P1: baked labels in the two wide source images were too small at 390 px. Resolution: each image remains uncropped and intact, while a visible HTML figcaption carries the operative meaning at a readable mobile size; desktop keeps the same caption semantically available without duplicating the composition.
+- Fresh production-gate browser session: 0 console errors and 0 warnings after both interruptors loaded.
+- Independent production visual re-review: PASS; no remaining P0/P1/P2 findings.
+- Independent 3A COD3X final-delta review: PASS; no remaining P0/P1/P2 findings and no added runtime, state, authority, or third interruptor.
+- P0: none.
+- P1: none.
+- P2: none.
+- P3: none.
+
 ## Responsive and interaction verification
 
 - 1487 × 1058 expanded state: rail 205 px, three-line hero, source-aligned control path and status strip, no horizontal overflow.
@@ -116,7 +150,7 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - Native doctrine disclosure toggles successfully.
 - Reduced-motion CSS disables smooth scrolling, animation duration, transition duration, and button hover movement.
 - Browser console warnings/errors: 0.
-- Resource origins: only `http://localhost:3012`.
+- Resource origins: only `http://127.0.0.1:3013`.
 - Cookies, local storage, and session storage: empty in the inspected session.
 
 ## Source and package gates
@@ -127,5 +161,6 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - Dependency audit: 0 vulnerabilities.
 - `git diff --check`: passed.
 - GitNexus change detection: two symbols, zero affected processes, low risk; the shared index reports the isolated worktree as ahead of its indexed sibling.
+- Current GitNexus change detection: nine symbols across three files, zero affected processes, low risk.
 
 final result: passed

@@ -120,6 +120,16 @@ main:focus {
   transform: translateY(0);
 }
 
+.sr-only {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .site-header {
   background: var(--black);
   border-right: 1px solid var(--line-on-navy);
@@ -369,25 +379,27 @@ footer {
 
 .hero-art-frame {
   background: #f7f7f3;
-  border-left: 1px solid var(--line-light);
   bottom: var(--status-height);
-  max-width: 470px;
+  left: clamp(140px, 12vw, 220px);
+  max-width: none;
   position: absolute;
   right: 0;
   top: 0;
-  width: 32.5vw;
+  width: auto;
   z-index: 0;
 }
 
 .hero-art {
+  animation: visual-breathe 38s ease-in-out infinite alternate;
   object-fit: cover;
-  object-position: left top;
+  object-position: center;
+  transform-origin: 68% 50%;
 }
 
 .hero-shell {
   align-items: start;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 32.5vw);
+  grid-template-columns: minmax(0, 1fr);
   margin: 0;
   min-height: 733px;
   max-width: none;
@@ -421,7 +433,7 @@ footer {
 
 .hero h1 {
   color: var(--ink);
-  font-size: clamp(64px, 5.4vw, 80px);
+  font-size: clamp(58px, 5vw, 72px);
   letter-spacing: -0.038em;
   line-height: 0.98;
   margin-bottom: 19px;
@@ -1545,13 +1557,64 @@ footer {
   letter-spacing: 0.08em;
 }
 
+@keyframes visual-breathe {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.015);
+  }
+}
+
+.visual-interruptor {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100svh;
+  overflow: hidden;
+  position: relative;
+}
+
+.visual-interruptor img {
+  animation: visual-breathe 30s ease-in-out infinite alternate;
+  display: block;
+  height: auto;
+  max-width: none;
+  transform-origin: center;
+  width: 100%;
+}
+
+.visual-figure {
+  margin: 0;
+  width: 100%;
+}
+
+.visual-transcript {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.visual-interruptor-ownership {
+  background: #f8f5ed;
+}
+
+.visual-interruptor-authority {
+  background: #0c2336;
+}
+
 @media (max-width: 1280px) {
   .nav-truth {
     display: block;
   }
 
   .hero-shell {
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 35vw);
+    grid-template-columns: minmax(0, 1fr);
     padding-left: calc(var(--rail-expanded) - var(--rail-collapsed) + 36px);
   }
 
@@ -1690,8 +1753,8 @@ footer {
   }
 
   .hero-art {
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
+    object-position: 70% center;
   }
 
   .hero-shell {
@@ -1756,6 +1819,11 @@ footer {
     color: var(--ink-muted);
     display: block;
     margin-top: 42px;
+  }
+
+  .visual-interruptor {
+    min-height: calc(100svh - var(--header-height));
+    padding: 48px 0;
   }
 
   .evidence-grid,
@@ -1854,7 +1922,7 @@ footer {
   }
 
   .hero-art {
-    object-position: 69% center;
+    object-position: 72% center;
   }
 
   .hero h1 {
@@ -2012,6 +2080,60 @@ footer {
     border-bottom: 1px solid var(--line-light);
     border-right: 1px solid var(--line-light);
   }
+
+  .visual-interruptor {
+    min-height: 80svh;
+    padding: 36px 0;
+  }
+
+  .visual-figure {
+    display: grid;
+    gap: 34px;
+  }
+
+  .visual-transcript {
+    border-left: 2px solid var(--oxblood);
+    clip: auto;
+    clip-path: none;
+    display: grid;
+    gap: 10px;
+    height: auto;
+    margin: 0 20px;
+    overflow: visible;
+    padding: 2px 0 2px 16px;
+    position: static;
+    white-space: normal;
+    width: auto;
+  }
+
+  .visual-transcript span {
+    color: var(--oxblood);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+  }
+
+  .visual-transcript strong {
+    color: var(--ink);
+    font-family: var(--font-display), Georgia, serif;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 1.12;
+  }
+
+  .visual-interruptor-authority .visual-transcript {
+    border-left-color: var(--brass);
+  }
+
+  .visual-interruptor-authority .visual-transcript span {
+    color: var(--brass);
+  }
+
+  .visual-interruptor-authority .visual-transcript strong {
+    color: var(--ivory);
+  }
 }
 
 @media (max-width: 900px) and (max-height: 360px) {
@@ -2036,6 +2158,12 @@ footer {
   }
 
   .button:hover {
+    transform: none;
+  }
+
+  .hero-art,
+  .visual-interruptor img {
+    animation: none;
     transform: none;
   }
 }
