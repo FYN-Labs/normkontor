@@ -220,11 +220,11 @@ export default function Home() {
           <div className="hero-art-frame" aria-hidden="true">
             <Image
               className="hero-art"
-              src="/brand/normkontor-normenregister-book.png"
+              src="/brand/normkontor-3a-kontorakte-hero-16x9.png"
               alt=""
               fill
               fetchPriority="high"
-              sizes="(min-width: 901px) 48vw, 100vw"
+              sizes="(min-width: 901px) calc(100vw - 76px), 100vw"
               unoptimized
             />
           </div>

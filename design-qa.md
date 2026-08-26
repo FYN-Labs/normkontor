@@ -2,21 +2,27 @@
 
 ## Scope
 
-- Selected source: founder-selected Normenregister hero revision with HTML copy left, the physical register right, and the existing live navigation rail at far left; local source truth: `output/playwright/normkontor-normenregister/source-selected.png`
+- Selected source: founder-selected 16:9 Kontorakte desk scene with quiet copy space left, the physical register right, exact `NORMKONTOR` cover text, and only the brass N seal; local source truth: `output/playwright/normkontor-16x9-hero/source-selected-16x9.png`
 - Implementation: `site/app/page.tsx`, `site/app/globals.css`
-- Visual assets: `normkontor-normenregister-book.png`, `normkontor-authority-shutter.png`, plus four transparent `normkontor-status-*.png` source-icon crops
+- Visual assets: `normkontor-3a-kontorakte-hero-16x9.png`, `normkontor-authority-shutter.png`, plus four transparent `normkontor-status-*.png` source-icon crops
 - Runtime state: optimized Next.js production runtime at `http://127.0.0.1:3013/`
 - Browser: headed Chrome through Playwright
 - Capture density: DPR 1, CSS-pixel screenshots
 - Primary production comparison viewport: 1536 × 1024 CSS px
 
-The implementation recreates the selected institutional hero with semantic HTML copy and actions, a real transparent Normenregister raster, the existing collapsible navy rail, and the existing full-width product-status transition below the first viewport. The physical register remains one image owner; navigation, headline, actions, and product status remain accessible HTML.
+The implementation uses the selected desk scene as the single full-bleed hero-image owner, with semantic HTML copy and actions in its intentionally quiet left field. The existing collapsible navy rail remains separate, and the full-width product-status transition begins after the exact 16:9 stage. Navigation, headline, actions, and product status remain accessible HTML.
 
 ## Visual evidence
 
 | Surface | Evidence |
 | --- | --- |
-| Current Normenregister source and production implementation in one image | `output/playwright/normkontor-normenregister/source-vs-implementation-final.png` — 1536 × 1024 source left, same-size production implementation right |
+| Current 16:9 source and rendered hero stage in one image | `output/playwright/normkontor-16x9-hero/source-vs-implementation-final.png` — source and implementation normalized to 1460 × 822 px |
+| Current production desktop viewport | `output/playwright/normkontor-16x9-hero/desktop-1536x1024-final.png` |
+| Current overlay-boundary viewport | `output/playwright/normkontor-16x9-hero/boundary-1181x900-final.png` |
+| Current production compact desktop | `output/playwright/normkontor-16x9-hero/compact-1024x768-final.png` and `compact-901x768-final.png` |
+| Current production mobile viewport | `output/playwright/normkontor-16x9-hero/mobile-390x844-final.png` |
+| Current production mobile menu | `output/playwright/normkontor-16x9-hero/mobile-menu-390x844-final.png` |
+| Historical upright Normenregister source and implementation | `output/playwright/normkontor-normenregister/source-vs-implementation-final.png` — superseded by the selected 16:9 Kontorakte scene |
 | Current production desktop hero, rail collapsed | `output/playwright/normkontor-normenregister/implementation-desktop-final-collapsed.png` |
 | Current production desktop hero, rail expanded | `output/playwright/normkontor-normenregister/implementation-desktop-final-expanded.png` |
 | Current production mobile hero | `output/playwright/normkontor-normenregister/implementation-mobile-390-final.png` |
@@ -54,9 +60,9 @@ The screenshots under `output/` are local QA artifacts and are intentionally exc
 - Resting desktop rail is 76 px wide; moving the pointer away collapses it automatically.
 - `:focus-within` expands the same rail for keyboard users without adding client state.
 - Three-line desktop hero statement, short oxblood rule, two-line supporting copy, and outlined/filled CTA pair follow the selected source.
-- The transparent physical Normenregister is the only hero-image owner and preserves the oxblood binding, indexed tabs, brass N seal, red cord, and printed evidence docket.
-- The four-part status transition remains full width but begins after the first desktop viewport, keeping the selected hero composition uninterrupted.
-- Mobile converts the rail to a native `<details>` menu, stacks the CTAs, moves the Normenregister into document flow, and renders semantic product statuses.
+- The full 1672 × 941 desk scene is the only hero-image owner. It preserves the oxblood binding, indexed tabs, exact `NORMKONTOR` cover, brass N seal, red cord, desk perspective, light, texture, and shadow without rebuilding any of them in CSS.
+- The four-part status transition remains full width and begins after the 16:9 desktop stage, keeping the selected scene uninterrupted.
+- Mobile converts the rail to a native `<details>` menu, stacks the CTAs, moves the complete 16:9 scene into document flow, and renders semantic product statuses.
 - The full site uses one coherent light enterprise system rather than independent dark landing-page blocks.
 - The desktop navigation rail is now solid navy from viewport top to bottom; no section-colored break remains inside the navigation owner.
 - The navy status transition spans the complete viewport width while its content grid still begins after the expanded 205 px rail boundary.
@@ -64,9 +70,9 @@ The screenshots under `output/` are local QA artifacts and are intentionally exc
 - Motion durations are centralized and approximately 1.8× their former duration: 400 ms rail, 290 ms buttons and rail labels, 250 ms skip link, with reduced-motion protection unchanged.
 - Every H1/H2 renders in at most three lines at all measured widths; the hero has three explicit semantic display lines.
 - No duplicate rail, fake paper, CSS illustration, new component, client state, or third-party runtime was added. The existing `Home`, global CSS, and `next/image` path remain the native owners.
-- The desktop hero consumes one complete viewport before the status transition; the physical register is delivered at its native 768 × 1024 pixels without optimization softening its printed labels.
+- At 1536 × 1024 the live stage measures 1460 × 821.7 CSS px, matching the selected source ratio to rounding; the source remains at its native 1672 × 941 pixels without optimization softening its printed labels.
 - Authority Shutter appears exactly once after the control path. Its lower 1122 × 696 scene is an exact crop from the selected mock, without rebuilding the shutter, linework, or typography in CSS.
-- The Normenregister and Authority Shutter use unoptimized local Next images to preserve rasterized display text; no remote image origin is introduced.
+- The Kontorakte scene and Authority Shutter use unoptimized local Next images to preserve rasterized display text; no remote image origin is introduced.
 - Interruptor motion is limited to a 30-second 1.015 scale drift. Reduced Motion disables the interruptor animation and smooth scrolling.
 
 ## Comparison history
@@ -186,6 +192,25 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - P2: none after two visual iterations and the independent accessibility cleanup.
 - P3: the interactive rail necessarily differs in width and label scale from the static generated mock; this is an accepted product behavior, not a fidelity defect.
 
+### Founder-selected 16:9 Kontorakte background pass
+
+- Source visual truth: `output/playwright/normkontor-16x9-hero/source-selected-16x9.png`, 1672 × 941 px. Required content is the physical 3A Kontorakte on a warm ivory desk, exact `NORMKONTOR` cover text, tabs 01–05, and one brass N seal. No loose tag, `PRÜFSIEGEL`, `EVIDENZ VOR FREIGABE`, `NORMENREGISTER`, or `NORMREGISTER` appears.
+- Implementation evidence: `desktop-1536x1024-final.png`, `desktop-hero-stage-final.png`, `compact-1024x768-final.png`, `compact-901x768-final.png`, `mobile-390x844-final.png`, and `mobile-menu-390x844-final.png` under `output/playwright/normkontor-16x9-hero/`.
+- Density normalization: source 1672 × 941 and rendered stage 1460 × 822 were normalized to 1460 × 822 at DPR 1. The combined comparison `source-vs-implementation-final.png` is 2920 × 822 and places both artifacts in one visual input.
+- Full-view evidence: the rendered background retains the source crop, perspective, light, desk edge, dossier scale, cover typography, tab sequence, seal, and shadows. Semantic HTML occupies only the intended negative space on the left; the physical dossier remains unobscured on the right.
+- Focused comparison was not required: `3A`, `NORMKONTOR`, tab numbers, the N seal, headline, lede, and both CTAs are legible in the normalized combined image. Mobile was checked separately because its responsive structure intentionally stacks copy and image.
+- Fonts and typography: the existing Cormorant Garamond and IBM Plex Sans owners remain unchanged; the H1 keeps three explicit lines on desktop and mobile, with no truncation or rasterized replacement.
+- Spacing and layout rhythm: desktop copy measures 581.7 × 456.1 px inside the quiet left field; the scene measures 1460 × 821.7 px and the status owner begins at y=821.7. Mobile uses a 390 × 219.5 px 16:9 image block after the semantic copy.
+- Colors and tokens: existing navy, oxblood, and paper tokens remain unchanged. No whitening overlay, gradient, fake paper, or CSS-drawn seal was added; readability comes from the selected source's quiet ivory field.
+- Image quality and asset fidelity: the browser loads the native 1672 × 941 local PNG through the existing unoptimized `next/image` owner. No remote origin, image approximation, crop drift, or extra visual asset exists.
+- Copy and content: the HTML value proposition and CTAs remain unchanged. The raster itself now says only `3A` and `NORMKONTOR`; rejected seal explanations and the incorrect register names are absent.
+- Interaction and accessibility: rail `76 → 205 → 76` px; primary CTA reaches `#kontakt`; all internal targets resolve; mobile menu opens; horizontal overflow is 0 px on desktop and mobile; browser console reports 0 errors and 0 warnings.
+- Comparison iteration 1 found one P2 at the compact desktop boundary: `object-fit: cover` cropped the right side of the dossier at 1024 px and materially at 901 px. The existing 901–1180 px responsive owner now stacks the semantic copy and complete 16:9 scene while retaining the fixed collapsible rail; no new component or state was introduced.
+- Post-fix evidence: `compact-1024x768-final.png` and `compact-901x768-final.png` show the uncropped source at its exact ratio, with no text collision or horizontal overflow.
+- Comparison iteration 2 found one P2 at 1181 px, immediately above the compact breakpoint: the 760 px minimum stage height caused the centered cover crop to trim the dossier's right edge and tabs. The existing image owner now uses the selected scene's 60% horizontal focal point; exact-ratio desktop, compact, and mobile states remain unchanged.
+- Post-fix evidence: `boundary-1181x900-final.png` shows the complete right edge and all tabs, with clear separation from the copy and zero horizontal overflow. Final result: P0 none, P1 none, P2 none, P3 none.
+- Release boundary: this passes the local source, production-render, and visual gates only. It does not authorize deployment, publication, domain replacement, or release.
+
 ### Normkontor Standard Groundbase copy pass
 
 - Source visual truth: the pre-change production captures `output/playwright/normkontor-groundbase/00-current-hero.png`, `01-current-3a-section.png`, and `01-current-open-source-section.png` at `1536 × 1024`, DPR 1.
@@ -204,7 +229,9 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 
 ## Responsive and interaction verification
 
-- 1536 × 1024 state: uninterrupted selected hero for the first viewport, three-line semantic headline, utility links, complete physical register, and no horizontal overflow. The full-width status transition begins below it.
+- 1536 × 1024 state: uninterrupted 1460 × 821.7 px 16:9 stage, three-line semantic headline, utility links, complete physical Kontorakte, and no horizontal overflow. The full-width status transition begins at y=821.7.
+- 1181 × 900 overlay boundary: the 60% source focal point preserves the complete dossier edge and tabs without colliding with the copy; console and horizontal overflow remain clean.
+- 1024 × 768 and 901 × 768: the existing compact-desktop breakpoint stacks copy and the complete 16:9 scene, preserving the fixed collapsible rail without cropping the dossier or creating horizontal overflow.
 - Pointer-away state: rail returns to 76 px with no content reflow.
 - Current pointer verification: rail expands from 76 px to 205 px on hover and returns to 76 px after pointer exit.
 - Full-width transition verification: status rail reports `x: 0` and exact viewport width at 1487, 1280, 1180, 1024, 901, 900, 390 and 320 px.
@@ -213,14 +240,14 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - Motion verification: desktop rail computed transition duration is 0.4 s; button and rail-label transition token is 0.29 s; reduced-motion override remains 0.01 ms.
 - Stable rail geometry verification: collapsed and expanded states both retain `brandFlexDirection: row`, brand/image x/y, `navTop: 178`, and `navMarginTop: 88px`; only rail width and label opacity change.
 - Keyboard state: second Tab focuses `Normkontor Startseite`; `:focus-within` expands the rail to 205 px and uses an ivory focus ring on navy.
-- 390 × 844: mobile hero and full-width CTA stack verified; the register frame equals the 390 px viewport width, the source image loads at its native 768 × 1024 size, and the native menu opens without brand distortion or horizontal overflow.
+- 390 × 844: mobile hero and full-width CTA stack verified; the 16:9 scene measures 390 × 219.5 px, the source image loads at its native 1672 × 941 size, and the native menu opens without brand distortion or horizontal overflow.
 - 320 × 256: menu remains internally scrollable (`clientHeight: 137`, `scrollHeight: 292`, `overflow-y: auto`); a clipped next row and gold bottom edge expose the continuation without horizontal overflow.
 - Review anchor settles at 94 CSS px from the viewport top; content remains unobscured.
 - Every internal link resolves to an existing target; the primary hero CTA was clicked and reached `#kontakt`.
 - Native doctrine disclosure toggles successfully.
 - Reduced-motion CSS disables smooth scrolling, animation duration, transition duration, and button hover movement.
 - Browser console warnings/errors: 0 on desktop, mobile, and open-menu states.
-- DOM ownership proof: exactly one Normenregister hero asset, zero X-Ray hero/transcript nodes, and exactly one retained Authority Shutter.
+- DOM ownership proof: exactly one 16:9 Kontorakte hero asset, zero X-Ray hero/transcript nodes, and exactly one retained Authority Shutter.
 - Resource origins: only `http://127.0.0.1:3013`.
 - Cookies, local storage, and session storage: empty in the inspected session.
 
@@ -233,6 +260,6 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - Dependency audit: 0 vulnerabilities.
 - `git diff --check`: passed.
 - Pre-change GitNexus impact for `Home`: exact match, zero direct callers, zero affected processes/modules, low risk.
-- Current GitNexus change detection: nine symbols across four files, zero affected processes, low risk.
+- Current GitNexus change detection: ten indexed symbols across three source/document files, zero affected processes, low risk; the renamed raster asset is outside the code graph.
 
 final result: passed

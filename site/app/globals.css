@@ -21,6 +21,7 @@
   --rail-collapsed: 76px;
   --rail-expanded: 205px;
   --status-height: clamp(160px, calc((100vw - var(--rail-expanded)) * 0.1482), 190px);
+  --hero-stage-height: clamp(760px, calc((100vw - var(--rail-collapsed)) * 0.5628), 1100px);
   --motion-fast: 290ms;
   --motion-rail: 400ms;
   --motion-skip: 250ms;
@@ -371,7 +372,7 @@ footer {
 .hero {
   background: var(--paper-bright);
   color: var(--ink);
-  min-height: calc(max(820px, 100svh) + var(--status-height));
+  min-height: calc(var(--hero-stage-height) + var(--status-height));
   overflow: hidden;
   padding-bottom: var(--status-height);
   position: relative;
@@ -410,19 +411,19 @@ footer {
 
 .hero-art-frame {
   background: transparent;
-  bottom: calc(var(--status-height) + 26px);
-  left: auto;
-  max-width: 730px;
+  bottom: var(--status-height);
+  left: 0;
+  max-width: none;
   position: absolute;
-  right: clamp(20px, 3vw, 56px);
-  top: 104px;
-  width: min(49.5vw, 730px);
-  z-index: 1;
+  right: 0;
+  top: 0;
+  width: auto;
+  z-index: 0;
 }
 
 .hero-art {
-  object-fit: contain;
-  object-position: right bottom;
+  object-fit: cover;
+  object-position: 60% center;
 }
 
 .hero-shell {
@@ -430,9 +431,9 @@ footer {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(520px, 48vw);
   margin: 0;
-  min-height: max(820px, 100svh);
+  min-height: var(--hero-stage-height);
   max-width: none;
-  padding: clamp(250px, 30vh, 310px) 0 72px calc(var(--rail-expanded) - var(--rail-collapsed) + 12px);
+  padding: clamp(220px, 27vh, 270px) 0 64px calc(var(--rail-expanded) - var(--rail-collapsed) + 12px);
   position: relative;
   z-index: 2;
 }
@@ -1666,12 +1667,38 @@ footer {
 }
 
 @media (min-width: 901px) and (max-width: 1180px) {
+  .hero {
+    min-height: auto;
+    padding-bottom: 0;
+  }
+
   .hero-utility-nav {
     display: none;
   }
 
   .hero-art-frame {
-    width: min(45vw, 520px);
+    aspect-ratio: 1672 / 941;
+    bottom: auto;
+    left: auto;
+    margin: 0;
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100%;
+  }
+
+  .hero-shell {
+    display: block;
+    min-height: auto;
+    padding-bottom: 64px;
+    padding-top: 160px;
+  }
+
+  .status-rail {
+    left: calc(-1 * var(--rail-collapsed));
+    position: relative;
+    right: auto;
+    width: 100vw;
   }
 
   .hero h1 {
@@ -1791,7 +1818,7 @@ footer {
   }
 
   .hero-art-frame {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 1672 / 941;
     background: transparent;
     border: 0;
     bottom: auto;
@@ -1801,11 +1828,6 @@ footer {
     max-width: 620px;
     position: relative;
     width: min(100%, 620px);
-  }
-
-  .hero-art {
-    object-fit: contain;
-    object-position: center bottom;
   }
 
   .hero-shell {
