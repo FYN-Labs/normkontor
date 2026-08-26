@@ -1352,7 +1352,7 @@ footer {
 }
 
 .open-source-grid h2 {
-  font-size: clamp(50px, 5.5vw, 76px);
+  font-size: clamp(50px, 4.7vw, 66px);
 }
 
 .open-source-grid > div:first-child > p:not(.section-kicker) {
@@ -1376,9 +1376,14 @@ footer {
   align-items: center;
   border-bottom: 1px solid var(--line-light);
   display: flex;
+  gap: 16px;
   justify-content: space-between;
   margin: 0;
   padding-bottom: 18px;
+}
+
+.install-receipt > p strong {
+  text-align: right;
 }
 
 .install-receipt > p:last-child {

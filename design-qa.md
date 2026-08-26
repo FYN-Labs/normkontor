@@ -186,6 +186,22 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - P2: none after two visual iterations and the independent accessibility cleanup.
 - P3: the interactive rail necessarily differs in width and label scale from the static generated mock; this is an accepted product behavior, not a fidelity defect.
 
+### Normkontor Standard Groundbase copy pass
+
+- Source visual truth: the pre-change production captures `output/playwright/normkontor-groundbase/00-current-hero.png`, `01-current-3a-section.png`, and `01-current-open-source-section.png` at `1536 × 1024`, DPR 1.
+- Implementation evidence: `10-final-hero.png`, `11-final-3a-section.png`, `12-final-review-section.png`, `13-final-groundbase-section.png`, `14-final-mobile-hero.png`, and `15-final-mobile-groundbase.png` in the same folder.
+- Full-view comparisons: `20-hero-before-after.png`, `21-3a-before-after.png`, and `22-groundbase-before-after.png`, each `3072 × 1024`, place source left and revised implementation right in one input.
+- Existing owners reused: hero copy, `#3a`, product ledger, review block, open-source block, source list, metadata object, global CSS, and the existing responsive breakpoints. No new section, route, component, dependency, asset, client state, runtime, form, analytics, or tracking owner was added.
+- Groundbase hierarchy is now explicit: Normkontor Standard Kernel `1.0.0` is the governance boundary; 3A COD3X `0.4.0` is the two-skill method beneath it; the on-page evidence card separates source/package/static-contract evidence from runtime, compliance, and release truth.
+- Public-boundary remediation in the rendered page: the direct enterprise-architecture link, MCP/gateway copy, tenant/routing topology, and install-now presentation were removed. The planned Review area retains only its customer-facing result boundary and routes to a conversation, not an internal architecture document.
+- Independent P0 re-review found that even an exact Kernel-file link amplified the still-unsanitized public commit tree. Every Normkontor repository/SHA CTA was therefore withheld; the page now routes only to its own Source-Candidate and release-boundary explanations until an allowlist-clean public commit exists.
+- P2 iteration 1: the first revised desktop capture wrapped both the Review and Groundbase headlines to four lines. Resolution: shortened the Review statement and reduced only the existing open-source headline scale. Final measurement at `1536 × 1024` is three lines for each; every other visible H2 is at most three lines and the H1 keeps three unwrapped semantic spans.
+- P2 iteration 2: the first `390 × 844` Groundbase receipt let long values crowd their field labels. Resolution: added a `16px` gap and right alignment at the existing receipt-row owner. Final mobile capture has no collision and no horizontal overflow.
+- Final runtime evidence: no link contains `/docs/enterprise/`, `FYN-Labs/normkontor`, PR `#1`, or candidate SHA `3ce0fa2`; no rendered `MCP-Endpunkt`, `Policy gateway`, or `Customer Policy Gateway`; every internal anchor resolves; rail remains `76 → 205 → 76`; console reports 0 errors and 0 warnings.
+- Focused crops were not required because all changed labels, headings, evidence rows, CTA copy, and mobile wrapping are legible in the equal-size full-view and mobile captures.
+- Visual and interaction result: P0 none, P1 none, P2 none, P3 none.
+- Release boundary: this QA proves the local website implementation only. It does not clear the separate public-repository split, PR merge, deployment, domain replacement, or publication gates.
+
 ## Responsive and interaction verification
 
 - 1536 × 1024 state: uninterrupted selected hero for the first viewport, three-line semantic headline, utility links, complete physical register, and no horizontal overflow. The full-width status transition begins below it.
@@ -213,9 +229,10 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - ESLint: passed.
 - Next.js production build: passed.
 - Repository tests: 9/9 passed.
+- Groundbase PR source/package tests: 15/15 passed; GitHub PR checks: 4/4 passed. These do not clear the separate public-tree allowlist or release gates.
 - Dependency audit: 0 vulnerabilities.
 - `git diff --check`: passed.
 - Pre-change GitNexus impact for `Home`: exact match, zero direct callers, zero affected processes/modules, low risk.
-- Current GitNexus change detection: nine symbols across three files, zero affected processes, low risk.
+- Current GitNexus change detection: nine symbols across four files, zero affected processes, low risk.
 
 final result: passed

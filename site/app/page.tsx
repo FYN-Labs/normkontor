@@ -4,7 +4,7 @@ const pilotMailto =
   "mailto:support@fyn-labs.com?subject=Normkontor%20Pilotf%C3%A4higkeit&body=Workflow%3A%0ATeam%3A%0ADatenklasse%3A%0ANachweisfrage%3A%0AStop-Kriterium%3A";
 
 const statusItems = [
-  { icon: "/brand/normkontor-status-open-source.png", title: "3A Open Source", status: "Öffentlicher Quellenkandidat" },
+  { icon: "/brand/normkontor-status-open-source.png", title: "Normkontor Standard", status: "Kernel 1.0 · Source Candidate" },
   { icon: "/brand/normkontor-status-rollout.png", title: "Rollout", status: "Auf Anfrage" },
   { icon: "/brand/normkontor-status-academy.png", title: "Academy", status: "Auf Anfrage" },
   { icon: "/brand/normkontor-status-review.png", title: "Review", status: "In Entwicklung" },
@@ -63,22 +63,22 @@ const ladder = [
 
 const controlStages = [
   ["0.5", "Contract", "Scope, Owner, Akzeptanz, Ausschlüsse, Evidenz, Rollback und Human Gate."],
-  ["0.65", "Runtime readiness", "Umgebung, Datenklasse, Route, Budget, Stop-Bedingungen und Reporting."],
+  ["0.65", "Readiness", "Umgebung, Datenklasse, Fähigkeit, Budget, Stop-Bedingungen und Reporting."],
   ["01", "Worker", "Arbeitet im eingefrorenen Auftrag und berichtet Artefakte, Checks und Restlücken."],
-  ["02", "CAO", "Prüft unabhängig und entscheidet PASS, REJECT oder PARK — ohne selbst zu bauen."],
+  ["02", "CAO", "Liefert PASS, REJECT oder PARK als Evidenz — ohne selbst zu bauen oder zu autorisieren."],
   ["03", "Controller", "Integriert Befunde, erhält Widerspruch und routet zur richtigen Autorität."],
-  ["HG", "Human Gate", "Der benannte Unternehmens-Owner entscheidet alles, was Policy nicht delegiert."],
+  ["DO", "Decision Owner", "Ein verifizierter Mensch entscheidet geschützte Handlungen mit gültigem Receipt für den exakten Scope."],
 ];
 
 const products = [
   {
     code: "NK / 01",
     status: "Public Source Candidate",
-    title: "Normkontor 3A",
-    tech: "Technischer Pluginname: 3A COD3X",
-    body: "Zwei instruction-only Skills für den kleinsten vollständigen nativen Weg und einen begrenzten read-only Phase-Review.",
-    href: "https://github.com/FYN-Labs/normkontor",
-    action: "Repository prüfen",
+    title: "Normkontor Standard",
+    tech: "Kernel 1.0.0 · 3A COD3X 0.4.0",
+    body: "Öffentlicher Governance-Kernel mit generischen Host-Adaptern; 3A COD3X liefert darunter zwei instruction-only Methoden für Umsetzung und begrenzten Review.",
+    href: "#opensource",
+    action: "Veröffentlichungsstatus prüfen",
   },
   {
     code: "NK / 02",
@@ -102,20 +102,18 @@ const products = [
     code: "NK / 04",
     status: "In Entwicklung",
     title: "Normkontor Review",
-    tech: "Geplanter kundenkontrollierter MCP/API-Prüfarm",
-    body: "Zielarchitektur für gefrorene Prüfgegenstände, Datenminimierung, blinde Review-Arme und minimierte Evidence Receipts.",
+    tech: "Separat geplante Review-Funktion",
+    body: "Gefrorener Prüfgegenstand, unabhängige Befunde, nachvollziehbares Evidenzdossier und menschliche Entscheidung.",
     href: "#review",
-    action: "Zielarchitektur prüfen",
+    action: "Produktgrenze prüfen",
   },
 ];
 
 const reviewSteps = [
   ["01", "Frozen subject", "Scope, Akzeptanz, Autoritätsgrenze und Evidence Hash werden vorab fixiert."],
-  ["02", "Policy gateway", "Identität, Tenant, Repository, Datenklasse, Zweck, Budget und Route werden geprüft."],
-  ["03", "Minimize / detect", "Nur nötige Diffs und Symbole; blockieren, wenn Redigieren Bedeutung zerstört."],
-  ["A+B", "Blind review arms", "Zwei zusätzliche qualifizierte, autorunabhängige Arme sehen nicht den jeweils anderen Befund."],
-  ["04", "Evidence receipt", "Einzelurteile, Identitäten, Widersprüche, Restlücken und authority_granted: none."],
-  ["HG", "Human & CI gate", "Die Entscheidung bleibt außerhalb des Modells bei benannten Ownern."],
+  ["02", "Independent findings", "Ein getrennter Prüfpfad liefert nachvollziehbare Befunde, ohne die Entscheidung selbst zu treffen."],
+  ["03", "Evidence dossier", "Scope, Einzelbefunde, Widersprüche und Restlücken bleiben prüfbar gebunden."],
+  ["DO", "Decision owner", "Der verifizierte menschliche Owner entscheidet außerhalb des Modells."],
 ];
 
 const governanceControls = [
@@ -143,6 +141,7 @@ const academyTracks = [
 ];
 
 const claims = [
+  "kein getaggter Release-Receipt für Kernel 1.0.0 oder Plugin 0.4.0",
   "keine GDPR-, DORA-, EU-AI-Act-, BaFin- oder Security-Zertifizierung",
   "keine aktuelle Managed oder Customer-hosted Review Runtime",
   "keine Garantie für Frankfurt-only oder EU-only Inferenz",
@@ -175,14 +174,14 @@ export default function Home() {
             <a href="#top"><span aria-hidden="true">01</span><strong>Überblick</strong></a>
             <a href="#kontrollpfad"><span aria-hidden="true">02</span><strong>Kontrollpfad</strong></a>
             <a href="#rollout"><span aria-hidden="true">03</span><strong>Rollout</strong></a>
-            <a href="#3a"><span aria-hidden="true">04</span><strong>Regelwerk (3A)</strong></a>
+            <a href="#3a"><span aria-hidden="true">04</span><strong>Standard &amp; 3A</strong></a>
             <a href="#academy"><span aria-hidden="true">05</span><strong>Academy</strong></a>
             <a href="#review"><span aria-hidden="true">06</span><strong>Review</strong></a>
           </div>
           <details className="mobile-menu">
             <summary>Menü</summary>
             <div>
-              <a href="#3a">3A COD3X</a>
+              <a href="#3a">Standard &amp; 3A</a>
               <a href="#kontrollpfad">Kontrollpfad</a>
               <a href="#review">Review</a>
               <a href="#governance">Governance</a>
@@ -208,12 +207,12 @@ export default function Home() {
                 <span>beim Unternehmen.</span>
               </h1>
               <p className="hero-lede">
-                Regelwerk, Pilot und Ausbildung für<br />
+                Offene Groundbase, Pilot und Ausbildung für<br />
                 kontrollierte agentische Softwareentwicklung.
               </p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#kontakt">Pilotfähigkeit klären</a>
-                <a className="button button-secondary" href="#3a">3A-Regelwerk prüfen</a>
+                <a className="button button-secondary" href="#3a">Standard &amp; 3A prüfen</a>
               </div>
               <p className="hero-evidence">Bericht ist Evidenz. Autorität bleibt beim Unternehmen.</p>
             </div>
@@ -260,10 +259,12 @@ export default function Home() {
           <div className="section-shell">
             <header className="document-heading">
               <div>
-                <p className="section-kicker">NK / RULESET / 01 · 3A COD3X</p>
+                <p className="section-kicker">NK / METHOD / 01 · 3A COD3X</p>
                 <h2>Der kleinste vollständige Weg.</h2>
+                <p>3A COD3X ist die erste Arbeitsmethode unter dem Normkontor Standard Kernel. Der Kernel setzt die Governance-Grenze; zwei Skills bestimmen ausschließlich Umsetzung und begrenzten read-only Review.</p>
               </div>
-              <div className="document-meta" aria-label="3A COD3X Produktgrenze">
+              <div className="document-meta" aria-label="3A COD3X unter dem Normkontor Standard">
+                <p><span>STANDARD</span><strong>Kernel 1.0.0</strong></p>
                 <p><span>TYPE</span><strong>Instruction-only plugin</strong></p>
                 <p><span>OWNERS</span><strong>2 canonical skills</strong></p>
                 <p><span>RUNTIME</span><strong>None</strong></p>
@@ -295,7 +296,7 @@ export default function Home() {
             <div className="safety-floor">
               <p className="section-kicker">NON-NEGOTIABLE / SAFETY FLOOR</p>
               <p>Authentifizierung, Autorisierung, Trust Boundaries, Datenschutz, Datenverlustschutz, Barrierefreiheit und risikogerechte Tests werden nicht wegvereinfacht.</p>
-              <a className="text-link" href="https://github.com/FYN-Labs/normkontor" target="_blank" rel="noreferrer">Repository und Grenzen prüfen</a>
+              <a className="text-link" href="#opensource">Veröffentlichungsgrenze prüfen</a>
             </div>
           </div>
         </section>
@@ -305,14 +306,14 @@ export default function Home() {
             <header className="section-heading-dark">
               <p className="section-kicker">NK / CONTROL PATH / 02</p>
               <h2>Vom Auftrag zur Entscheidung. Mit benannten Ownern.</h2>
-              <p>Normkontor ergänzt bestehende Issue-Tracker-, Git-, CI-, Identity-, Security- und GRC-Systeme. Es ersetzt sie nicht.</p>
+              <p>Linear bleibt das Ausführungsledger; Git, CI, Identity, Security und GRC bleiben ihre jeweiligen Enforcement-Owner. Normkontor ersetzt sie nicht.</p>
             </header>
             <ol className="control-ledger">
               {controlStages.map(([number, title, body]) => (
                 <li key={number}><span>{number}</span><strong>{title}</strong><p>{body}</p></li>
               ))}
             </ol>
-            <blockquote>Ein sauberer Bericht ist Evidenz. Er ist keine Berechtigung zum Merge, Deploy, Publish, Spend oder Release.</blockquote>
+            <blockquote>Ein sauberer Bericht ist Evidenz. Er autorisiert weder Merge, Deploy, Publish, Spend, Production noch Linear Done.</blockquote>
           </div>
         </section>
 
@@ -329,7 +330,7 @@ export default function Home() {
             />
             <figcaption className="visual-transcript">
               <span>BUILD · TEST · REPORT · REVIEW</span>
-              <strong>Merge, Deploy, Publish, Spend und Release bleiben hinter dem Human Gate.</strong>
+              <strong>Merge, Deploy, Publish, Spend, Production und Linear Done bleiben beim verifizierten menschlichen Decision Owner.</strong>
             </figcaption>
           </figure>
         </section>
@@ -357,10 +358,10 @@ export default function Home() {
           <div className="section-shell review-layout">
             <div className="review-copy">
               <p className="status-warning">IN ENTWICKLUNG · KEINE VERFÜGBARE MANAGED RUNTIME</p>
-              <p className="section-kicker">NK / REVIEW / 04 · TARGET ARCHITECTURE</p>
-              <h2>Zweite Meinung. Unabhängig belegt.</h2>
-              <p>Der MCP-Endpunkt wäre nur die Tür. Blindheit, Familien- und Entwicklertrennung, Datenpolitik, Qualifikation und vollständige Receipts machen daraus erst einen belastbaren Prüfarm.</p>
-              <a className="text-link light" href="https://github.com/FYN-Labs/normkontor/blob/main/docs/enterprise/assurance-architecture.md" target="_blank" rel="noreferrer">Zielarchitektur prüfen</a>
+              <p className="section-kicker">NK / REVIEW / 04 · PRODUCT CONCEPT</p>
+              <h2>Zweite Meinung. Der Mensch entscheidet.</h2>
+              <p>Normkontor Review ist eine separat geplante Funktion. Öffentlich zugesagt ist nur die Ergebnisgrenze: ein vorab fixierter Prüfgegenstand, unabhängige Befunde, ein nachvollziehbares Evidenzdossier und die Entscheidung beim verifizierten menschlichen Owner.</p>
+              <a className="text-link light" href="#kontakt">Review-Konzept besprechen</a>
             </div>
             <ol className="review-ledger">
               {reviewSteps.map(([number, title, body]) => (
@@ -434,15 +435,17 @@ export default function Home() {
         <section className="open-source-section" id="opensource">
           <div className="section-shell open-source-grid">
             <div>
-              <p className="section-kicker">NK / OSS / 07 · MIT</p>
-              <h2>Zwei Skills. Null Runtime.</h2>
-              <p>3A COD3X beschreibt Implementierung und begrenzten Phase-Review. Es führt keine Hintergrundaufrufe aus, provisioniert keine Modelle und vergibt keine Autorität.</p>
-              <a className="text-link light" href="https://github.com/FYN-Labs/normkontor" target="_blank" rel="noreferrer">Quellcode und Eval-Korpus öffnen</a>
+              <p className="section-kicker">NK / PUBLIC STANDARD / 07 · SOURCE CANDIDATE</p>
+              <h2>Ein Kernel. Zwei Skills. Null Runtime.</h2>
+              <p>Der Normkontor Standard Kernel 1.0.0 setzt die gemeinsame Governance-Grenze. 3A COD3X 0.4.0 liefert darunter die Implementierungs- und Review-Methode. Der öffentliche Quellenlink folgt erst nach dem harten Boundary-Split; weder Kernel noch Plugin vergeben Autorität oder ersetzen Host-, Git-, CI-, IAM- oder Linear-Enforcement.</p>
+              <a className="text-link light" href="#wahrheit">Releasegrenze prüfen</a>
             </div>
-            <div className="install-receipt" aria-label="Installationsbefehle">
-              <p><span>SUBJECT</span><strong>3A COD3X 0.4.0</strong></p>
-              <div><span>Codex</span><code>codex plugin marketplace add FYN-Labs/normkontor</code><code>codex plugin add 3a-cod3x@normkontor</code></div>
-              <div><span>Claude Code</span><code>claude plugin marketplace add FYN-Labs/normkontor</code><code>claude plugin install 3a-cod3x@normkontor</code></div>
+            <div className="install-receipt" aria-label="Groundbase Quellennachweis">
+              <p><span>STANDARD</span><strong>Kernel 1.0.0 · Source Candidate</strong></p>
+              <p><span>METHOD</span><strong>3A COD3X 0.4.0 · 2 Skills</strong></p>
+              <p><span>EVIDENCE SET</span><strong>15/15 Checks · 11 Eval-Fälle</strong></p>
+              <p><span>PUBLIC LINK</span><strong>Bis Boundary-Split zurückgehalten</strong></p>
+              <div><span>Evidence boundary</span><code>Source + package + static contract</code><code>Runtime + compliance + release: not proven</code></div>
               <p><span>AUTHORITY GRANTED</span><strong>NONE</strong></p>
             </div>
           </div>
@@ -465,7 +468,7 @@ export default function Home() {
               <ol><li>Workflow</li><li>Team</li><li>Datenklasse</li><li>Nachweisfrage</li><li>Stop-Kriterium</li></ol>
               <div className="hero-actions">
                 <a className="button button-primary" href={pilotMailto}>Pilotgespräch anfragen</a>
-                <a className="button button-secondary" href="https://github.com/FYN-Labs/normkontor" target="_blank" rel="noreferrer">3A COD3X prüfen</a>
+                <a className="button button-secondary" href="#opensource">Groundbase-Status prüfen</a>
               </div>
               <p className="contact-fallback">Öffnet Ihr E-Mail-Programm · alternativ: <a href="mailto:support@fyn-labs.com">support@fyn-labs.com</a></p>
             </div>

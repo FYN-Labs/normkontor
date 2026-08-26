@@ -15,7 +15,7 @@ const sans = IBM_Plex_Sans({
 });
 
 const description =
-  "Regelwerk, Pilot und Ausbildung für kontrollierte agentische Softwareentwicklung in regulierten Organisationen.";
+  "Öffentlicher Normkontor Standard, 3A-Regelwerk, Pilot und Ausbildung für kontrollierte agentische Softwareentwicklung.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://normkontor.de"),
