@@ -1,10 +1,17 @@
 # Normkontor Website — ausführbares Handout für Sites
 
-- Stand: 25. August 2026
+- Stand: 2026-08-26
 - Owner: FYN Labs LLC
 - Marke: Normkontor
+- Normkontor Standard Kernel: `1.0.0`
+- 3A COD3X Plugin: `0.4.0`
+- Source Snapshot: `3ce0fa2b28699cb5c2dd0d8a36c7ff2424c0e44e`
 - Live-Referenz: <https://normkontor.de/>
 - Quell- und Wahrheitsreferenz: <https://github.com/FYN-Labs/normkontor>
+
+Der Snapshot bindet die in diesem Handout verwendeten Produktfakten. Nach
+Merge oder Release muss die Seitenumsetzung erneut an den dann maßgeblichen
+Commit gebunden werden.
 
 ## 1. Auftrag an den Site-Owner
 
@@ -25,9 +32,13 @@ keine Marktfreigabe. Erst nach Founder-Auswahl wird eine separate Promotion
 oder Migration entschieden.
 
 Das Ergebnis der ersten Phase ist eine vollständige, responsive und
-launchfähige Homepage auf einer Route. Keine zweite Plattform, kein CMS und
-keine unnötige Applikationsmechanik. Weitere Unterseiten sind ein späterer
-Ausbau, falls die Homepage den Produktfit nachweislich nicht allein tragen kann.
+präsentationsreife private Vorschau auf einer Route. Sie trägt sichtbar
+`VORSCHAU / KEINE MARKTFREIGABE` und setzt `noindex, nofollow`. Keine zweite
+Plattform, kein CMS und keine unnötige Applikationsmechanik. Weitere
+Unterseiten sind ein späterer Ausbau, falls die Homepage den Produktfit
+nachweislich nicht allein tragen kann. Veröffentlichung oder Produktion
+erfordern einen separaten gültigen Decision Receipt für den exakten Commit,
+die Domain und das jeweilige Authority Verb.
 
 ## 2. Strategisches Ziel
 
@@ -35,8 +46,9 @@ Die Website soll innerhalb von 30 Sekunden drei Dinge verständlich machen:
 
 1. Normkontor hilft Unternehmen, agentische Softwareentwicklung kontrolliert
    einzuführen, ohne Entscheidungshoheit an Modelle abzugeben.
-2. **Normkontor 3A** ist das offene Regelwerk; **3A COD3X** ist dessen
-   technischer Pluginname.
+2. Der **Normkontor Standard Kernel** ist die gemeinsame Governance-Grenze.
+   **Normkontor 3A** ist die erste offene Methodenimplementierung darunter;
+   **3A COD3X** ist ihr technischer Pluginname.
 3. Der kaufbare Einstieg ist ein begrenzter Rollout-Pilot plus Academy. Die
    geplante Review Runtime ist Zukunft, nicht heutiges Produkt.
 
@@ -70,18 +82,35 @@ ist.
 
 - **FYN Labs LLC** ist Eigentümer und Herausgeber.
 - **Normkontor** ist die öffentliche Produkt-, Ruleset- und Assurance-Marke.
-- **Normkontor 3A** ist der öffentliche Enterprise-Produktname.
-- **3A COD3X** ist der technische Pluginname von Normkontor 3A.
+- Der **Normkontor Standard Kernel** ist der einzige normative Governance-Owner.
+- **Normkontor 3A** ist die erste öffentliche Methodenimplementierung unter
+  dem Kernel.
+- **3A COD3X** ist der technische Pluginname von Normkontor 3A und kein zweiter
+  Policy-Owner.
 - 3A bedeutet **Aligned. Autonomous. Auditable.**
 
 ### Aktueller Status
 
 | Modul | Öffentlicher Status | Website-Rolle |
 | --- | --- | --- |
+| Normkontor Standard Kernel 1.0.0 | öffentlicher Governance-Quellenstandard | gemeinsame Autoritäts- und Evidenzgrenze |
 | Normkontor 3A / 3A COD3X | Open Source, öffentlicher Quellenkandidat | offener Methodenbeweis |
 | Normkontor Rollout | begrenzter Pilot auf Anfrage | primäres Leistungsangebot |
 | Normkontor Academy | begrenzter Pilot auf Anfrage | Aufbau interner Fähigkeit |
 | Normkontor Review | in Entwicklung | klar markierte Zielarchitektur |
+
+### Adapter und belegter Status
+
+| Adapter | Im Source belegt | Noch nicht belegt |
+| --- | --- | --- |
+| Codex | importiert den Kernel; schreibt keine Host-Einstellungen oder Hooks | automatische Auswahl und Verhalten im realen Host |
+| Claude Code | importiert den Kernel; schreibt keine Host-Einstellungen oder Hooks | automatische Auswahl und Verhalten im realen Host |
+| Command EVE | Produktrechte und Credits gelten nur innerhalb des Produkts; sie erteilen keine Repository- oder Linear-Autorität | technische Durchsetzung in jeder Produktaktion |
+| Linear | einziges Ausführungsledger; genau eine kontrollierte Rollenbezeichnung, verifizierte Assignee-Zuordnung und Evidenzreferenzen | organisationsweite Runtime-Konformität |
+
+Linear speichert Ausführungsstatus. Es ist weder Memory noch Policy noch
+Autoritätsquelle. Die Adapter sind Source FACTS; ein automatischer Runtime
+Nachweis folgt daraus ausdrücklich nicht.
 
 ### Was 3A COD3X heute ist
 
@@ -113,7 +142,7 @@ Normkontor zeigt lesbare, hochwertige HTML-Artefakte:
 - eine siebenstufige 3A-Leiter;
 - eine Claim-Matrix mit klaren Wahrheitsklassen;
 - eine redigierte Muster-Evidence-Receipt, deutlich als
-  `MUSTER / KEINE KUNDENDATEN` gekennzeichnet.
+  `MUSTER / KEINE REALDATEN` gekennzeichnet.
 
 Das zentrale visuelle Objekt ist kein Fake-Dashboard. Es ist eine ruhige,
 lesbare Prinzipdarstellung des Betriebsmodells.
@@ -138,11 +167,11 @@ lesbare Prinzipdarstellung des Betriebsmodells.
 
 **Subheadline**
 
-`Normkontor verbindet ein offenes Regelwerk, einen begrenzten Pilot und
-rollenbasierte Ausbildung zu einem prüfbaren Betriebsmodell für Engineering,
-Risk und Revision. Vorhandene Systeme bleiben Owner, Entscheidungen bleiben an
-Human Gates gebunden und Nachweise benennen exakt, was tatsächlich geprüft
-wurde.`
+`Normkontor verbindet den offenen Standard Kernel, die 3A Methode, einen
+begrenzten Pilot und rollenbasierte Ausbildung zu einem prüfbaren
+Betriebsmodell für Engineering, Risk und Revision. Vorhandene Systeme bleiben
+Owner, Entscheidungen bleiben an Human Gates gebunden und Nachweise benennen
+exakt, was tatsächlich geprüft wurde.`
 
 **Primärer CTA**
 
@@ -150,7 +179,7 @@ wurde.`
 
 **Sekundärer CTA**
 
-`Normkontor 3A prüfen`
+`Kernel und Grenzen prüfen`
 
 **Proof-Zeile**
 
@@ -158,8 +187,9 @@ wurde.`
 
 **Statuszeile**
 
-`3A: öffentlicher Open-Source-Quellenkandidat · Rollout & Academy: auf Anfrage
-· Review Runtime: in Entwicklung`
+`Kernel 1.0.0: öffentlicher Governance-Quellenstandard · 3A: öffentlicher
+Open-Source-Quellenkandidat · Rollout & Academy: auf Anfrage · Review Runtime:
+in Entwicklung`
 
 ### Hero-Objekt: Decision Dossier
 
@@ -170,6 +200,8 @@ Beweisakte:
 SUBJECT        Agentic Engineering Pilot
 STATUS         Pilot auf Anfrage
 DATA CLASS     vor Start zu benennen
+DECISION OWNER vor Aktion zu verifizieren
+DECISION RECEIPT vor Authority Verb erforderlich
 
 0.5   Contract
 0.65  Runtime Readiness
@@ -178,6 +210,7 @@ DATA CLASS     vor Start zu benennen
 03    Controller
 HG    Human Decision
 
+AUTHORITY VERB:    NONE
 AUTHORITY GRANTED: NONE
 ```
 
@@ -208,16 +241,19 @@ Icon-Karten.
 Zeige den vollständigen Pfad:
 
 `0.5 Auftrag → 0.65 Laufbereitschaft → Worker → unabhängiger Audit-Owner →
-Controller → Human Gate`
+Controller → verifizierter menschlicher Decision Owner`
 
 Tragender Satz:
 
 `Ein sauberer Bericht ist Evidenz. Er ist keine automatische Erlaubnis für
 Merge, Deployment, Veröffentlichung oder Release.`
 
-Die vorhandenen Systeme des Kunden — Linear, Git, CI, Identity, Security und
-GRC — bleiben Owner. Linear ist das einzige Ausführungsledger. Normkontor
-ergänzt Entscheidungs- und Evidenzregeln, baut aber keine Schattenplattform.
+Organisationseigene Systeme wie Linear, Git, CI, Identity, Security und GRC
+bleiben Owner. Linear ist das einzige Ausführungsledger. Normkontor ergänzt
+Entscheidungs- und Evidenzregeln, baut aber keine Schattenplattform. Ein
+positives Modellurteil bleibt Evidenz. Autorität entsteht erst beim
+verifizierten menschlichen Decision Owner und nur über einen gültigen Receipt
+für exakten Scope und Authority Verb.
 
 ### 03 — Normkontor Rollout
 
@@ -270,8 +306,9 @@ Zeige drei Tracks:
   Train-the-Trainer, Stage 0.5/0.65, CAO-Trennung, Eval Design, blinde
   Prüfarme, Qualifikationsevidenz und praktische Prüfung.
 
-Eine Bescheinigung bindet Person, Regelwerk, Policy, Szenario, Rubrik, Datum
-und Restlücken. Anwesenheit allein ist kein Kompetenznachweis.
+Falls eine Bescheinigung ausgestellt wird, bindet sie Person, Regelwerk,
+Policy, Szenario, Rubrik, Datum und Restlücken. Anwesenheit allein ist kein
+Kompetenznachweis.
 
 ### 05 — Normkontor 3A / 3A COD3X
 
@@ -300,7 +337,7 @@ Sicherheitsboden sichtbar danebenstellen: Authentifizierung, Autorisierung,
 Trust Boundaries, Datenschutz, Datenverlustschutz, Barrierefreiheit und
 risikogerechte Tests werden nicht „wegvereinfacht“.
 
-Open-Source-CTA: `Quellcode und Grenzen prüfen`
+Open-Source-CTA: `Kernel und Grenzen prüfen`
 
 Optional in einem kompakten Installationsartefakt:
 
@@ -324,7 +361,7 @@ Dieser Bereich ist sichtbar nachgeordnet und mit `IN ENTWICKLUNG` markiert.
 Erkläre die geplante Zielarchitektur:
 
 1. gefrorener Gegenstand, Scope, Akzeptanz und Evidence Hash;
-2. kundenkontrolliertes Policy Gateway;
+2. organisationskontrolliertes Policy Gateway;
 3. Datenminimierung und risikogerechtes Blockieren oder Redigieren;
 4. zwei blinde, qualifizierte, autorunabhängige Review-Arme;
 5. erhaltene Widersprüche statt gemitteltem Urteil;
@@ -341,13 +378,14 @@ geplant; es ist nicht selbst die Assurance-Eigenschaft.`
 
 **Headline:** `Regionalität und Scrubbing werden bewiesen, nicht etikettiert.`
 
-Sechs Controls:
+Sieben Controls:
 
 - Purpose und Allowlist;
 - Minimization;
 - Detection;
 - Block or Redact;
 - Route Proof;
+- Evidence Minimization;
 - Human Control.
 
 Pflichtgrenze:
@@ -365,7 +403,8 @@ Kleingedruckten. Zeige eine zugängliche Matrix oder Filteransicht:
 - **FACT:** heute im öffentlichen Repository nachweisbar;
 - **AUF ANFRAGE:** begrenztes Rollout- oder Academy-Format;
 - **GEPLANT:** Zielarchitektur, nicht verfügbar;
-- **NICHT BELEGT:** darf nicht als Verkaufsargument erscheinen.
+- **UNVERIFIED:** derzeit nicht durch ausgeführte Evidenz belegt;
+- **PROHIBITED:** ohne neue Evidenz und Owner-Freigabe verboten.
 
 **Headline:** `Wir sagen auch, was noch nicht bewiesen ist.`
 
@@ -383,7 +422,7 @@ wie ein begrenzter Pilot sinnvoll spezifiziert werden kann.`
 Primärer CTA: `Pilotfähigkeit klären`
 
 Der CTA ist ein datensparsamer, vorausgefüllter Mail-Link an
-`support@fyn-labs.com`. Der Mailtext fragt genau diese fünf Felder ab:
+`support@fyn-labs.com`. Der Mailtext fragt genau diese sieben Felder ab:
 
 ```text
 Workflow:
@@ -391,9 +430,12 @@ Team:
 Datenklasse:
 Nachweisfrage:
 Stop-Kriterium:
+Linear-Status:
+Decision Owner:
 ```
 
-Sekundärer CTA: `FYN Labs ansehen` → <https://fyn-labs.com/en>
+Sekundärer CTA: `Kernel und Grenzen prüfen` →
+<https://github.com/FYN-Labs/normkontor>
 
 ## 8. Visuelles System
 
@@ -466,7 +508,7 @@ oder Skylines.
 - keine Analytics, Tracker, Cookies oder Consent-Banner;
 - kein Account, kein Login, keine Datenbank, kein CMS;
 - kein Drittanbieterformular; Kontakt ausschließlich per `mailto:`;
-- keine Kundendaten oder Rohprompts in Demos;
+- keine Realdaten oder Rohprompts in Demos;
 - Musterartefakte immer als Muster kennzeichnen;
 - keine externen Runtime-Skripte ohne belegten Produktbedarf;
 - semantische Landmarken, Skip-Link, sichtbarer Tastaturfokus;
@@ -474,6 +516,8 @@ oder Skylines.
 - vollständige responsive QA auf Mobile, Tablet und Desktop;
 - Impressum und Datenschutz dauerhaft im Footer verlinken;
 - Canonical URL, Titel, Description und Social Preview pflegen;
+- private Vorschau mit `noindex, nofollow` und sichtbarem Hinweis
+  `VORSCHAU / KEINE MARKTFREIGABE` ausliefern;
 - vorhandenes Open-Graph-Motiv erhalten oder nur bei einem tatsächlich
   stärkeren, markenkonsistenten Ersatz aktualisieren.
 
@@ -483,7 +527,8 @@ Nicht behaupten und nicht visuell suggerieren:
 
 - GDPR-, DORA-, EU-AI-Act-, BaFin- oder Security-Zertifizierung;
 - gemessene Produktivitäts-, Qualitäts- oder Kostenvorteile;
-- bestehenden Kunden-, Versicherer- oder Produktionsbetrieb;
+- Produktionsbetrieb oder Deployment im Maßstab ohne neue Evidenz und gültige
+  menschliche Autorität;
 - eine heute verfügbare Managed Review Runtime;
 - einen ausgeführten Assurance-PASS für das aktuelle Plugin;
 - garantierte Frankfurt-only oder EU-only Verarbeitung;
@@ -493,7 +538,7 @@ Nicht behaupten und nicht visuell suggerieren:
 - Merge-, Deploy-, Publish-, Spend- oder Release-Autorität aus einem
   Modellverdikt.
 
-Keine fremden Hersteller- oder Kundenlogos, keine erfundenen Testimonials,
+Keine fremden Hersteller- oder Organisationslogos, keine erfundenen Testimonials,
 Zahlen, Badges, Awards oder Fallstudien.
 
 ## 12. Anti-Patterns
@@ -522,7 +567,8 @@ Zahlen, Badges, Awards oder Fallstudien.
 5. Führe responsive, Accessibility-, Link-, Metadaten- und Claim-QA durch.
 6. Stelle ausschließlich einen isolierten Sites-Vorschau-Link bereit.
    Domainwechsel, Vercel-Änderung, Marktfreigabe oder Ersatz der Live-Seite
-   brauchen eine separate Founder-Entscheidung.
+   brauchen einen separaten gültigen Decision Receipt des menschlichen
+   Decision Owners für exakten Commit, Domain und Authority Verb.
 
 ## 14. Abnahmerubrik
 
@@ -531,7 +577,7 @@ sind und sie in jedem Bereich mindestens den Zielwert erreicht:
 
 | Dimension | Ziel / 10 | Prüffrage |
 | --- | ---: | --- |
-| Enterprise-Glaubwürdigkeit | 9 | Würde ein Versicherungs-CIO sie intern weiterleiten? |
+| Enterprise-Glaubwürdigkeit | 9 | Würde eine regulierte Engineering-Organisation sie intern weiterleiten? |
 | Produktklarheit | 9 | Sind 3A, Rollout, Academy und Review in Status und Rolle unverwechselbar? |
 | Claim Discipline | 10 | Ist jede Aussage einer belegten Wahrheitsklasse zugeordnet? |
 | Visuelle Eigenständigkeit | 9 | Ist Normkontor ohne generische AI-Motive wiedererkennbar? |
@@ -549,31 +595,42 @@ Zusätzliche harte PASS-Kriterien:
 - kein horizontaler Mobile-Overflow;
 - keine Kerninformation nur über Hover oder Bewegung;
 - Social Preview, Title und Description sind korrekt;
-- die neue Fassung bleibt privat, bis der Founder sie freigibt.
+- private Vorschau trägt `noindex, nofollow` und den sichtbaren
+  Nichtfreigabe-Hinweis;
+- die neue Fassung bleibt privat, bis ein verifizierter menschlicher Decision
+  Owner einen gültigen Decision Receipt für exakten Commit, Domain und
+  Authority Verb erteilt.
 
-## 15. 30-Sekunden-Erklärung für einen Versicherungsmanager
+## 15. 30-Sekunden-Erklärung für eine regulierte Engineering-Organisation
 
 > Normkontor ist kein neues KI-Modell und keine Compliance-Zertifizierung. Es
-> ist ein offenes Regelwerk plus ein begrenztes Einführungsmodell für
-> agentische Softwareentwicklung. Für ein reguliertes Unternehmen heißt das:
+> ist ein offener Governance Kernel mit einer ersten 3A Methodenimplementierung
+> plus ein begrenztes Einführungsmodell für agentische Softwareentwicklung. Für
+> eine regulierte Organisation heißt das:
 > ein Team, ein Workflow, definierte Datenklassen, benannte Human Gates und
 > Nachweise aus dem tatsächlich geprüften Pfad. 3A COD3X weist Agenten an,
 > vorhandene Owner und native Systeme zu nutzen und nur den kleinsten
 > vollständigen Eingriff zu bauen. Der sechswöchige Pilot zielt auf eine
 > dokumentierte Scale-, Revise- oder Stop-Entscheidung. Der
-> kundenkontrollierte Review-Arm ist noch in Entwicklung.
+> organisationskontrollierte Review-Arm ist noch in Entwicklung.
 
 ## 16. Quellenhierarchie bei Widersprüchen
 
-1. `docs/enterprise/claims-ledger.md`
-2. `docs/product-contract.md`
-3. `docs/enterprise/control-model.md`
-4. `docs/enterprise/assurance-architecture.md`
-5. `docs/enterprise/privacy-and-regulated-controls.md`
-6. `docs/enterprise/academy-and-rollout.md`
-7. `plugins/3a-cod3x/skills/3a-cod3x/SKILL.md`
-8. `plugins/3a-cod3x/skills/3a-cod3x-review/SKILL.md`
-9. dieses Handout
+1. `standard/KERNEL.md` für normative Governance-Regeln
+2. `docs/enterprise/claims-ledger.md` für öffentliche Claim-Wahrheit
+3. `docs/product-contract.md`
+4. `docs/enterprise/control-model.md`
+5. `docs/enterprise/assurance-architecture.md`
+6. `docs/enterprise/privacy-and-regulated-controls.md`
+7. `docs/enterprise/academy-and-rollout.md`
+8. `plugins/3a-cod3x/skills/3a-cod3x/SKILL.md` für die Umsetzungsmethode
+9. `plugins/3a-cod3x/skills/3a-cod3x-review/SKILL.md` für den begrenzten Review
+10. dieses Handout
 
 Wenn Copy oder visuelle Dramaturgie der kanonischen Produktwahrheit
 widerspricht, gewinnt die kanonische Produktwahrheit.
+
+`standard/contract.json` ist ein maschinenlesbarer, nicht normativer Index. Er
+erleichtert Konformitätsprüfungen, ersetzt aber weder Kernel noch Claims
+Ledger. Der Source Snapshot oben ist vor jeder Produktionsübernahme erneut zu
+verifizieren.
