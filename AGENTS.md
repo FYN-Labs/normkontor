@@ -4,13 +4,17 @@ Normkontor is the public FYN Labs product owner for reusable AI-engineering
 rulesets, their installable agent plugins, evidence contracts, and the public
 enterprise documentation around them.
 
+The normative owner is `standard/KERNEL.md`. It defines precedence, authority,
+Linear, evidence, claims, memory, and adapter limits. `standard/contract.json`
+is its machine-readable index, not a second doctrine.
+
 The canonical behavior of 3A COD3X lives only in:
 
 - plugins/3a-cod3x/skills/3a-cod3x/SKILL.md
 - plugins/3a-cod3x/skills/3a-cod3x-review/SKILL.md
 
-Host manifests and catalog pages are adapters. They may describe the ruleset,
-but must not fork its normative behavior.
+Host manifests, catalog pages, and `adapters/` are projections. They may
+describe or map the ruleset, but must not fork the Kernel or 3A behavior.
 
 Before changing code or doctrine, apply the 3A ladder: need, existing owner,
 native capability, installed capability, deletion or configuration, vetted

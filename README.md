@@ -2,10 +2,9 @@
 
 **Kontrollierte KI-Arbeit. Nachweisbar.**
 
-Normkontor is the public ruleset and assurance brand of FYN Labs. It combines
-open agent doctrine, governed enterprise rollout patterns, and training for
-teams that need agentic software development to remain understandable,
-controllable, and reviewable.
+Normkontor is the public ruleset and assurance brand of FYN Labs. Its
+Normkontor Standard Kernel defines the common governance boundary; 3A COD3X is
+the first implementation and bounded-review method under that boundary.
 
 ## Product map
 
@@ -17,8 +16,9 @@ controllable, and reviewable.
 | Normkontor Review | In development | Independent review-arm and evidence-receipt product concept |
 
 3A COD3X means **Aligned. Autonomous. Auditable.** It is the technical plugin
-name for the first Normkontor ruleset. The public product name used in
-enterprise materials is Normkontor 3A.
+name for the first Normkontor ruleset. “Normkontor Standard” names the
+governance kernel; “3A COD3X” names the two behavioral skills. Neither name
+substitutes for the other.
 
 ## Install 3A COD3X
 
@@ -51,6 +51,16 @@ Install the two folders below from a frozen revision:
 
 The plugin is instruction-only: no hooks, runtime, background calls, MCP
 server, model router, telemetry, approval store, or persistent mode.
+
+## Governance boundary
+
+[`standard/KERNEL.md`](standard/KERNEL.md) is the sole normative owner.
+It makes Linear the only execution ledger, separates evidence from authority,
+and requires a verified human Decision Owner with a valid Decision Receipt for
+Done. The two 3A skills remain the only owners of implementation guidance and
+bounded review. Host and organization controls enforce actions externally;
+instructions forbid drift, and static repository checks flag specified textual
+violations. Neither can make an agent technically unable to act.
 
 ## What the ruleset does
 
@@ -87,7 +97,7 @@ authority. Release evidence must bind the exact tag and commit bytes.
 ## Catalog and enterprise material
 
 - rulesets/README.md defines admission and status rules for future rulesets.
-- docs/product-contract.md defines the canonical product boundary.
+- docs/product-contract.md defines the product boundary and Kernel mapping.
 - docs/enterprise/ contains the rollout, Academy, privacy, and planned review
   architecture without presenting planned capabilities as current runtime.
 - site/ is the public Normkontor website deployed independently from the

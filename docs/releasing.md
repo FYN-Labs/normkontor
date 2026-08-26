@@ -2,6 +2,11 @@
 
 This playbook is fail-closed. A source publication is not a release PASS.
 
+The release process is subordinate to `standard/KERNEL.md`. Release evidence
+does not grant authority. Publication or Done requires the verified human
+Decision Owner and a valid Decision Receipt within host and organization
+constraints.
+
 ## 1. Freeze the candidate
 
 1. Update the plugin version in both host manifests, both skills, and UI
@@ -64,10 +69,3 @@ review does not certify security or compliance; assurance does not itself
 authorize release.
 
 Stable Hermes raw URLs are published only after the tag and receipt exist.
-
-## Migration from AAA Code
-
-The old AAA Code marketplace is a provenance owner, not an alias. To avoid two
-implicitly selected copies of the same doctrine, disable or uninstall
-aaa-code@fyn-labs-aaa-code before enabling 3a-cod3x@normkontor. Keep the old
-repository and tags available for reproducibility.

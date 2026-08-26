@@ -215,9 +215,9 @@ Tragender Satz:
 `Ein sauberer Bericht ist Evidenz. Er ist keine automatische Erlaubnis für
 Merge, Deployment, Veröffentlichung oder Release.`
 
-Die vorhandenen Systeme des Kunden — Issue Tracker, Git, CI, Identity,
-Security und GRC — bleiben Owner. Normkontor ergänzt Entscheidungs- und
-Evidenzregeln, baut aber keine Schattenplattform.
+Die vorhandenen Systeme des Kunden — Linear, Git, CI, Identity, Security und
+GRC — bleiben Owner. Linear ist das einzige Ausführungsledger. Normkontor
+ergänzt Entscheidungs- und Evidenzregeln, baut aber keine Schattenplattform.
 
 ### 03 — Normkontor Rollout
 
