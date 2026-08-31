@@ -2,15 +2,15 @@
 
 ## Scope
 
-- Selected source: founder-selected 16:9 Kontorakte desk scene with quiet copy space left, the physical register right, exact `NORMKONTOR` cover text, and only the brass N seal; local source truth: `output/playwright/normkontor-16x9-hero/source-selected-16x9.png`
+- Selected source: founder-selected Option 3, a bright institutional control corridor in which agentic work proceeds through evidence while the final decision remains visibly outside the automated path; local source truth: `/Users/mathiasheinke/.codex/generated_images/01a02f21-1286-77d2-9ce4-f6d17024dc4b/exec-f5f80d65-6224-4c28-a789-865d21b446cf.png`
 - Implementation: `site/app/page.tsx`, `site/app/globals.css`
-- Visual assets: `normkontor-3a-kontorakte-hero-16x9.png`, `normkontor-authority-shutter.png`, plus four transparent `normkontor-status-*.png` source-icon crops
-- Runtime state: optimized Next.js production runtime at `http://127.0.0.1:3013/`
+- Visual assets: new `normkontor-control-corridor-hero.png` and `normkontor-pilot-decision-kit.png`, plus the retained `normkontor-ownership-xray.png`
+- Runtime state: local Next.js runtime at `http://localhost:3013/`
 - Browser: headed Chrome through Playwright
 - Capture density: DPR 1, CSS-pixel screenshots
 - Primary production comparison viewport: 1536 × 1024 CSS px
 
-The implementation uses the selected desk scene as the single full-bleed hero-image owner, with semantic HTML copy and actions in its intentionally quiet left field. The existing collapsible navy rail remains separate, and the full-width product-status transition begins after the exact 16:9 stage. Navigation, headline, actions, and product status remain accessible HTML.
+The implementation translates the selected corridor metaphor into a purchase-led enterprise page. The semantic HTML headline and CTA stay in the quiet left field, the generated corridor remains a visual owner rather than a text owner, and the narrative leads to a bounded six-week pilot with a documented scale, adapt, or stop decision. Navigation, headline, actions, route labels, and decision boundaries remain accessible HTML.
 
 ## Visual evidence
 
@@ -227,6 +227,70 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - Visual and interaction result: P0 none, P1 none, P2 none, P3 none.
 - Release boundary: this QA proves the local website implementation only. It does not clear the separate public-repository split, PR merge, deployment, domain replacement, or publication gates.
 
+### Founder-selected Option 3 sales-system pass
+
+- Source visual truth: `/Users/mathiasheinke/.codex/generated_images/01a02f21-1286-77d2-9ce4-f6d17024dc4b/exec-f5f80d65-6224-4c28-a789-865d21b446cf.png`, 1536 × 1024 px.
+- Implementation evidence: `output/playwright/normkontor-v3/09-desktop-final-1536x1024.png`, 1536 × 1024 px at DPR 1 and a 1536 × 1024 CSS-pixel viewport.
+- Full-view comparison: `output/playwright/normkontor-v3/12-reference-vs-implementation.png` places the exact selected source and the rendered implementation together. The comparison covers the complete hero, rail, corridor, decision boundary, headline, CTA, and first-section transition; no focused desktop crop was required.
+- Supporting responsive evidence: `output/playwright/normkontor-v3/10-boundary-final-1181x900.png`, `11-mobile-final-390x844.png`, `07-mobile-menu-open.png`, and `13-desktop-full-final.png`.
+- State under review: default desktop with the rail collapsed, 1181 px boundary, 390 px mobile, native mobile menu open, and the complete desktop page.
+
+#### Required fidelity surfaces
+
+- Typography: retained Cormorant Garamond and IBM Plex Sans; the H1 has exactly three semantic display lines, while downstream headings are capped at three lines without clipping or line clamping.
+- Spacing and hierarchy: the quiet copy field leads to one primary CTA; the corridor occupies the right-hand proof field; the first content transition introduces the purchase problem before doctrine or product internals.
+- Color: warm paper, navy, oxblood, and restrained brass carry the existing Normkontor identity without a dark consumer-SaaS treatment.
+- Image fidelity: the generated corridor is a local 1672 × 941 RGB PNG with left negative space, evidence progression, an N-marked boundary, and a separate human decision desk. Route labels remain HTML so they stay responsive and legible.
+- Copy: the hero now sells controlled adoption, not a rulebook. The primary offer is one team, one workflow, six weeks, ending in a documented scale, adapt, or stop decision. Standard, Academy, Governance, and Review follow as proof, enablement, control, and roadmap layers.
+- Interaction: the left rail remains one owner, expands on hover or keyboard focus, and collapses automatically when focus/pointer leaves. The mobile menu uses native disclosure behavior. The primary CTA reaches `#kontakt`.
+- Responsive behavior: document width equals viewport width at 1536 and 390 px; no horizontal overflow was found. The hero stacks at narrow widths, and the corridor remains meaningful without relying on baked text.
+- Accessibility: semantic landmarks and anchors remain HTML, focus states are visible, reduced-motion overrides are present, and the final browser session reports zero console errors and zero warnings.
+- Meaningful visual interruptions: the control corridor explains the operating boundary; the pilot decision kit shows tangible six-week outputs; the retained ownership X-ray makes duplicate ownership visible; the evidence receipt exposes the release decision contract. None is decorative filler.
+
+#### Comparison history
+
+- Iteration 1: the headline wrapped to four lines, the hero art dominated the copy and cropped the decision desk, below-fold lazy images appeared blank in the first full-page capture, and intrinsic image sizing caused development-console warnings.
+- Repair: shortened the statement to three semantic lines, contained the corridor in the right proof field, set critical visuals to eager loading, preserved intrinsic aspect ratios with automatic height, and pre-scrolled lazy sections before the full-page capture.
+- Post-fix evidence: `09-desktop-final-1536x1024.png`, `10-boundary-final-1181x900.png`, `11-mobile-final-390x844.png`, and `13-desktop-full-final.png`.
+- P0: none.
+- P1: none.
+- P2: none.
+- P3: at the 1181 px boundary the separate human desk is partially cropped and copy density is slightly higher than the ideation source; the decision boundary remains legible and the issue does not affect comprehension or operation.
+- Simplicity check: reused `Home`, global CSS, `next/image`, existing fonts, the existing rail, and the ownership X-ray. No component tree, client state, dependency, CMS, analytics layer, form backend, router, policy owner, or runtime was added. The two new raster assets are the minimum new visual material needed for the selected sales concept and pilot proof.
+- Release boundary: this passes local implementation, source comparison, responsive, and interaction QA only. It does not authorize commit, merge, deployment, publication, domain replacement, or a customer claim.
+
+### Sales-positive copy pass
+
+- Founder direction: remove internal status, non-availability, defensive legal framing, and “what we cannot do” language from the visible sales journey.
+- Native owner reused: all changes remain in `site/app/page.tsx`, `site/app/layout.tsx`, and the existing CSS owner. No route, component, dependency, state, runtime, or claim source was added.
+- Removed from the visible page: the planned-runtime roadmap, the product-truth/non-availability ledger, and their now-unused CSS.
+- Reframed around customer outcomes: six-week pilot, operating model, evidence dossier, 90-day scaling plan, internal capability, route evidence, and one repeated CTA: `Pilotgespräch anfragen`.
+- Claim discipline remains positive and bounded: no invented customer, productivity, certification, residency, or compliance claim was introduced; the independent-product trademark note remains in the footer.
+- Desktop evidence: `output/playwright/normkontor-sales-positive/desktop-final-1536x1024.png` and `desktop-full-loaded-final.png` at 1536 × 1024 CSS px, DPR 1.
+- Mobile evidence: `output/playwright/normkontor-sales-positive/mobile-final-390x844.png` at 390 × 844 CSS px, DPR 1.
+- Runtime checks at both widths: document width equals viewport width, H1 remains three semantic lines, no H2 exceeds three lines, removed roadmap/truth sections are absent, targeted negative status phrases are absent, and the browser console reports zero errors and zero warnings.
+- First mobile pass found two headings at four or five lines. They were shortened to `Agentenarbeit wird steuerbar.` and `Offener Standard. Klarer Betrieb.`; the final mobile pass reports no overlong heading.
+- P0: none.
+- P1: none.
+- P2: none after the mobile headline repair.
+- P3: none.
+
+### Clean Ownership X-Ray integration
+
+- Source visual truth: `/Users/mathiasheinke/.codex/generated_images/01a02f21-1286-77d2-9ce4-f6d17024dc4b/exec-fc911902-1800-4775-98a4-71b9ebdfceef.png`, 1487 × 1058 px.
+- Project asset: `site/public/brand/normkontor-ownership-xray.png`, an exact 105 px left crop of the source, 1382 × 1058 px, SHA-256 `9491612db75cbe6266f54ff8f35d66461d38b3fff02772e522b2d906eac7095c`.
+- The crop removes only the baked navy navigation rail because the live page already owns the accessible, collapsible rail. The edited lower-right paper field remains clear; the native-path route, mechanism, labels, textures, and linework are retained.
+- Existing image owner reused without source-code changes: `site/app/page.tsx` still references `/brand/normkontor-ownership-xray.png` at its existing intrinsic 1382 × 1058 dimensions.
+- Desktop evidence: `output/playwright/normkontor-xray-clean/desktop-section-1536.png` and `desktop-full-1536.png` at a 1536 × 1024 CSS viewport, DPR 1.
+- Mobile evidence: `output/playwright/normkontor-xray-clean/mobile-section-390.png` at 390 × 844 CSS px, DPR 1.
+- Runtime: native asset reports 1382 × 1058 px, document width equals viewport width at both tested sizes, and the browser console reports zero errors and zero warnings.
+- Fonts, spacing, colors, copy, and interaction remain unchanged. Image fidelity is improved by removing duplicate rasterized copy while retaining the semantic HTML caption as the single message owner.
+- Full-view comparison was sufficient because the entire edited region, source labels, central mechanism, live HTML caption, and responsive crop are legible in the section captures. No additional focused crop was required.
+- P0: none.
+- P1: none.
+- P2: none.
+- P3: on mobile the intentionally portrait crop trims the left edges of the two diagnostic labels, consistent with the existing responsive composition; the HTML caption carries the complete message.
+
 ## Responsive and interaction verification
 
 - 1536 × 1024 state: uninterrupted 1460 × 821.7 px 16:9 stage, three-line semantic headline, utility links, complete physical Kontorakte, and no horizontal overflow. The full-width status transition begins at y=821.7.
@@ -260,6 +324,6 @@ Resolution: replaced the text-bearing strip with four transparent source-icon cr
 - Dependency audit: 0 vulnerabilities.
 - `git diff --check`: passed.
 - Pre-change GitNexus impact for `Home`: exact match, zero direct callers, zero affected processes/modules, low risk.
-- Current GitNexus change detection: ten indexed symbols across three source/document files, zero affected processes, low risk; the renamed raster asset is outside the code graph.
+- Current GitNexus change detection: 21 indexed symbols across four source/document files, zero affected processes, low risk; the two new raster assets are outside the code graph.
 
 final result: passed

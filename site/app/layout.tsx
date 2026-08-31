@@ -15,12 +15,12 @@ const sans = IBM_Plex_Sans({
 });
 
 const description =
-  "Öffentlicher Normkontor Standard, 3A-Regelwerk, Pilot und Ausbildung für kontrollierte agentische Softwareentwicklung.";
+  "Normkontor macht Coding-Agenten für regulierte Engineering-Organisationen steuerbar: mit einem realen Workflow, belastbarer Evidenz und einem priorisierten Skalierungsplan.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://normkontor.de"),
   title: {
-    default: "Normkontor — Verantwortung bleibt beim Unternehmen.",
+    default: "Normkontor — Coding-Agenten kontrolliert einführen.",
     template: "%s | Normkontor",
   },
   description,
@@ -34,20 +34,20 @@ export const metadata: Metadata = {
     locale: "de_DE",
     url: "/",
     siteName: "Normkontor",
-    title: "Normkontor — KI-Agenten arbeiten. Verantwortung bleibt beim Unternehmen.",
+    title: "Normkontor — Coding-Agenten kontrolliert einführen.",
     description,
     images: [
       {
         url: "/brand/normkontor-og.png",
         width: 1200,
         height: 630,
-        alt: "Normkontor — KI-Agenten arbeiten. Verantwortung bleibt beim Unternehmen.",
+        alt: "Normkontor — Coding-Agenten kontrolliert einführen.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Normkontor — Verantwortung bleibt beim Unternehmen.",
+    title: "Normkontor — Coding-Agenten kontrolliert einführen.",
     description,
     images: ["/brand/normkontor-og.png"],
   },
