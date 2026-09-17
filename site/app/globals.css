@@ -1763,3 +1763,74 @@ footer {
     transition-duration: 0.001ms !important;
   }
 }
+
+
+/* Analysen Uebersicht: eigenes Raster statt des dreispaltigen Pilot Ledgers.
+   Befund am gebauten Stand: Artikeltitel brechen in 1/3-Spalten nach zwei bis
+   drei Woertern um und werden unlesbar. Die Beitragsliste traegt deshalb
+   zwei Spalten und eine Titelgroesse, die zur Textlaenge passt. */
+.analysen-liste {
+  border-left: 1px solid var(--line-strong);
+  border-top: 1px solid var(--line-strong);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.analysen-liste li {
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line-strong);
+  display: flex;
+  flex-direction: column;
+  padding: 34px 34px 30px;
+}
+
+.analysen-liste h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.45rem, 2.1vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.012em;
+  margin: 18px 0 14px;
+  text-wrap: pretty;
+}
+
+.analysen-liste h2 a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 160ms cubic-bezier(0.2, 0, 0, 1), color 160ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.analysen-liste h2 a:hover {
+  color: var(--red);
+  border-bottom-color: currentColor;
+}
+
+.analysen-liste > li > p:not(.section-kicker) {
+  color: var(--ink-muted);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  max-width: 46ch;
+}
+
+.analysen-liste > li > p:last-child {
+  margin: auto 0 0;
+  padding-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .analysen-liste {
+    grid-template-columns: 1fr;
+  }
+  .analysen-liste li {
+    padding: 28px 24px 26px;
+  }
+  .analysen-liste h2 {
+    font-size: 1.5rem;
+  }
+}
+

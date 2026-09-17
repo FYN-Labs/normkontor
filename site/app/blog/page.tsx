@@ -29,7 +29,7 @@ export default function BlogIndex() {
 
         <section className="pilot-section" aria-label="Beiträge">
           <div className="section-shell">
-            <ol className="pilot-ledger">
+            <ol className="analysen-liste">
               {allPosts.map((p, i) => (
                 <li key={p.slug}>
                   <p className="section-kicker">

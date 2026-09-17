@@ -82,6 +82,7 @@ export default function Home() {
             <a href="#academy"><span aria-hidden="true">04</span><strong>Academy</strong></a>
             <a href="#standard"><span aria-hidden="true">05</span><strong>Standard &amp; 3A</strong></a>
             <a href="#governance"><span aria-hidden="true">06</span><strong>Governance</strong></a>
+            <a href="/blog"><span aria-hidden="true">07</span><strong>Analysen</strong></a>
           </div>
 
           <p className="nav-truth">Evidenz vor Entscheidung.<br />Autorität bleibt beim Unternehmen.</p>
@@ -95,6 +96,7 @@ export default function Home() {
               <a href="#academy">Academy</a>
               <a href="#standard">Standard &amp; 3A</a>
               <a href="#governance">Governance</a>
+              <a href="/blog">Analysen</a>
               <a href="#kontakt">Pilotgespräch anfragen</a>
             </div>
           </details>
