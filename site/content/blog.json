@@ -1,0 +1,88 @@
+[
+ {
+  "slug": "husten-datenschutz-was-audio-verraet",
+  "title": "Was ein Husten verrät: Warum Zweckbindung beim Entwurf entsteht",
+  "kicker": "AUDIO UND ABLEITUNG",
+  "date": "2026-09-17",
+  "description": "Eine NIH-Studie findet im Luftstoß eines Hustens akustische Hinweise auf das Geschlecht. Für Organisationen, die Sprachdaten verarbeiten, ist das eine Frage an den Entwurf, nicht ans Audit.",
+  "lead": "Sprache lässt sich kontrollieren. Ein Husten kommt, wie er kommt. Damit fällt eine Annahme weg, auf der ein großer Teil der Debatte über Sprachdaten beruht: dass Preisgabe eine Entscheidung ist.",
+  "takeaway": "Wer Ton erhebt, erhebt mehr als den Anlass. Welche Ableitungen ein Material grundsätzlich erlaubt, gehört in die Zweckbindung, nicht in eine Fußnote.",
+  "sections": [
+   {
+    "h": "Der Befund",
+    "p": "Ein Team um Anaïs Rameau hat im NIH-Programm Bridge2AI 327 öffentlich verfügbare Hustenaufnahmen ausgewertet. Ein Husten läuft in Schritten ab: Einatmen, Druckaufbau, ein plötzlicher Luftstoß, ein abklingender Ausklang. Laut NIH lag im Luftstoß der deutlichste akustische Hinweis auf das Geschlecht der hustenden Person, klarer als in den üblichen Audiokennwerten. Die Studie erschien in Laryngoscope, online am 26. Januar 2026; die NIH-Seite wurde am 3. September 2026 geprüft."
+   },
+   {
+    "h": "Was die Autoren ausdrücklich nicht behaupten",
+    "p": "Die Arbeit legt laut NIH nicht nahe, Geschlecht aus Husten vorherzusagen, und erklärt entsprechende Werkzeuge nicht für einsatzreif. Die Stichprobe ist klein und stammt aus einer einzigen Sammlung. Wir haben die öffentliche Zusammenfassung des NIH gelesen; den Volltext der Studie haben wir nicht ausgewertet. Der methodische Punkt trägt trotzdem: Verschiedene Teile eines Geräuschs enthalten verschiedene Informationen, und ein Modell findet die Stelle, an der sie sitzt."
+   },
+   {
+    "h": "Die Konsequenz für Governance",
+    "p": "Zweckbindung wird üblicherweise über die erhobene Kategorie geführt: Wir erheben Sprachaufnahmen zur Terminvereinbarung. Dieser Befund zeigt, dass die Kategorie die Ableitung nicht begrenzt. Für jede Stelle, an der Ton anfällt, von der Telefonassistenz bis zur Sprechstundenaufnahme, folgt eine präzisere Frage: Welche Merkmale sind aus diesem Material grundsätzlich ableitbar, und welche davon hat jemand beabsichtigt? Diese Frage gehört in die Verarbeitungsbeschreibung, in die Aufbewahrungsfristen und in das Löschkonzept."
+   },
+   {
+    "h": "Was daraus folgt",
+    "p": "Ein Verbot von Mikrofonen folgt daraus nicht. Es folgt eine nüchterne Entwurfsregel: Die Zahl der Stellen, an denen Rohaudio überhaupt liegt, so klein wie möglich halten und die Aufbewahrung an den Anlass binden. Lokale Verarbeitung ist hier der ehrlichere Weg, weil sie die Zahl der beteiligten Stellen begrenzt. Wer diese Fragen erst im Audit stellt, dokumentiert eine Praxis, statt sie zu gestalten."
+   }
+  ],
+  "sources": [
+   {
+    "label": "NIH Common Fund: What a Cough Can Say",
+    "url": "https://commonfund.nih.gov/bridge2ai/highlights/what-cough-can-say-ai-looks-patterns-sound"
+   },
+   {
+    "label": "Studiennachweis in PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41588706/"
+   }
+  ],
+  "cta": {
+   "title": "Verantwortung, Prüfung und dokumentierte Entscheidung.",
+   "text": "Der Normkontor Standard beschreibt, wer verantwortet, wer unabhängig kontrolliert und wie eine Entscheidung nachvollziehbar dokumentiert wird.",
+   "label": "Standard ansehen",
+   "href": "/#standard"
+  }
+ },
+ {
+  "slug": "codepruefung-weniger-treffer-mehr-wirkung",
+  "title": "Alibaba gibt sein Prüfwerkzeug frei und nimmt bewusst weniger Treffer in Kauf",
+  "kicker": "PRÜFUNG UND EVIDENZ",
+  "date": "2026-09-17",
+  "description": "OpenCodeReview meldet höhere Präzision bei ausdrücklich niedrigerer Trefferquote. Diese Abwägung ist der eigentliche Gegenstand, nicht die Kennzahl.",
+  "lead": "Wer zwanzig Hinweise durchgeht und zwei brauchbare findet, liest beim nächsten Mal keinen mehr. Danach ist das Werkzeug installiert und wirkungslos.",
+  "takeaway": "Ein Prüfwerkzeug ersetzt keine Verantwortung. Es verschiebt nur, wo sie sichtbar wird.",
+  "sections": [
+   {
+    "h": "Was veröffentlicht wurde",
+    "p": "Alibaba beschreibt OpenCodeReview als internes Prüfwerkzeug, das über zwei Jahre in der Gruppe im Einsatz war und nun unter Apache 2.0 offen bereitsteht. Es liest die Unterschiede eines Git-Stands, gibt geänderte Dateien an ein konfigurierbares Modell und erzeugt Kommentare mit Zeilenbezug. Der Agent kann vollständige Dateien lesen, im Projekt suchen und weitere Änderungen zum Kontext ziehen. Ein zweiter Modus prüft ganze Dateien auch ohne aussagekräftigen Unterschied."
+   },
+   {
+    "h": "Die interessante Abwägung",
+    "p": "Das Projekt nennt eigene Messungen gegen einen allgemeinen Agenten: höhere Präzision, höhere F1, etwa ein Neuntel der Token, dabei ausdrücklich niedrigere Trefferquote. Grundlage ist ein eigener Benchmark aus 200 Pull Requests und 50 Projekten mit Annotationen erfahrener Entwickler. Das sind Anbieterangaben, nicht unser Messergebnis. Bemerkenswert ist, dass der Anbieter seine schwächere Kennzahl selbst benennt und als Absicht ausweist."
+   },
+   {
+    "h": "Warum das für regulierte Organisationen zählt",
+    "p": "In einer Organisation mit Nachweispflicht ist ein Prüfwerkzeug kein Komfortmerkmal. Es erzeugt Artefakte, die später als Beleg herangezogen werden. Damit entstehen drei Fragen, die vor der Einführung zu beantworten sind: Welche Befunde dürfen einen Merge blockieren, wer entscheidet über eine Ausnahme, und wo wird diese Entscheidung festgehalten? Wer das Blockieren einer Maschine überlässt, hat seine Freigabe abgegeben, ohne sie zu beschließen."
+   },
+   {
+    "h": "Was vor der Einführung zu messen ist",
+    "p": "Für eine belastbare Bewertung braucht es einen Lauf gegen echte Pull Requests des eigenen Teams, gemessene Tokenkosten je Prüfung und eine dokumentierte Regel, welche Befunde welchen Status haben. Erst dann lässt sich sagen, ob die bewusste Entscheidung für weniger Fehlalarme im eigenen Repository trägt. Ein fremder Benchmark beantwortet diese Frage nicht."
+   }
+  ],
+  "sources": [
+   {
+    "label": "Repository OpenCodeReview",
+    "url": "https://github.com/alibaba/open-code-review"
+   },
+   {
+    "label": "AACR-Bench Datensatz",
+    "url": "https://huggingface.co/datasets/Tongyi-Xiaoyi/AACR-Bench"
+   }
+  ],
+  "cta": {
+   "title": "Wer prüft eigentlich die Prüfung?",
+   "text": "Der sechswöchige Pilot macht an einem realen Workflow sichtbar, welche Befunde blockieren, wer entscheidet und wie die Entscheidung dokumentiert wird.",
+   "label": "Pilotgespräch anfragen",
+   "href": "/#kontakt"
+  }
+ }
+]
