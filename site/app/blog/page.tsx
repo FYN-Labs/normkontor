@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { allPosts, dateLabel } from "../../lib/blog";
 import { BlogFooter, BlogHeader } from "./chrome";
+import { NewsletterFormular } from "./NewsletterFormular";
 
 export const metadata: Metadata = {
   title: "Analysen",
@@ -41,6 +42,12 @@ export default function BlogIndex() {
                 </li>
               ))}
             </ol>
+          </div>
+        </section>
+
+        <section className="pilot-section" aria-label="Newsletter">
+          <div className="section-shell">
+            <NewsletterFormular />
           </div>
         </section>
       </main>

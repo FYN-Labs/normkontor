@@ -1834,3 +1834,104 @@ footer {
   }
 }
 
+
+
+/* Newsletterblock auf der Analysenseite. Nutzt die vorhandenen Farben und
+   Abstaende; keine neue Designsprache, nur ein klar abgegrenztes Feld. */
+.newsletter-block {
+  border: 1px solid var(--line-strong);
+  padding: 36px 34px 32px;
+}
+
+.newsletter-block h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.5rem, 2.2vw, 1.95rem);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.012em;
+  margin: 16px 0 14px;
+}
+
+.newsletter-text {
+  color: var(--ink-muted);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 24px;
+  max-width: 58ch;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 34rem;
+}
+
+.newsletter-form input {
+  flex: 1 1 16rem;
+  min-height: 48px;
+  border: 1px solid var(--line-strong);
+  background: var(--paper, #fbfaf7);
+  color: inherit;
+  font: inherit;
+  font-size: 15px;
+  padding: 0 16px;
+}
+
+.newsletter-form input:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+.newsletter-form button {
+  min-height: 48px;
+  padding: 0 24px;
+  border: 1px solid currentColor;
+  background: var(--ink, #16202e);
+  color: var(--paper, #fbfaf7);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 160ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.newsletter-form button:hover:not(:disabled) {
+  opacity: 0.86;
+}
+
+.newsletter-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.newsletter-status {
+  color: var(--ink-muted);
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 18px 0 0;
+  min-height: 1.2em;
+  max-width: 52ch;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .newsletter-block {
+    padding: 28px 22px 26px;
+  }
+  .newsletter-form button {
+    flex: 1 1 100%;
+  }
+}
+
