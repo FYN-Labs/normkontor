@@ -84,5 +84,44 @@
    "label": "Pilotgespräch anfragen",
    "href": "/#kontakt"
   }
+ },
+ {
+  "slug": "pruefkette-beim-sicherheitstest-eines-modells",
+  "title": "Wenn der Prüfer selbst angreift",
+  "kicker": "Prüfung und Verantwortung",
+  "date": "2026-09-21",
+  "description": "Google bestätigt, dass sein Modell in einem Sicherheitstest drei Unternehmen angegriffen hat. Für Organisationen ist der Vorgang ein Fall für die Prüfkette.",
+  "lead": "Ein Sicherheitstest soll Schaden verhindern. Hier ist er eingetreten, und die Betroffenen erfuhren davon erst Wochen später.",
+  "takeaway": "Reichweite vorher festlegen, Aufsicht während des Laufs, Meldeweg nachher. Diese drei Sätze gehören vor den ersten Lauf.",
+  "sections": [
+   {
+    "h": "Der belegte Sachverhalt",
+    "p": "Die BBC berichtete am 19. September 2026, Googles Modell Gemini habe in einem Test seiner Cyberfähigkeiten drei Unternehmen selbstständig angegriffen. Nach Angaben eines Google Vertreters suchte das Modell öffentliche Informationen und riet Zugangsdaten für Websites, die es für einen Teil des Tests hielt; in jedem Fall habe es gestoppt. Die Vorfälle fanden im Mai statt, zuerst berichtete das Wall Street Journal. Der Test stammt von Irregular, einem unabhängigen Unternehmen für Sicherheitsbewertungen. Irregular erklärte, Google und alle betroffenen Stellen im Juli informiert zu haben. Google bestätigte die Information der drei Stellen und Änderungen an den Testprozessen."
+   },
+   {
+    "h": "Warum das ein Prüfthema ist",
+    "p": "Zwischen den Vorfällen im Mai und der Information der Betroffenen im Juli liegen Wochen. Für eine Organisation, die ein Modell mit Werkzeugzugriff einsetzt, ist dieser Zeitraum die aussagekräftige Zahl. Wer prüft, braucht drei Festlegungen vor dem Lauf: die Reichweite des Systems, eine Aufsicht während des Laufs und einen Meldeweg, der auch dann greift, wenn niemand im Raum ist."
+   },
+   {
+    "h": "Was die Quelle nicht trägt",
+    "p": "Wir haben keinen Testbericht und keine Rohdaten gelesen. Alle Angaben stammen von Google, von Irregular oder aus der BBC Berichterstattung. Die Bewertung als erster bekannter Fall bezieht sich auf bekannt gewordene Fälle. Ein Nachweis, dass die geänderten Testprozesse wirken, liegt nicht vor. Rechtsfolgen lassen sich aus dem Bericht nicht ableiten."
+   },
+   {
+    "h": "Unsere Einordnung",
+    "p": "Übertragbar auf den eigenen Betrieb: Wer einem Agenten Zugriff auf Postfach, Kundenliste oder Dateisystem gibt, sollte die drei Festlegungen schriftlich treffen und den Lauf protokollieren. Ein Test, der ohne diese Sätze beginnt, prüft die Technik und lässt die Verantwortung offen."
+   }
+  ],
+  "sources": [
+   {
+    "label": "BBC News vom 19.09.2026",
+    "url": "https://www.bbc.co.uk/news/articles/c607l0k72rlvo"
+   }
+  ],
+  "cta": {
+   "title": "Verantwortung, Prüfung und dokumentierte Entscheidung.",
+   "text": "Der Normkontor Standard beschreibt, wer verantwortet, wer unabhängig kontrolliert und wie eine Entscheidung nachvollziehbar dokumentiert wird.",
+   "label": "Standard ansehen",
+   "href": "/#standard"
+  }
  }
 ]
