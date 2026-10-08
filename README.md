@@ -2,23 +2,23 @@
 
 **Kontrollierte KI-Arbeit. Nachweisbar.**
 
-Normkontor is the public ruleset and assurance brand of FYN Labs. It combines
-open agent doctrine, governed enterprise rollout patterns, and training for
-teams that need agentic software development to remain understandable,
-controllable, and reviewable.
+Normkontor is the public standards and ruleset brand of FYN Labs. Its
+Normkontor Standard Kernel defines the common governance boundary; 3A COD3X is
+the first implementation and bounded-review method under that boundary.
 
-## Product map
+## Public scope
 
 | Module | Status | Purpose |
 | --- | --- | --- |
 | Normkontor 3A / 3A COD3X | Open source | Smallest complete native change, bounded autonomy, real evidence |
-| Normkontor Rollout | Pilot on request | Scope, operating model, controls, pilot evidence, 90-day plan |
-| Normkontor Academy | Pilot on request | Executive, practitioner, and internal assurance training |
-| Normkontor Review | In development | Independent review-arm and evidence-receipt product concept |
+
+This repository contains only the Kernel, public adapters, the 3A plugin,
+neutral evals, contract tests, and minimal product and release documentation.
 
 3A COD3X means **Aligned. Autonomous. Auditable.** It is the technical plugin
-name for the first Normkontor ruleset. The public product name used in
-enterprise materials is Normkontor 3A.
+name for the first Normkontor ruleset. “Normkontor Standard” names the
+governance kernel; “3A COD3X” names the two behavioral skills. Neither name
+substitutes for the other.
 
 ## Install 3A COD3X
 
@@ -38,9 +38,9 @@ Restart Claude Code after installation or update.
 
 ### Hermes Agent
 
-Hermes already owns skill installation. Until a version tag is cut, review the
-source on GitHub and install only from a frozen commit. Stable tag-pinned
-commands will be published with the first release evidence receipt.
+No tagged Hermes installation claim is made yet. Review the source only from a
+frozen commit. Stable tag-pinned instructions will follow the first applicable
+release evidence receipt.
 
 ### Other skill-aware agents
 
@@ -51,6 +51,16 @@ Install the two folders below from a frozen revision:
 
 The plugin is instruction-only: no hooks, runtime, background calls, MCP
 server, model router, telemetry, approval store, or persistent mode.
+
+## Governance boundary
+
+[`standard/KERNEL.md`](standard/KERNEL.md) is the sole normative owner.
+It makes Linear the only execution ledger, separates evidence from authority,
+and requires a verified human Decision Owner with a valid Decision Receipt for
+Done. The two 3A skills remain the only owners of implementation guidance and
+bounded review. Host and organization controls enforce actions externally;
+instructions forbid drift, and static repository checks flag specified textual
+violations. Neither can make an agent technically unable to act.
 
 ## What the ruleset does
 
@@ -74,24 +84,16 @@ resolve to three distinct qualified model families and preserve disagreement.
 ## Evidence boundary
 
     npm test
-    npm --prefix site ci
-    npm --prefix site run lint
-    npm --prefix site run build
-    npm --prefix site audit --audit-level=high
 
-These commands prove the source and package contracts plus the static website
-build. They do not prove runtime skill selection, measured code improvement,
+This command proves the source and package contracts. It does not prove runtime
+skill selection, measured code improvement,
 security, regulatory compliance, a multi-model assurance PASS, or release
 authority. Release evidence must bind the exact tag and commit bytes.
 
-## Catalog and enterprise material
+## Catalog and public contract
 
 - rulesets/README.md defines admission and status rules for future rulesets.
-- docs/product-contract.md defines the canonical product boundary.
-- docs/enterprise/ contains the rollout, Academy, privacy, and planned review
-  architecture without presenting planned capabilities as current runtime.
-- site/ is the public Normkontor website deployed independently from the
-  instruction-only plugin package.
+- docs/product-contract.md defines the product boundary and Kernel mapping.
 
 ## Independence notice
 

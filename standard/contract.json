@@ -1,0 +1,77 @@
+{
+  "schema": "normkontor-standard-contract/v1",
+  "version": "1.0.0",
+  "kernel_path": "standard/KERNEL.md",
+  "owner_map": {
+    "normative_governance": "standard/KERNEL.md",
+    "implementation_method": "plugins/3a-cod3x/skills/3a-cod3x/SKILL.md",
+    "bounded_review_method": "plugins/3a-cod3x/skills/3a-cod3x-review/SKILL.md"
+  },
+  "adapter_paths": [
+    "adapters/codex/AGENTS.md",
+    "adapters/claude-code/CLAUDE.md",
+    "adapters/command-eve/POLICY.md",
+    "adapters/linear/CONTRACT.md"
+  ],
+  "adapter_version": "1.0.0",
+  "normative_precedence": [
+    "host_constraints",
+    "organization_policy",
+    "kernel_and_root_policy",
+    "nested_tightening",
+    "decision_receipt_scope",
+    "user_intent",
+    "runtime_adapter",
+    "selected_skills"
+  ],
+  "evidence_precedence": [
+    "observed_host_state",
+    "valid_decision_receipt",
+    "linear_evidence",
+    "exact_repository_artifact",
+    "memory",
+    "model_knowledge"
+  ],
+  "roles": [
+    "worker",
+    "reviewer",
+    "audit",
+    "controller",
+    "decision_owner"
+  ],
+  "execution_ledger": "Linear",
+  "decision_receipt_required_fields": [
+    "receipt_id",
+    "issuer",
+    "host_scope",
+    "organization_scope",
+    "authority_verb",
+    "subject_scope",
+    "issued_at",
+    "expires_at",
+    "evidence_ref"
+  ],
+  "decision_receipt_validity_checks": [
+    "verified_human_decision_owner",
+    "matched_host_scope",
+    "matched_organization_scope",
+    "recognized_authority_verb",
+    "exact_subject_scope",
+    "active_time_window",
+    "immutable_evidence_ref",
+    "not_revoked_or_superseded",
+    "host_and_organization_constraints"
+  ],
+  "limits": {
+    "kernel_max_lines": 100,
+    "adapter_max_lines": 35
+  },
+  "authority_verbs": [
+    "merge",
+    "deploy",
+    "publish",
+    "spend",
+    "production",
+    "done"
+  ]
+}
