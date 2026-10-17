@@ -1,5 +1,18 @@
 [
   {
+    "id": "deepseek-flash-1017-modellversion-20261017",
+    "name": "DeepSeek V4.1 Flash 1017",
+    "category": "Modellversionen und Coding-Agenten",
+    "summary": "DeepSeek hat Flash am 2026-10-17 aktualisiert und die Gewichte veröffentlicht. In der API liefert der bisherige Name deepseek-flash nun die neue Version; Aufruf und Tokenpreise bleiben laut Changelog unverändert.",
+    "useCase": "Für Teams, die DeepSeek in Coding-Agenten einsetzen und Ergebnisse nach einem Modellupdate vergleichen wollen. Der Eigenbetrieb benötigt eine eigene Inferenzumgebung; die Referenzanleitung zeigt eine Aufteilung auf acht Prozesse.",
+    "assessment": "Den bisherigen Modellnamen können Sie weiterverwenden. Für einen späteren Vergleich würde ich zusätzlich das Datum des Laufs, die angekündigte Modellversion und die Version der Agentensoftware festhalten. DeepSeek empfiehlt für dieses Update Harness 0.2.1-rc.1 oder neuer.",
+    "limitation": "Modellkarte, Lizenz, Inferenzanleitung und API-Changelog geprüft, keinen Modelllauf ausgeführt. Die besseren Leistungswerte sowie kürzere Laufzeiten und Antworten sind Herstellerangaben. Terminal-Bench und DeepSWE nutzen unterschiedliche Agentenumgebungen. Keine eigene Kosten- oder Hardwaremessung. Mathias Heinke",
+    "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "license": "MIT für Repository und Modellgewichte; die gehostete API ist ein gesonderter Dienst.",
+    "checkedAt": "2026-10-17",
+    "reviewStatus": "Quellen geprüft"
+  },
+  {
     "id": "reflection-beam-gewichte-betrieb-20261016",
     "name": "Reflection Beam 1.0",
     "category": "Offene Modellgewichte für Coding-Agenten",
