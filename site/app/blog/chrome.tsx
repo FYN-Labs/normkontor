@@ -14,11 +14,12 @@ export function BlogHeader() {
         </Link>
 
         <div className="nav-links">
-          <a href="/#pilot"><span aria-hidden="true">01</span><strong>Pilot</strong></a>
-          <a href="/#ergebnis"><span aria-hidden="true">02</span><strong>Ergebnis</strong></a>
-          <a href="/#standard"><span aria-hidden="true">03</span><strong>Standard &amp; 3A</strong></a>
-          <a href="/#governance"><span aria-hidden="true">04</span><strong>Governance</strong></a>
+          <Link href="/#pilot"><span aria-hidden="true">01</span><strong>Pilot</strong></Link>
+          <Link href="/#ergebnis"><span aria-hidden="true">02</span><strong>Ergebnis</strong></Link>
+          <Link href="/#standard"><span aria-hidden="true">03</span><strong>Standard &amp; 3A</strong></Link>
+          <Link href="/#governance"><span aria-hidden="true">04</span><strong>Governance</strong></Link>
           <Link href="/blog"><span aria-hidden="true">05</span><strong>Analysen</strong></Link>
+          <Link href="/fundstuecke"><span aria-hidden="true">06</span><strong>Fundstücke</strong></Link>
         </div>
 
         <p className="nav-truth">Evidenz vor Entscheidung.<br />Autorität bleibt beim Unternehmen.</p>
@@ -26,12 +27,13 @@ export function BlogHeader() {
         <details className="mobile-menu">
           <summary>Menü</summary>
           <div>
-            <a href="/#pilot">Pilot</a>
-            <a href="/#ergebnis">Ergebnis</a>
-            <a href="/#standard">Standard &amp; 3A</a>
-            <a href="/#governance">Governance</a>
+            <Link href="/#pilot">Pilot</Link>
+            <Link href="/#ergebnis">Ergebnis</Link>
+            <Link href="/#standard">Standard &amp; 3A</Link>
+            <Link href="/#governance">Governance</Link>
             <Link href="/blog">Analysen</Link>
-            <a href="/#kontakt">Pilotgespräch anfragen</a>
+            <Link href="/fundstuecke">Fundstücke</Link>
+            <Link href="/#kontakt">Pilotgespräch anfragen</Link>
           </div>
         </details>
       </nav>
@@ -47,7 +49,7 @@ export function BlogFooter() {
           <Image src="/brand/normkontor-mark.svg" alt="" width={42} height={42} />
           <p><strong>NORMKONTOR</strong><span>eine Produktmarke von FYN Labs LLC</span></p>
         </div>
-        <p>3A COD3X ist ein unabhängiges Regelwerk von Normkontor. Codex ist eine Marke von OpenAI.</p>
+        <p><Link href="/fundstuecke">Fundstücke</Link><br />3A COD3X ist ein unabhängiges Regelwerk von Normkontor. Codex ist eine Marke von OpenAI.</p>
         <p><a href="https://fyn-labs.com/de/legal">Impressum</a> · <a href="https://fyn-labs.com/de/privacy">Datenschutz</a><br /><a href="mailto:support@fyn-labs.com">support@fyn-labs.com</a> · © 2026 FYN Labs LLC</p>
       </div>
     </footer>

@@ -1,0 +1,54 @@
+[
+  {
+    "id": "reflection-beam-gewichte-betrieb-20261016",
+    "name": "Reflection Beam 1.0",
+    "category": "Offene Modellgewichte für Coding-Agenten",
+    "summary": "Reflection stellt seit 2026-10-16 die Gewichte seines Coding- und Agentenmodells Beam bereit. Die Modellkarte nennt 501 Milliarden Gesamtparameter, davon rund 23 Milliarden pro Schritt aktiv, und ein Kontextfenster von einer Million Tokens.",
+    "useCase": "Für Entwicklungsteams, die einen selbst betriebenen Modellendpunkt mit bestehenden Coding-Agenten vergleichen möchten. BF16-, FP8- und NVFP4-Gewichte sind verfügbar; der Betrieb auf eigener Infrastruktur ist dadurch nicht kostenlos.",
+    "assessment": "Die Apache-Lizenz erleichtert einen eigenen Vergleich ohne die Umsatzgrenze anderer neuer Modelllizenzen. Dabei zählt der vollständige Aufbau aus Modell, Agentenwerkzeugen und Infrastruktur. Weniger aktive Parameter bedeuten nicht, dass nur dieser Teil des Modells gespeichert werden muss.",
+    "limitation": "Veröffentlichte Modellgewichte samt Lizenz und Mirror-Dokumentation quellengeprüft; nichts installiert oder ausgeführt. Aussagen über weniger Denktokens stammen von Reflection, nicht aus einem eigenen Vergleich. Das Modell ist vorwiegend für Englisch entwickelt; die deutsche Arbeitsqualität ist hier ungeprüft.",
+    "sourceUrl": "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
+    "license": "Apache License 2.0 für die geprüften Modellgewichte. Die Modellkarte erklärt ausdrücklich, dass sie die Lizenz nicht einschränkt. Gehostete Dienste haben separate Bedingungen und Kosten.",
+    "checkedAt": "2026-10-17",
+    "reviewStatus": "Quellen geprüft"
+  },
+  {
+    "id": "anthropic-metr-pruefer-publikationsrechte-20261016",
+    "name": "Anthropic und METR",
+    "category": "Unabhängige Modellprüfung",
+    "summary": "Anthropic gibt sechs METR-Mitarbeitern laut Mitteilung vom 2026-10-15 weitreichenden internen Zugang. METR soll Risikobewertungen ohne Veröffentlichungsveto des Herstellers publizieren können.",
+    "useCase": "Für Teams, die Sicherheitsberichte von Modellanbietern bewerten und wissen wollen, welche Informationen externe Prüfer tatsächlich sehen dürfen.",
+    "assessment": "Zugang und Veröffentlichungsrecht werden getrennt beschrieben. In der ersten Prüferstufe braucht eine Veröffentlichung Anthropics Zustimmung; für METR gilt das nicht. Diese Unterscheidung gehört neben jedes Urteil über die Unabhängigkeit.",
+    "limitation": "Bislang eine Anbieterankündigung, kein neuer METR-Prüfbericht. Anthropic darf eng definierte vertrauliche Informationen schwärzen lassen; METR darf diese Schwärzungen öffentlich bewerten. Keine eigene Prüfung der Vereinbarungen.",
+    "sourceUrl": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+    "license": "Öffentliche Unternehmensmitteilung; keine offene Lizenz ausgewiesen.",
+    "checkedAt": "2026-10-17",
+    "reviewStatus": "Quellen geprüft"
+  },
+  {
+    "id": "meta-muse-spark-open-lizenz-und-hardware-20261016",
+    "name": "Muse Spark Open",
+    "category": "Offene Modellgewichte",
+    "summary": "Meta veröffentlicht am 2026-10-15 Muse Spark Open mit nach eigenen Angaben 816 Milliarden Parametern, davon 42 Milliarden aktiv, und einer Million Tokens Kontext.",
+    "useCase": "Für Entwicklungsteams, die ein großes multimodales Modell selbst betreiben wollen. Metas gezeigter Desktop-Aufbau nutzt zwei M5-Ultra-Mac-Studios mit jeweils bis zu 512 GB Speicher.",
+    "assessment": "Die Muse Model License erlaubt viele kommerzielle Nutzungen, verlangt aber eine sichtbare Produktkennzeichnung und die Einhaltung einer Nutzungsrichtlinie. Offene Gewichte sind hier kein MIT- oder Apache-lizenziertes Modell.",
+    "limitation": "Der Modellzugang auf Hugging Face erfordert zum Prüfzeitpunkt manuelle Freigabe. Für Modellanbieter mit über 20 Millionen US-Dollar Gesamtumsatz samt verbundenen Unternehmen in zwölf Monaten gelten besondere Vertragsbedingungen. Keine Gewichte geladen, keine Leistung oder Hardwareanforderungen selbst gemessen.",
+    "sourceUrl": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
+    "license": "Muse Model License, Fassung Muse Spark Open vom 2026-10-15; eigene Lizenz mit Nutzungsbedingungen.",
+    "checkedAt": "2026-10-17",
+    "reviewStatus": "Quellen geprüft"
+  },
+  {
+    "id": "openai-agents-sdk-compaction-freigaben-20261016",
+    "name": "OpenAI Agents SDK 0.24.0",
+    "category": "Freigaben und Kontextverdichtung",
+    "summary": "Version 0.24.0 vom 2026-10-15 verschiebt die automatische Responses-Kontextverdichtung, solange Werkzeugaufrufe oder gehostete MCP-Freigaben noch auf ihre Antwort warten.",
+    "useCase": "Für Entwickler, deren Agenten zur menschlichen Freigabe anhalten und danach weiterlaufen. Der behobene Fehler konnte vor dieser Unterbrechung eine HTTP-400-Antwort auslösen.",
+    "assessment": "Der Fix setzt an einem konkreten Übergang an: Offene Aufrufe bleiben für Zustimmung oder Ablehnung erhalten, statt als unvollständige Gruppe an die Verdichtung zu gehen. Das ist ein nützlicher Fall für eigene Wiederaufnahmeprüfungen.",
+    "limitation": "Release, MIT-Lizenz und Änderung #5363 geprüft; SDK nicht installiert. Manuelle Verdichtung und öffentliche APIs bleiben laut Änderungsbeschreibung unverändert. Daraus folgt keine Garantie für sämtliche Speicher- oder Freigabepfade. Modellaufrufe verursachen weiterhin Kosten.",
+    "sourceUrl": "https://github.com/openai/openai-agents-python",
+    "license": "MIT (SDK); Modellzugang und Inferenz separat.",
+    "checkedAt": "2026-10-17",
+    "reviewStatus": "Quellen geprüft"
+  }
+]

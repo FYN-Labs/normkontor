@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, statSync } from "node:fs";
 import path from "node:path";
 
 export type BlogSource = { label: string; url: string };
@@ -11,6 +11,9 @@ export type BlogPost = {
   date: string;
   description: string;
   lead: string;
+  heroImage?: string;
+  heroAlt?: string;
+  heroCaption?: string;
   takeaway: string;
   sections: BlogSection[];
   sources: BlogSource[];
@@ -27,6 +30,11 @@ function load(): BlogPost[] {
     if (!slugPattern.test(p.slug) || seen.has(p.slug)) throw new Error("Ungueltiger oder doppelter Slug: " + p.slug);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(p.date)) throw new Error("Ungueltiges Datum: " + p.slug);
     if (!p.sources?.length) throw new Error("Artikel ohne Quelle: " + p.slug);
+    if (p.heroImage !== undefined) {
+      if (!/^\/blog\/(?:[\w-]+\/)*[\w.-]+\.(?:png|jpe?g|webp|avif)$/.test(p.heroImage)) throw new Error("Nur lokale Titelbilder unter /blog/ erlaubt: " + p.slug);
+      if (!p.heroAlt?.trim()) throw new Error("Titelbild ohne beschreibenden Alttext: " + p.slug);
+      if (!statSync(path.join(process.cwd(), "public", p.heroImage.slice(1)), { throwIfNoEntry: false })?.isFile()) throw new Error("Titelbilddatei fehlt: " + p.slug);
+    }
     for (const s of p.sources) {
       if (new URL(s.url).protocol !== "https:") throw new Error("Nur HTTPS Quellen erlaubt: " + s.url);
     }

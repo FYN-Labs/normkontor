@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const pilotMailto =
   "mailto:support@fyn-labs.com?subject=Normkontor%20Pilotgespr%C3%A4ch&body=Workflow%3A%0ATeam%3A%0ADatenklasse%3A%0AGew%C3%BCnschtes%20Ergebnis%3A%0AErfolgskriterium%3A%0AVerantwortliche%20Person%3A";
@@ -82,7 +83,7 @@ export default function Home() {
             <a href="#academy"><span aria-hidden="true">04</span><strong>Academy</strong></a>
             <a href="#standard"><span aria-hidden="true">05</span><strong>Standard &amp; 3A</strong></a>
             <a href="#governance"><span aria-hidden="true">06</span><strong>Governance</strong></a>
-            <a href="/blog"><span aria-hidden="true">07</span><strong>Analysen</strong></a>
+            <Link href="/blog"><span aria-hidden="true">07</span><strong>Analysen</strong></Link>
           </div>
 
           <p className="nav-truth">Evidenz vor Entscheidung.<br />Autorität bleibt beim Unternehmen.</p>
@@ -96,7 +97,7 @@ export default function Home() {
               <a href="#academy">Academy</a>
               <a href="#standard">Standard &amp; 3A</a>
               <a href="#governance">Governance</a>
-              <a href="/blog">Analysen</a>
+              <Link href="/blog">Analysen</Link>
               <a href="#kontakt">Pilotgespräch anfragen</a>
             </div>
           </details>
@@ -377,7 +378,7 @@ export default function Home() {
             <Image src="/brand/normkontor-mark.svg" alt="" width={42} height={42} />
             <p><strong>NORMKONTOR</strong><span>eine Produktmarke von FYN Labs LLC</span></p>
           </div>
-          <p>3A COD3X ist ein unabhängiges Regelwerk von Normkontor. Codex ist eine Marke von OpenAI.</p>
+          <p><Link href="/fundstuecke">Fundstücke</Link><br />3A COD3X ist ein unabhängiges Regelwerk von Normkontor. Codex ist eine Marke von OpenAI.</p>
           <p><a href="https://fyn-labs.com/de/legal">Impressum</a> · <a href="https://fyn-labs.com/de/privacy">Datenschutz</a><br /><a href="mailto:support@fyn-labs.com">support@fyn-labs.com</a> · © 2026 FYN Labs LLC</p>
         </div>
       </footer>

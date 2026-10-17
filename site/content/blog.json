@@ -1,4 +1,200 @@
 [
+  {
+    "slug": "agent-memory-repo-quellen-und-aenderungsspur",
+    "title": "Ein offenes Agentengedächtnis macht Änderungen lesbar. Ihre Begründung braucht eine Quelle.",
+    "kicker": "Agentengedächtnis und Nachweise",
+    "date": "2026-10-17",
+    "description": "Cognitions Agent Memory Repo verbindet Markdown mit Git. Das lokale Skill-Artefakt und die angekündigte Hintergrundpflege haben unterschiedliche Grenzen.",
+    "lead": "Ein Agent merkt sich, dass ein bestimmter Kollege Angebote freigibt. Wochen später wechselt die Zuständigkeit, und die alte Notiz taucht weiterhin in seinen Antworten auf. Git könnte sichtbar machen, wann jemand den Eintrag geändert hat. Ob die neue Zuständigkeit stimmt, muss ein anderer Beleg tragen. Dieser erfundene Fall macht den Nutzen eines lesbaren Gedächtnisses ebenso deutlich wie seine Grenze.",
+    "takeaway": "Git macht Textänderungen nachvollziehbar; Quellen und Gültigkeit gespeicherter Angaben bleiben eine eigene Prüfung.",
+    "sections": [
+      {
+        "h": "Cognition veröffentlicht ein einfaches Format",
+        "p": "Am 2026-10-05 stellte Cognition Agent Memory Repo öffentlich vor. Das Originalrepository enthält eine Spezifikation und einen installierbaren Skill unter MIT-Lizenz. Sein Einstieg ist eine kurze MEMORY.md mit Verweisen auf weitere Dateien. Notizen können Quellen und ein Hinzufügedatum tragen; Querverweise verbinden zusammengehörige Themen. Das Gedächtnis liegt in einem eigenen Git-Repository, dessen Geschichte Änderungen nachvollziehbar hält.\n\nDer konkrete Ansatz verdient Aufmerksamkeit, weil sein Bestand mit gewöhnlichen Werkzeugen lesbar bleibt. Ein Entwicklungsteam kann eine gespeicherte Projektentscheidung ansehen, ihre Herkunft nachlesen und die Änderung vergleichen. Dafür muss es keine besondere Gedächtnisoberfläche übernehmen. Das Format allein belegt allerdings weder, dass jeder Agent die Verweise richtig nutzt, noch dass gespeicherte Schlussfolgerungen zutreffen."
+      },
+      {
+        "h": "Der lokale Einstieg ist enger als Dreaming",
+        "p": "Cognition beschreibt auch „Dreaming“: Ein regelmäßig arbeitender Agent soll Muster ergänzen, Dubletten zusammenführen und veraltete Einträge bereinigen. Der aktuell veröffentlichte Skill richtet diese Hintergrundarbeit ausdrücklich nicht ein. Er arbeitet bei Aufruf, fügt keine Hooks oder Startskripte hinzu und verspricht kein automatisches Laden in späteren Sitzungen. Sein Standard ist lokal; einen Remote-Speicher soll er nur auf ausdrücklichen Wunsch mit einem benannten privaten Repository verbinden.\n\nDiese Unterscheidung ist für eine erste Bewertung tragend. Die offene Dateistruktur und der lokale Einstieg sind prüfbare Artefakte. Eine dadurch bereits installierte nächtliche Selbstpflege wäre eine weitergehende Behauptung, die dieser Skill nicht trägt. Auch die Leistungsbeispiele auf der Website sind Beispiele des Herstellers, keine Messungen unserer Redaktion."
+      },
+      {
+        "h": "Ein Nachweis für Änderungen braucht zwei Ebenen",
+        "p": "Ein Git-Commit beantwortet, welche Textfassung gespeichert wurde. Als Gegenprüfung für unseren Zuständigkeitsfall empfiehlt sich daneben die Quelle, aus der die neue Freigaberolle stammt. Die Spezifikation empfiehlt das Feld source, macht es aber nicht für jeden Eintrag verpflichtend. Ein Betrieb muss daher selbst entscheiden, welche Notizen ohne Herkunft nur als unbestätigte Hinweise gelten dürfen.\n\nEine kleine Papierprüfung reicht zur Vorbereitung: dieselbe Zuständigkeit zunächst als bestätigten Fakt mit Quelle notieren, dann eine widersprechende Aussage ohne Quelle danebenstellen. Welche Fassung soll der nächste Agent benutzen? Ein zweiter Fall betrifft ein historisches Angebot, dessen alte Konditionen weiter im Repository liegen. Die neue Sitzung muss den gültigen Stand erkennen können, auch wenn die frühere Fassung in der Geschichte erhalten bleibt. Wir haben diese Fälle nicht mit der Software ausgeführt.\n\nLesbare Dateien und ein eigenes Repository sind eine brauchbare Grundlage für portables Arbeitswissen. Vor einem Versuch mit echten Projektdaten gehören deshalb ein Quellenmaßstab und eine Regel für ersetzte Angaben in den Auftrag; die ersten Beispiele sollten vollständig synthetisch bleiben."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Cognition: Agent Memory Repo und Grenzen des lokalen Einstiegs",
+        "url": "https://cognition.com/agent-memory-repo"
+      },
+      {
+        "label": "Originalrepository, geprüfter Stand 8798cb2",
+        "url": "https://github.com/AgentMemoryRepo/agentmemoryrepo/tree/8798cb26c817d451a5ed6cba0ad8d9eca8d5ec3e"
+      },
+      {
+        "label": "Dateistruktur und empfohlene Quellenmetadaten",
+        "url": "https://github.com/AgentMemoryRepo/agentmemoryrepo/blob/8798cb26c817d451a5ed6cba0ad8d9eca8d5ec3e/SPEC.md"
+      },
+      {
+        "label": "Veröffentlichter Skill mit lokalen Grenzen",
+        "url": "https://github.com/AgentMemoryRepo/agentmemoryrepo/blob/8798cb26c817d451a5ed6cba0ad8d9eca8d5ec3e/skills/agent-memory-repo/SKILL.md"
+      },
+      {
+        "label": "Tatsächliche MIT-Lizenz",
+        "url": "https://github.com/AgentMemoryRepo/agentmemoryrepo/blob/8798cb26c817d451a5ed6cba0ad8d9eca8d5ec3e/LICENSE"
+      }
+    ],
+    "heroImage": "/blog/agent-memory-repo-quellen-und-aenderungsspur/hero.webp",
+    "heroAlt": "Ein geöffneter Karteikasten mit geordneten leeren Karten und einer vorgezogenen neuen Karte.",
+    "heroCaption": "Redaktionelle KI-Illustration."
+  },
+  {
+    "slug": "agentchat-chatquittung-und-dauerhafte-arbeit",
+    "title": "Eine Chatquittung sagt noch nicht, ob die Arbeit erledigt ist",
+    "kicker": "Agentenbetrieb und Zustellung",
+    "date": "2026-10-17",
+    "description": "Agentchat trennt die Annahme einer Chatnachricht von dauerhafter Verarbeitung und bestätigter Antwort.",
+    "lead": "Ein Agent soll in Teams eine Aufgabe annehmen und später das Ergebnis zurückmelden. Der Chatdienst bekommt schon beim Eingang eine Bestätigung. Dann stürzt der Prozess ab. Für den Absender sah die Übergabe erfolgreich aus, obwohl die Arbeit noch im Arbeitsspeicher lag.",
+    "takeaway": "Eine Eingangsquittung speichert keinen Auftrag dauerhaft. Unklare Antwortzustellungen braucht die Anwendung selbst zu klären.",
+    "sections": [
+      {
+        "h": "Eine angenommene Nachricht kann noch verloren gehen",
+        "p": "Genau diese Grenze beschreibt Agentchat, ein Python-SDK von BerriAI für fünf Chatkanäle. Teams erhält nach Aufnahme eines Ereignisses HTTP 202, WhatsApp HTTP 200. Die Zustelldokumentation weist ausdrücklich darauf hin, dass angenommene Arbeit keine dauerhafte Warteschlange ist. Ein Absturz nach der Bestätigung kann einen noch offenen Auftrag verlieren."
+      },
+      {
+        "h": "Zwei verschiedene Bestätigungen",
+        "p": "Beim Antworten wartet der Adapter auf eine Quittung des Plattformanbieters. Erst dann nimmt Agentchat die bestätigte Antwort in seinen Verlauf auf. Diese Quittung bedeutet, dass der Anbieter sie angenommen hat. Ob ein Mensch sie empfangen oder gelesen hat, ist damit offen.\n\nAuch ein Timeout entscheidet die Sache nicht. Die Plattform kann eine Antwort angenommen haben, bevor die Verbindung abbricht. Einfach nochmals senden kann dann zwei Antworten erzeugen. Agentchat überlässt die Klärung solcher Fälle der Anwendung, ebenso die dauerhafte Verarbeitung von Aufträgen."
+      },
+      {
+        "h": "Was vor dem Einsatz feststehen sollte",
+        "p": "Ich würde für diesen Teams-Ablauf zuerst bestimmen, wo der Auftrag einen Prozessabsturz überlebt und wie eine ungewisse Antwort später zugeordnet wird. Erst damit lässt sich entscheiden, ob Wiederholen hilft oder eine zweite Sendung auslöst. Die Zahl der angebundenen Chatkanäle beantwortet beides nicht.\n\nREADME, Zustell- und Architekturdokumentation wurden am 2026-10-17 am Commit 2d4f1ee geprüft. Die Anwendung verantwortet die dauerhafte Auftragsverarbeitung und die Klärung ungewisser Zustellungen. Ein eigener Zustellversuch fand nicht statt."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Agentchat: Zustellung und Quittungen, geprüfter Commit 2d4f1ee",
+        "url": "https://github.com/BerriAI/agentchat/blob/2d4f1eeffc73669db6be83c919241ea872d383a5/docs/providers.md"
+      },
+      {
+        "label": "Agentchat: Architektur und Verantwortung der Anwendung",
+        "url": "https://github.com/BerriAI/agentchat/blob/2d4f1eeffc73669db6be83c919241ea872d383a5/docs/architecture.md"
+      }
+    ],
+    "heroImage": "/blog/agentchat-chatquittung-und-dauerhafte-arbeit/hero.webp",
+    "heroAlt": "Drei Ablagefächer trennen den Eingangsbeleg vom offenen Auftrag und vom leeren Ausgang.",
+    "heroCaption": "Redaktionelle KI-Illustration."
+  },
+  {
+    "slug": "bello-wochenquota-modellwechsel-und-pruefung",
+    "title": "Weniger Wochenquota: Was Bellos Vergleich tatsächlich zeigt",
+    "kicker": "Coding-Agenten im Vergleich",
+    "date": "2026-10-17",
+    "description": "Bellos Quota-Vergleich ändert Modell und Prüfaufbau zugleich. Sein lokaler Logfilter ist ein eigener Versuch.",
+    "lead": "Bello verspricht ein günstigeres Team um den Coding-Agenten. Die auffällige Zahl steht im README: 66,3 Prozent weniger Wochenquota bei nahezu gleichem Durchschnittsscore. Vor einer Übernahme lohnt sich ein Blick darauf, wer hier gegen wen arbeitet.",
+    "takeaway": "Der Quota-Vergleich trennt den Einfluss des Modells nicht vom Einfluss der Prüfungen. Für den Logfilter liegen gesonderte Zahlen vor.",
+    "sections": [
+      {
+        "h": "Vier Aufgaben, zwei Konfigurationen",
+        "p": "Der Projektvergleich setzt GPT-5.6 Sol mit xhigh ohne Bello gegen GPT-5.6 Luna mit xhigh als Coder, Abschlussprüfer und Gegenprüfer. Hinzu kommt eine Laufaufsicht mit Luna high. Vier Aufgaben wurden je dreimal pro Konfiguration ausgeführt. Das sind zwölf Läufe auf jeder Seite.\n\nDie gemeldete Wochenquota sinkt von insgesamt 15,63 auf 5,27 Prozent. Der durchschnittliche Score liegt bei 48,10 beziehungsweise 48,80 Prozent. Dafür wächst die mittlere Laufzeit von 28 Minuten und 27 Sekunden auf eine Stunde, 49 Minuten und 44 Sekunden.\n\nDer Vergleich liefert einen interessanten Betriebsansatz: Ein sparsameres Modell bekommt getrennte Prüfungen. Wie viel davon am Modellwechsel und wie viel am Ablauf liegt, lässt sich aus diesen beiden Konfigurationen nicht bestimmen. Die Quota-Zahl ist außerdem keine Dollarrechnung."
+      },
+      {
+        "h": "Der Logfilter ist ein anderer Versuch",
+        "p": "Bello kann Werkzeugausgaben lokal mit einem ModernBERT-Modell kürzen. Es wählt Originaltext aus; die Prüfer bekommen die vollständige Ausgabe. Im getrennten Vergleich mit demselben Coder sinken die rechnerischen API-Kosten um 22 beziehungsweise 14,8 Prozent. Die Scores fallen dabei um rund 1,3 bis 1,7 Punkte.\n\nFür Codex im Abo benötigt dieser Filter eine separat gepatchte Binärdatei. Vor einem Versuch wäre deshalb zunächst deren Quelle zu prüfen. Mein nächster Vergleich würde Modell und Aufgabe konstant halten und vollständige Fehlerausgaben mitführen. Erst danach lässt sich entscheiden, ob die kürzere Ausgabe den zusätzlichen Aufbau rechtfertigt."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bello: README.md",
+        "url": "https://github.com/Makson179/Bello/blob/a663b73c02e4ece0dcea40758ff19d193356f04a/README.md"
+      },
+      {
+        "label": "Bello: native-codex-selection.md",
+        "url": "https://github.com/Makson179/Bello/blob/a663b73c02e4ece0dcea40758ff19d193356f04a/docs/native-codex-selection.md"
+      },
+      {
+        "label": "Bello: LICENSE",
+        "url": "https://github.com/Makson179/Bello/blob/a663b73c02e4ece0dcea40758ff19d193356f04a/LICENSE"
+      },
+      {
+        "label": "Bello: v0.7.2",
+        "url": "https://github.com/Makson179/Bello/releases/tag/v0.7.2"
+      }
+    ],
+    "heroImage": "/blog/bello-wochenquota-modellwechsel-und-pruefung/hero.webp",
+    "heroAlt": "Zwei Werkbänke mit einem beziehungsweise zwei Prüfplätzen und einer Uhr im Hintergrund.",
+    "heroCaption": "Redaktionelle KI-Illustration."
+  },
+  {
+    "slug": "mcp-werkzeuge-schreibrechte-startfreigabe",
+    "title": "Ein MCP-Werkzeug darf sich seine Schreibrechte nicht selbst geben",
+    "kicker": "Werkzeugrechte im Agentenbetrieb",
+    "date": "2026-10-17",
+    "description": "GitHub Agentic Workflows verlangt in v0.91.12 eine Startfreigabe für schreibende MCP-Werkzeuge.",
+    "lead": "GitHub Agentic Workflows übersetzt Markdown-Aufgaben in ausführbare GitHub Actions. Dabei lohnt sich ein Blick auf eine kleine Änderung im Release v0.91.12 vom 2026-10-14: Schreibende MCP-Werkzeuge benötigen jetzt die Startoption --allow-write-tools. Die muss der Betreiber setzen. Argumente eines späteren Werkzeugaufrufs können sie nicht nachreichen.",
+    "takeaway": "Schreibende MCP-Werkzeuge brauchen die Freigabe beim Start. Eine Konfigurationsinspektion bleibt von einer echten Serverabfrage getrennt.",
+    "sections": [
+      {
+        "h": "Die Startfreigabe gilt auch für Trockenläufe",
+        "p": "Das betrifft add, update, fix und compile, ausdrücklich auch deren Trockenläufe. Ein Agent darf also einen Workflow bearbeiten, wenn diese Fähigkeit beim Start eingeschaltet wurde. Dass er eine passende Aufgabe erhalten hat, schaltet sie für sich genommen nicht frei."
+      },
+      {
+        "h": "Was eine Inspektion tatsächlich ausführt",
+        "p": "Die zugehörige Änderung trennt außerdem zwei Vorgänge, die leicht unter demselben Etikett landen. Das MCP-Werkzeug mcp-inspect liest nur noch Konfiguration. Eine Live-Abfrage mit den Filtern server oder tool weist es zurück. Die tatsächliche Erkundung eines Servers bleibt über den ausdrücklich vom Betreiber aufgerufenen CLI-Befehl möglich.\n\nFür die Prüfung eines fremden Workflows ist das relevant. Konfiguration lesen und darin deklarierte Programme oder Endpunkte aufrufen haben unterschiedliche Folgen. Im Prüfbericht sollte stehen, welcher Vorgang tatsächlich stattgefunden hat."
+      },
+      {
+        "h": "Zwei Stellen für die eigene Abnahme",
+        "p": "Die Releasefassung verschärft auch pull_request_target: Im Strict Mode sind die Rollen all und read dabei unzulässig. Außerhalb dieses Modus gibt es eine Warnung. Das ist eine konkrete Compile-Prüfung, keine allgemeine Sicherheitsgarantie für Agentenworkflows.\n\nVor einer Übernahme würde ich deshalb zwei Fälle getrennt prüfen: einen MCP-Schreibaufruf ohne Startfreigabe und einen Workflow mit einer unzulässigen Trigger-Rollen-Kombination. Hier wurden Quellen gelesen, keine dieser Ausführungen selbst getestet."
+      }
+    ],
+    "sources": [
+      {
+        "label": "GitHub Agentic Workflows: v0.91.12",
+        "url": "https://github.com/github/gh-aw/releases/tag/v0.91.12"
+      },
+      {
+        "label": "GitHub Agentic Workflows: 68548",
+        "url": "https://github.com/github/gh-aw/pull/68548"
+      },
+      {
+        "label": "GitHub Agentic Workflows: 68554",
+        "url": "https://github.com/github/gh-aw/pull/68554"
+      },
+      {
+        "label": "GitHub Agentic Workflows: README.md",
+        "url": "https://github.com/github/gh-aw/blob/v0.91.12/README.md"
+      }
+    ],
+    "heroImage": "/blog/mcp-werkzeuge-schreibrechte-startfreigabe/hero.webp",
+    "heroAlt": "Ein Schlüssel liegt neben einem geschlossenen Werkzeugkasten, einer Lupe und einer unbeschrifteten Karte.",
+    "heroCaption": "Redaktionelle KI-Illustration."
+  },
+  {
+    "slug": "unabhaengige-ki-pruefer-veroeffentlichungsrechte",
+    "title": "Was ein unabhängiger KI-Prüfer veröffentlichen darf",
+    "kicker": "KI-Prüfung und Nachweise",
+    "date": "2026-10-17",
+    "description": "Anthropics neue Regelung für METR trennt Informationszugang von Veröffentlichungsrechten.",
+    "lead": "Anthropic kündigt am 2026-10-15 an, sechs Mitarbeitern der Prüforganisation METR weitreichenden internen Zugang zu geben. Sie sollen Risiken mit einem Einblick bewerten können, der dem interner Prüfteams ähnelt. Für die Aussagekraft ihrer Arbeit ist allerdings noch eine zweite Frage entscheidend: Wer darf den Bericht am Ende veröffentlichen?",
+    "takeaway": "Informationszugang und das Recht zur Veröffentlichung sind zwei Voraussetzungen einer unabhängigen Prüfung. Die Ankündigung ersetzt keinen Prüfbericht.",
+    "sections": [
+      {
+        "h": "Drei Stufen mit unterschiedlichen Rechten",
+        "p": "Anthropic beschreibt ein abgestuftes Verfahren. In der ersten Stufe bestimmt das Unternehmen den Informationszugang und muss einer Veröffentlichung zustimmen. In der zweiten dürfen Prüfer ohne diese Zustimmung veröffentlichen. METR erhält in der dritten Stufe zusätzlich den erweiterten internen Zugang.\n\nAuch dort bleiben Grenzen. Anthropic kann Schwärzungen für eng definierte vertrauliche Informationen verlangen. METR darf öffentlich erläutern, ob es diese Schwärzungen für gerechtfertigt hält. Ein fertiger neuer Prüfbericht liegt mit dieser Ankündigung noch nicht vor."
+      },
+      {
+        "h": "Was ich neben einen Sicherheitsbericht schreiben würde",
+        "p": "Für die Auswahl eines Modells im Betrieb reicht mir deshalb die Bezeichnung „extern geprüft“ nicht. Ich möchte wissen, welche Modellfassung untersucht wurde, welche Informationen zugänglich waren und ob der Hersteller die Veröffentlichung verhindern konnte. Das sind unterschiedliche Voraussetzungen für ein belastbares Urteil.\n\nEin eng begrenzter Test kann für seinen konkreten Gegenstand nützlich sein. Die Einschränkung muss dann beim Ergebnis stehen. Umgekehrt belegt ein breiter Informationszugang noch nicht, dass die Untersuchung gute Fragen stellt oder ihre Befunde trägt. Dafür braucht es den tatsächlichen Bericht.\n\nAnthropics Ankündigung liefert einen konkreten Maßstab für solche Rückfragen. Die angekündigten Rechte lassen sich später mit METRs Veröffentlichung vergleichen: Was wurde untersucht, was blieb verborgen, und welche Folgen ziehen die Beteiligten aus dem Befund? Bis dahin ist die neue Zugangsregelung belegt, nicht das Ergebnis ihrer Prüfung."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Anthropic: An update on independent evaluators, 2026-10-15",
+        "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators"
+      }
+    ],
+    "heroImage": "/blog/unabhaengige-ki-pruefer-veroeffentlichungsrechte/hero.webp",
+    "heroAlt": "Ein geschlossener Ordner und offene Blätter liegen auf gegenüberliegenden Seiten einer Glasplatte.",
+    "heroCaption": "Redaktionelle KI-Illustration."
+  },
  {
   "slug": "husten-datenschutz-was-audio-verraet",
   "title": "Was ein Husten verrät: Warum Zweckbindung beim Entwurf entsteht",

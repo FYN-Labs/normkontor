@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { allPosts, dateLabel, getPost } from "../../../lib/blog";
@@ -39,6 +40,16 @@ export default async function BlogArticle({ params }: PageProps) {
             </p>
             <h1 id="article-title">{post.title}</h1>
             <p style={{ maxWidth: "62ch", marginTop: "1.2rem" }}>{post.lead}</p>
+            {post.heroImage ? (
+              <figure style={{ margin: "2rem 0 0", maxWidth: "50rem" }}>
+                <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9" }}>
+                  <Image src={post.heroImage} alt={post.heroAlt!} fill unoptimized sizes="(max-width: 840px) 100vw, 800px" style={{ objectFit: "contain" }} />
+                </div>
+                <figcaption style={{ marginTop: "0.75rem", overflowWrap: "anywhere" }}>
+                  {post.heroCaption || "Redaktionelle KI-Illustration."}
+                </figcaption>
+              </figure>
+            ) : null}
           </div>
         </section>
 
@@ -49,7 +60,9 @@ export default async function BlogArticle({ params }: PageProps) {
             {post.sections.map((s) => (
               <section key={s.h} style={{ marginTop: "2.6rem" }}>
                 <h2>{s.h}</h2>
-                <p style={{ marginTop: "0.9rem" }}>{s.p}</p>
+                {s.p.split(/\n\s*\n/).map((paragraph, index) => (
+                  <p key={`${s.h}-${index}`} style={{ marginTop: "0.9rem" }}>{paragraph}</p>
+                ))}
               </section>
             ))}
 
