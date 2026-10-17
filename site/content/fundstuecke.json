@@ -1,5 +1,18 @@
 [
   {
+    "id": "openspec1143-verlinkte-spezifikationen-pfadgrenzen-20261018",
+    "name": "OpenSpec 1.14.3: Spezifikationen am bestehenden Ort pflegen",
+    "category": "Spezifikationen und Coding-Agenten",
+    "summary": "OpenSpec strukturiert Änderungen für Coding-Agenten mit Anforderungen, Entwurf und Aufgaben. Seit Version 1.14.3 kann eine spec.md auf eine andere Datei im selben Projekt verlinken; Auflisten, Anzeigen, Prüfen und Archivieren unterstützen diesen Dateilink.",
+    "useCase": "Für Entwicklungsteams, deren verbindliche Anforderungen bereits neben der Produktdokumentation liegen. Ein symbolischer Dateilink lässt OpenSpec mit derselben Datei arbeiten, statt eine zweite Fassung zu pflegen. Die lokale CLI benötigt Node.js ab 20.19; der verwendete Coding-Agent und dessen Modellzugang haben eigene Voraussetzungen und Kosten.",
+    "assessment": "Die gemeinsame Datei ist der interessante Teil: Eine geänderte Anforderung muss dadurch nicht an zwei Stellen nachgezogen werden. Für die unterstützten spec.md-Dateilinks prüft die CLI das aufgelöste Ziel gegen die Projektgrenze. Bei durch Dateimuster bestimmten neuen Artefakten verlangen die Agentenanweisungen zusätzlich eine Pfadprüfung vor dem Schreiben.",
+    "limitation": "Release vom 2026-10-17, README, MIT-Lizenz und die zugehörigen Pfadprüfungen und Agentenvorlagen gelesen; nichts installiert oder ausgeführt. Eine Anweisung an den Agenten ist keine technische Schreibsperre. Die Aussagen zu Dateilinks gelten nicht pauschal für alle Verzeichnislinks oder Speicherorte; daraus folgt keine allgemeine Sandbox-Garantie. Mathias Heinke",
+    "sourceUrl": "https://github.com/Fission-AI/OpenSpec",
+    "license": "MIT",
+    "checkedAt": "2026-10-18",
+    "reviewStatus": "Quellen geprüft"
+  },
+  {
     "id": "deepseek-flash-1017-modellversion-20261017",
     "name": "DeepSeek V4.1 Flash 1017",
     "category": "Modellversionen und Coding-Agenten",
