@@ -1,5 +1,18 @@
 [
   {
+    "id": "openclaw-2026-10-5-freigabe-argumente-20261018",
+    "name": "OpenClaw 2026.10.5: Freigabe gilt nicht für umgeschriebene Argumente",
+    "category": "Tool-Freigaben und Agentenkontrolle",
+    "summary": "Plugins können Werkzeugaufrufe vor der Ausführung per Hook verändern. Seit Version 2026.10.5 wird ein Aufruf mit geänderten Parametern blockiert, wenn zuvor eine vertrauenswürdige Freigabe inline abgeschlossen wurde, es sei denn, der ändernde Hook fordert für die endgültigen Argumente eine eigene Freigabe an.",
+    "useCase": "Für Teams, die OpenClaw mit eigenen Plugins betreiben, die Argumente normalisieren, Pfade umschreiben oder Werte ersetzen, und zugleich Freigaben für riskante Aufrufe verlangen. Vor dem Update lohnt die Suche nach solchen Hooks; die Migration beschreibt die Dokumentation unter docs/plugins/hooks/tool-policy.md. Eigener Betrieb und Modellkosten bleiben nötig.",
+    "assessment": "Eine Freigabe ist nur etwas wert, wenn genau das läuft, was genehmigt wurde. Laut Release Notes konnten gewöhnliche Hooks die Argumente nach der Zustimmung noch umschreiben; für den beschriebenen Inline-Fall braucht die Ersetzung jetzt eine zweite Entscheidung, und die Blockade nennt ihren Grund im Fehlertext. Für Nachweise ist das brauchbar: Jede Freigabe bezieht sich auf einen festen Parametersatz.",
+    "limitation": "Release Notes, die Dokumentation am Tag und ihr Unterschied zur Vorversion 2026.10.4 sowie die MIT Lizenzdatei geprüft; keine Installation, kein eigenes Plugin und kein Test der Blockade. Laut Dokumentation bleiben die engeren Regeln nativer Codex Relays unverändert. Die Version bringt viele weitere Änderungen, die hier nicht bewertet sind. Veröffentlicht am 2026-10-18 um 23:47 Uhr Berliner Zeit. Mathias Heinke",
+    "sourceUrl": "https://github.com/openclaw/openclaw",
+    "license": "MIT (Lizenzdatei am Tag v2026.10.5 gelesen)",
+    "checkedAt": "2026-10-19",
+    "reviewStatus": "Quellen geprüft"
+  },
+  {
     "id": "archestra-140rc51-proxy-zugang-20261018",
     "name": "Archestra 1.4.0-rc.51: eigener Zugang zum Modellproxy",
     "category": "Modellproxy und Agentenkontrolle",
