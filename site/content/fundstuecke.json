@@ -1,5 +1,18 @@
 [
   {
+    "id": "archestra-140rc51-proxy-zugang-20261018",
+    "name": "Archestra 1.4.0-rc.51: eigener Zugang zum Modellproxy",
+    "category": "Modellproxy und Agentenkontrolle",
+    "summary": "Die Vorabversion vom 2026-10-18 verlangt bei externen Modellproxy-Anfragen einen Archestra-Zugangsnachweis. Ein allein mitgesendeter Anbieterschlüssel wird im neuen Standard mit HTTP 401 zurückgewiesen.",
+    "useCase": "Für Teams, die Modellzugriffe über Archestra bündeln und Anfragen einer Anwendung oder Person zuordnen wollen. Vor einem Upgrade müssen bestehende Clients einen unterstützten Plattformzugang mitsenden; ein virtueller Durchleitungsschlüssel ersetzt dabei keinen Modellzugang. Eigener Betrieb und Modellkosten bleiben nötig.",
+    "assessment": "Die Änderung betrifft auch vorgeschaltete Zugänge zu lokalen Modellservern. Wichtig ist die dokumentierte Ausnahme: Administratoren können Anfragen ohne Plattformnachweis wieder erlauben. Bei einem schlüssellosen Ollama- oder vLLM-Server kann dann jeder zugreifen, der den Proxy erreicht; personenbezogene Limits und Zuordnung entfallen. Diese Einstellung gehört für mich in die Übergabeprüfung.",
+    "limitation": "Release Notes, taggebundene Authentifizierungsdokumentation, Änderungsdiff und Lizenzaufteilung geprüft; keine Installation und kein eigener Zugriffstest. Veröffentlicht am 2026-10-18 um 14:52 Uhr Berliner Zeit, ausdrücklich Release Candidate, keine Empfehlung zum sofortigen Produktivupgrade. Die begleitenden Regelmigrationen brauchen einen eigenen Upgrade- und Rückwegcheck. Mathias Heinke",
+    "sourceUrl": "https://github.com/archestra-ai/archestra",
+    "license": "Standardcode AGPL-3.0-only; markierte Enterprise-Dateien und -Bereiche unter eigener proprietärer Lizenz. Kein pauschal freies Gesamtpaket.",
+    "checkedAt": "2026-10-18",
+    "reviewStatus": "Quellen geprüft"
+  },
+  {
     "id": "a2ui-core040-kataloge-schemawechsel-20261018",
     "name": "A2UI: verknüpfte UI-Kataloge in der Python-Bibliothek",
     "category": "Agentenoberflächen und Schemaprüfung",
