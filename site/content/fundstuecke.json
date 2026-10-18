@@ -1,5 +1,18 @@
 [
   {
+    "id": "a2ui-core040-kataloge-schemawechsel-20261018",
+    "name": "A2UI: verknüpfte UI-Kataloge in der Python-Bibliothek",
+    "category": "Agentenoberflächen und Schemaprüfung",
+    "summary": "A2UI beschreibt Agentenoberflächen als JSON, das die eigene Anwendung mit ihren Komponenten darstellt. Die Python-Bibliothek a2ui-core 0.4.0 kann Komponenten, Eigenschaftsschemata und Funktionen aus anderen übergebenen Katalogen referenzieren.",
+    "useCase": "Für Entwickler, die gemeinsame UI-Bausteine über mehrere Kataloge pflegen und Agentenantworten dagegen prüfen möchten. Benötigt Python ab 3.10, eine passende Clientdarstellung und einen Agenten; Modellzugang und dessen Kosten sind separat.",
+    "assessment": "Interessant ist die Wiederverwendung ohne Änderung am gemeinsamen Katalog: Die Verknüpfung arbeitet mit Kopien. Beim Update muss vorhandener Code aber zwischen der geschriebenen Schemadefinition und ihrer aufgelösten Fassung unterscheiden. Catalog.from_json löst Referenzen nicht mehr direkt in den einzelnen Definitionen auf; dafür gibt es resolved_component_schema und die entsprechenden Funktions- und Themezugriffe.",
+    "limitation": "Release vom 2026-10-17, README, Apache-Lizenz, Paketvoraussetzungen und zugehörigen Quellcode gelesen; nichts installiert oder ausgeführt. 0.4.0 bezeichnet das Python-Paket, nicht die A2UI-Protokollversion. Weitere inkompatible API-Änderungen stehen in den Release Notes. Die Prüfung einer UI-Beschreibung ersetzt keine Berechtigungsprüfung für ausgelöste Aktionen in der eigenen Anwendung. Mathias Heinke",
+    "sourceUrl": "https://github.com/a2ui-project/a2ui",
+    "license": "Apache License 2.0 für den geprüften Projektcode; Modellzugang separat.",
+    "checkedAt": "2026-10-18",
+    "reviewStatus": "Quellen geprüft"
+  },
+  {
     "id": "openspec1143-verlinkte-spezifikationen-pfadgrenzen-20261018",
     "name": "OpenSpec 1.14.3: Spezifikationen am bestehenden Ort pflegen",
     "category": "Spezifikationen und Coding-Agenten",
