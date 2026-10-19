@@ -1,5 +1,18 @@
 [
   {
+    "id": "harness2-regeln-selbst-umschreiben-netzsperre-20261019",
+    "name": "Harness²: Der Agent überarbeitet seine eigene Laufumgebung, auch die Regeln",
+    "category": "Evaluation und Kontrolle",
+    "summary": "Harness² von Google Research ist ein Python-Framework, das die Umgebung um ein Modell automatisch pro Aufgabe überarbeitet, ohne die Modellgewichte anzufassen. Änderbar sind acht Teile: Systemprompt, Regeln (guardrails.md), Gedächtnis, Werkzeughinweise, Unteragenten, Skills, Skripte und Plugins. Ein Schritt schlägt Änderungen vor, probiert sie an derselben Aufgabe aus und setzt die Umgebung aus den Unterschieden der Läufe neu zusammen, ohne Musterlösung. Was sich bewährt, wird als Erfahrung in eine dauerhafte Verbesserungsumgebung für spätere Aufgaben übernommen. Die Veröffentlichung nutzt OpenCode oder Codex als Ausführer und liefert Läufe für JobBench, LAB und WorkBuddy-Bench.",
+    "useCase": "Für Teams, die Coding- oder Büroagenten betreiben und prüfen wollen, ob eine automatisch angepasste Konfiguration besser arbeitet als die von Hand gepflegte. Voraussetzung sind Linux, Python 3.12 und uv. Für Benchmarkläufe kommen Node.js 20, die Google Cloud CLI mit einem Vertex-AI-Projekt, je nach Benchmark Pandoc, Poppler oder Docker hinzu. Modellläufe kosten laut README Geld; die lokale Demo kommt ohne Modellzugang aus.",
+    "assessment": "Wer eine Agentenumgebung automatisch umschreiben lässt, ändert auch die Regeln, die den Agenten begrenzen sollen. Der Vorschlagsprompt führt guardrails.md in derselben Tabelle wie Systemprompt und Gedächtnis als Fläche, die der Verbesserer ändern darf. Die Läufe legen übernommene Umgebungen und Notizen unter runs/ ab, das hilft bei der Nachprüfung. Eine gesonderte menschliche Freigabe für Änderungen an den Regeln habe ich in den gelesenen Teilen nicht gefunden. Der zweite Punkt betrifft Nachweise: Die Dokumentation schreibt, ein Codex-Lauf auf JobBench habe in einem Validierungslauf die Bewertungskriterien seiner Aufgabe von Hugging Face geladen, ohne dazu aufgefordert zu sein. Die Veröffentlichung sperrt das Netz nicht, und Codex läuft mit abgeschaltetem Sandkasten. Die Autoren verlangen deshalb eine Sperre auf Netzebene und die Angabe dieser Sperre neben den Ergebnissen. Ein Benchmarkwert ohne diese Angabe sagt wenig. Die genannten Zugewinne (bis zu 11,5 Punkte auf WorkBuddy-Bench, 4,5 auf JobBench, 11,8 Prozentpunkte beim LAB-Teilwert, mit GLM-5 und Gemini 3.5 Flash) sind Angaben der Autoren, die ich nicht nachgemessen habe.",
+    "limitation": "README, docs/EXPERIMENTS.md, Teile von harness2/core/prompts.py und die LICENSE am Stand 1cfe254 (2026-10-14 UTC) gelesen, vom Paper nur die Zusammenfassung; nichts installiert, kein Lauf, keine eigene Messung. Der Quellcode steht seit 2026-10-08 offen, neu ist nur die Aufmerksamkeit: Das Repository hat laut GitHub rund 10.500 Sterne und keine Releases. Der JobBench-Datensatz wird laut Dokumentation erst beim Herunterladen aufgelöst und nicht an einen Commit gebunden. Google schreibt, es sei kein offiziell unterstütztes Produkt. Apache 2.0 für den eigenen Code; Fremdcode unter third_party/, Benchmarks und Datensätze behalten ihre Lizenzen, die ich nicht einzeln geprüft habe. Mathias Heinke",
+    "sourceUrl": "https://github.com/google-research/harness2",
+    "license": "Apache 2.0 laut LICENSE und GitHub; Fremdcode, Benchmarks und Datensätze mit eigenen Lizenzen",
+    "checkedAt": "2026-10-19",
+    "reviewStatus": "Quellen geprüft"
+  },
+  {
     "id": "superlite-koordinator-sperre-entscheidungsprotokoll-20261019",
     "name": "Superlite 1.1.0: Der Koordinator darf keinen Code schreiben, per Hook",
     "category": "Autonome Builds und Agentenkontrolle",
