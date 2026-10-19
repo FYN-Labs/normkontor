@@ -1,5 +1,18 @@
 [
   {
+    "id": "superlite-koordinator-sperre-entscheidungsprotokoll-20261019",
+    "name": "Superlite 1.1.0: Der Koordinator darf keinen Code schreiben, per Hook",
+    "category": "Autonome Builds und Agentenkontrolle",
+    "summary": "Superlite ist ein Plugin für Claude Code, das aus einem Spec einen Plan mit parallelen Aufgaben macht und sie an Agenten unterschiedlicher Modellklassen verteilt. Die Rollenregeln stehen nicht nur im Prompt, sondern in Hooks: Während eines Laufs darf die Hauptsitzung keinen Projektcode schreiben, Testbefehle werden in den Hintergrund umgeleitet, Prozesse dürfen nicht per Namen beendet werden. Offene Wahlfragen werden als Entscheidungen mit Begründung und Folgekosten in .superlite/progress.md festgehalten. Im Modus mit menschlicher Freigabe sperrt ein Hook alle Bau- und Agentenaufrufe, bis der Plan bestätigt ist.",
+    "useCase": "Für Einzelne und kleine Teams, die Claude Code ein ausformuliertes Spec übergeben und nicht jeden Schritt bestätigen wollen, hinterher aber sehen müssen, was der Agent in ihrer Abwesenheit entschieden hat. Voraussetzung sind Claude Code, git, Python ab 3.10 und bash. Die Modellkosten laufen weiter; laut README kann ein Lauf mehr kosten als mit dem Vorbild superpowers.",
+    "assessment": "Der Kern ist die Trennung von Regel und Durchsetzung. Der Autor schreibt, der Koordinator habe die Anweisung, keinen Code zu ändern, gelesen und trotzdem Code geändert; erst ein Hook hat das beendet. Das passt zu dem, was Kontrolle in Agentensystemen ausmacht: Eine Grenze zählt, wenn eine Maschine sie prüft. Das Protokoll der Entscheidungen verschiebt die Kontrolle von der Frage vorab zur Nachprüfung und nennt sogar die Kosten einer Fehlentscheidung. Das ersetzt keine Freigabe bei Dingen, die sich nicht zurückholen lassen. Die Tempozahlen (16,1 Minuten, 177 von 177 versteckten Tests, 52 Prozent schneller als superpowers) sind Angaben des Autors aus einem einzelnen Lauf der aktuellen Fassung.",
+    "limitation": "README, docs/gates.md, docs/hooks.md und das Skript block-coordinator-edits am Stand eea16ee (Version 1.1.0, 2026-10-19 01:43 Uhr Berliner Zeit) gelesen; nichts installiert, kein Lauf, keine eigene Messung. Das Skript nennt selbst seine Grenzen: Schreibzugriffe über Bash und PowerShell werden nur nach bestem Können erkannt, im Zweifel wird erlaubt, bei fehlerhafter Eingabe läuft es offen durch, und ohne Verzeichnis .superlite greift es nicht. Es ist eine Leitplanke gegen Abdriften, keine Sicherheitsgrenze. Die README räumt höhere Kosten und 4 von 7 bei den Zusatzproben gegenüber etwa 5,7 bei superpowers ein. Das Repository besteht seit 2026-10-17 und hat keine Releases. Mathias Heinke",
+    "sourceUrl": "https://github.com/iha2/superlite",
+    "license": "MIT laut README und plugin.json; eine Lizenzdatei im Repository nicht gefunden, GitHub weist keine Lizenz aus",
+    "checkedAt": "2026-10-19",
+    "reviewStatus": "Quellen geprüft"
+  },
+  {
     "id": "openclaw-2026-10-5-freigabe-argumente-20261018",
     "name": "OpenClaw 2026.10.5: Freigabe gilt nicht für umgeschriebene Argumente",
     "category": "Tool-Freigaben und Agentenkontrolle",
