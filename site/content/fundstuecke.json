@@ -1,5 +1,18 @@
 [
   {
+    "id": "claude-code-2-1-304-freigabe-nur-durch-person-20261020",
+    "name": "Claude Code 2.1.304: Eine Rückfrage, die nur ein Mensch beantworten darf",
+    "category": "Evaluation und Kontrolle",
+    "summary": "Claude Code 2.1.304 erweitert die Mods, also Plugins, die als Code im Programm laufen und Werkzeugaufrufe prüfen können. Ein Mod, der über das Ereignis tool.check mitentscheidet, kann bei einer Rückfrage jetzt decider: \"person\" setzen. Nach den Release Notes darf dann nur der Berechtigungsdialog oder ein Rückruf des Hosts die Rückfrage freigeben; wo niemand gefragt werden kann, wird der Aufruf mit der Begründung des Mods abgelehnt. Dazu kommen das Feld e.isReadOnly im selben Ereignis und eine Zeile im Transkript, wenn ein früher laufendes Plugin einen Hook des Mods überspringt, mit dem Namen des Ereignisses und des Plugins.",
+    "useCase": "Für Teams, die Claude Code mit eigenen Regeln absichern und bei Aufrufen wie einem Push oder einem Löschbefehl verlangen, dass ein Mensch zustimmt. Der Fall, auf den es ankommt, ist ein Lauf ohne Mensch: Die Rückfrage soll dort scheitern und nicht durchlaufen. Voraussetzung ist ein Claude-Code-Zugang; Mods laufen laut Dokumentation in der Konsole, im Code-Tab der Desktop-App und in der VS-Code-Erweiterung.",
+    "assessment": "Eine Rückfrage ist erst dann eine Kontrolle, wenn feststeht, wer sie beantworten darf. Laut Dokumentation liefert tool.check allow, ask oder deny, nachdem Berechtigungsregeln und Settings-Hooks entschieden haben, und ein Mod kann auch einen Aufruf freigeben, den ein PreToolUse-Hook außerhalb der verwalteten Einstellungen blockiert hatte. Das neue Feld schließt dafür eine Lücke: Die einzelne Rückfrage soll bei einem Menschen landen oder der Aufruf unterbleibt mit einer Begründung. Das ist die Richtung, die ich bei Freigaben für nachvollziehbar halte, weil ein Aufruf ohne erreichbare Person sichtbar scheitert, statt unbemerkt durchzugehen. Zwei Grenzen stehen schon in der Dokumentation. Ein Hook, der vor next fehlschlägt, wird übersprungen; ein Schutz-Mod läuft also offen, solange er keinen .catch-Handler hat, der ablehnt. Und das Beispiel der Dokumentation prüft nur den Text des Befehls und gilt dort selbst als Erinnerung für Claude, nicht als Sperre. Die neue Transkriptzeile hilft, weil sie zeigt, wenn ein vorrangiges Plugin einen Schutz-Hook übergeht.",
+    "limitation": "Release Notes von v2.1.304 (veröffentlicht 2026-10-19T21:34:39Z) und die Mods-Dokumentation zu Ereignissen, Referenz und Berechtigungen am 2026-10-20 gelesen. Das Feld decider kommt in den gelesenen Seiten noch nicht vor, die Aussage stützt sich allein auf die Release Notes. Offen: was genau als Rückruf des Hosts zählt, welche anderen Freigabewege das Feld ausschließt und in welchen Umgebungen \"niemand gefragt werden kann\". Nichts installiert, kein Mod geschrieben, kein Test. Claude Code ist proprietär; Kosten richten sich nach dem Claude-Tarif und sind nicht geprüft. Die Dokumentation warnt, dass ein Mod mit den Rechten des Nutzers läuft und nur aus vertrauenswürdigen Quellen installiert werden sollte. Mathias Heinke",
+    "sourceUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.304",
+    "license": "Proprietär: Die LICENSE.md des Repositories nennt nur © Anthropic PBC mit Verweis auf die Commercial Terms of Service. Keine Open-Source-Lizenz.",
+    "checkedAt": "2026-10-20",
+    "reviewStatus": "Quellen geprüft"
+  },
+  {
     "id": "harness2-regeln-selbst-umschreiben-netzsperre-20261019",
     "name": "Harness²: Der Agent überarbeitet seine eigene Laufumgebung, auch die Regeln",
     "category": "Evaluation und Kontrolle",
