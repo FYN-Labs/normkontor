@@ -1,5 +1,18 @@
 [
   {
+    "id": "gemini-4-carbon-gestaffelter-zugang-herstellerzahlen-20261028",
+    "name": "Gemini 4 Carbon: Zugang zuerst nur für Cyber-Verteidiger, Kontrollzahlen vom Hersteller",
+    "category": "Evaluation und Kontrolle",
+    "summary": "Google hat am 2026-10-28 Gemini 4 Carbon angekündigt, nach eigenen Angaben sein stärkstes Modell und zwei Wochen jünger als Gemini 4 Argon. Es steht zunächst nur einer Gruppe von Cyber-Verteidigern zur Verfügung; weitere vertrauenswürdige Partner folgen schrittweise über das Fairwind Program. Entwickler, Unternehmen und Verbraucher sollen es laut Beitrag \"so bald wie möglich\" bekommen. Als Einführungspreis nennt Google 2 US-Dollar je Million Eingabetokens und 10 US-Dollar je Million Ausgabetokens, zwischengespeicherte Eingabe 95 Prozent günstiger; danach 4 und 20 US-Dollar. Genannt werden Platz 1 im Artificial Analysis Intelligence Index v5.0 mit 59 Punkten, 88,2 Prozent auf SEC-bench Pro, 54,8 Prozent auf ExploitGym und 71,0 Prozent auf CWE-bench.",
+    "useCase": "Für Teams, die Coding-Agenten über viele Schritte laufen lassen und einen Modellwechsel vorab bewerten wollen. Buchen lässt sich das Modell für die meisten noch nicht: Es gibt weder einen Termin für Entwickler noch eine Zusage zum Preis nach der Einführungsphase. Wer es testen will, braucht derzeit einen Platz im Fairwind Program.",
+    "assessment": "Den Rangplatz in einem Index würde ich nicht überbewerten. Für Kontrolle und Nachweise sind die Angaben zum Verhalten des Modells interessanter: Auf Terminal-Bench 4.0 soll erfolgreiches Schummeln bei 0,0 Prozent liegen, die Versuche bei 0,4 Prozent; in internen Live-Coding-Umgebungen sollen schwere Fehlverhaltensmeldungen um fast 80 Prozent gesunken sein; Übergriffe um 26 Prozent und zu wenig Leistung um 29 Prozent; unbelegte Behauptungen sollen sich etwa halbiert haben; beim Indirect Prompt Injection Benchmark von Gray Swan nennt Google 0,0 Prozent Erfolgsquote der Angriffe. Das sind die Größen, an denen man einen Agenten messen sollte, der ohne Aufsicht arbeitet: nicht nur, ob er die Aufgabe löst, sondern ob er im Rahmen bleibt. Alle diese Werte stammen von Google selbst, die interne Messmethode steht nicht im Beitrag, eine unabhängige Nachmessung habe ich nicht gefunden. Die Cybersicherheits-Benchmarks wurden laut Beitrag ohne Schutzvorkehrungen ausgewertet; sie beschreiben also das Modell und nicht das Produkt, das später ausgeliefert wird. Eine Quote von 0,0 Prozent heißt, dass in den ausgewerteten Versuchen kein Angriff gelang, und nicht, dass keiner gelingen kann.",
+    "limitation": "Den Ankündigungsbeitrag auf blog.google vom 2026-10-28 gelesen. Die verlinkten Benchmarkseiten, den Sicherheitsbericht zu Argon und die Preisseite habe ich nicht geöffnet. Kein Zugang zum Modell, kein eigener Test. Proprietär, Gewichte nicht veröffentlicht, Zugang nur über Google. Das Ende des Einführungszeitraums nennt der Beitrag nicht. Google schreibt selbst, dass Rückmeldungen noch in die Schutzvorkehrungen einfließen, bevor das Modell allgemein erscheint, und dass es am freiwilligen Vorabtest der US-Regierung teilnimmt; Umfang und Verhalten können sich bis zur allgemeinen Freigabe ändern. Mathias Heinke",
+    "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+    "license": "Proprietär: keine Open-Source-Lizenz, Gewichte nicht veröffentlicht; Zugang zunächst nur über Googles Fairwind Program",
+    "checkedAt": "2026-10-28",
+    "reviewStatus": "Quellen geprüft"
+  },
+  {
     "id": "claude-code-2-1-307-safety-event-gestoppte-aufrufe-20261028",
     "name": "Claude Code 2.1.307: Ein Ereignis für jeden gestoppten Werkzeugaufruf",
     "category": "Evaluation und Kontrolle",
